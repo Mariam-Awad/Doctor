@@ -49,7 +49,7 @@ class AppAssetsUtil{
   static const String patientBackgroundCheckOutImage = "assets/images/Checkout.jpg";
   static const String patientBackgroundAppointmentImage = "assets/images/Choose appointment date and time.jpg";
   static const String patientBackgroundLocationImage = "assets/images/Choose Branch.jpg";
-  static const String AnabebImage = "assets/images/Coronavirus Blood Samples Mixed.G03.2k.png";
+  static const String anabebImage = "assets/images/Coronavirus Blood Samples Mixed.G03.2k.png";
   static const String patientBackgroundTermometerImage = "assets/images/Define Problem- Treatment – 1.jpg";
   static const String termometerImage = "assets/images/Digital Thermometer.B04.2k.png";
   static const String doctorImage = "assets/images/doctor.jpg";
@@ -67,6 +67,5 @@ class AppAssetsUtil{
   static const String capsolaBackgroundImage = "assets/images/Verify Identity.jpg";
   static const String weightBackgroundImage = "assets/images/What is your weight.jpg";
   static const String plusImage = "assets/images/White Round Medical Cross Symbol.H03.2k.png";
-  static const String cotnainerBackgroundImage = "assets/images/widget.png";
-
+  static const String containerBackgroundImage = "assets/images/widget.png";
 }
