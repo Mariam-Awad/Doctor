@@ -1,9 +1,8 @@
-import 'dart:ui';
-
 import 'package:doctor/core/utils/app_strings.dart';
+import 'package:flutter/material.dart';
 
 class AppStylesUtil {
-  static TextStyle textBoldStyle(
+  static TextStyle? textBoldStyle(
           double size, Color textColor, FontWeight weight) =>
       TextStyle(
         fontSize: size,
@@ -12,7 +11,7 @@ class AppStylesUtil {
         fontWeight: weight,
       );
 
-  static TextStyle textRegularStyle(
+  static TextStyle? textRegularStyle(
           double size, Color textColor, FontWeight weight) =>
       TextStyle(
         fontSize: size,
