@@ -14,9 +14,9 @@ class AppAssetsUtil{
   static const String clockIcon = "assets/icons/clock.svg";
   static const String facebookIcon = "assets/icons/facebook.svg";
   static const String femaleIcon = "assets/icons/female.svg";
-  static const String group1Icon = "assets/icons/Group 35902.svg";
-  static const String group2Icon = "assets/icons/Group 35952.svg";
-  static const String group3Icon = "assets/icons/Group 35962.svg";
+  static const String selfieIcon = "assets/icons/Group 35902.svg";
+  static const String typeVisit1Icon = "assets/icons/Group 35952.svg";
+  static const String typeVisit2Icon = "assets/icons/Group 35962.svg";
   static const String group4Icon = "assets/icons/Group 36039.svg";
   static const String group5Icon = "assets/icons/Group 36040.svg";
   static const String group6Icon = "assets/icons/Group 36041.svg";
@@ -24,7 +24,7 @@ class AppAssetsUtil{
   static const String group8Icon = "assets/icons/Group 36196.svg";
   static const String group9Icon = "assets/icons/Group 36197.svg";
   static const String group10Icon = "assets/icons/Group 36198.svg";
-  static const String group11Icon = "assets/icons/Group 36060.svg";
+  static const String cardLogo2Icon = "assets/icons/Group 36060.svg";
   static const String homeIcon = "assets/icons/home.svg";
   static const String chatSenderIcon = "assets/icons/Icon.svg";
   static const String locationIcon = "assets/icons/Icon material-location-on.svg";

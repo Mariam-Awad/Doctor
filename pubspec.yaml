@@ -20,6 +20,7 @@ dependencies:
   intl: any
   flutter_screenutil: ^5.7.0
   flutter_svg: ^2.0.5
+  dotted_border: ^2.0.0+3
 
 
 dev_dependencies:
@@ -64,9 +65,9 @@ flutter:
     - family: Lato
       fonts:
         - asset: assets/fonts/Lato/Lato-Black.ttf
-        - asset: assets/fonts/Lato/Lato-Regular.ttff
+        - asset: assets/fonts/Lato/Lato-Regular.ttf
           weight: 400
-        - asset: assets/fonts/Lato/Lato-Bold.ttff
+        - asset: assets/fonts/Lato/Lato-Bold.ttf
           weight: 700
           
     #- family: Lato-Regular
