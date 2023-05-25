@@ -25,6 +25,8 @@ class AppColorUtil {
 
   // Different
   static Color white = const Color(0xffFFFFFF);
+  static Color semiDarkWhite = const Color(0xffFAFAFA);
+  static Color backgroundDarkWhite = const Color(0xffF7F7F7);
   static Color visaDarkBlack = const Color(0xff000000);
   static Color visaLightBlack = const Color(0xff404040);
   static Color visaDarkBlue = const Color(0xff37518A);
