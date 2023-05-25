@@ -1,9 +1,9 @@
-class ValidateField {
-  static ValidateField? _validateField;
-  ValidateField._internal();
-  static ValidateField instance() {
+class ValidateAuthField {
+  static ValidateAuthField? _validateField;
+  ValidateAuthField._internal();
+  static ValidateAuthField instance() {
     if (_validateField == null) {
-      return _validateField = ValidateField._internal();
+      return _validateField = ValidateAuthField._internal();
     }
     return _validateField!;
   }
@@ -43,15 +43,5 @@ class ValidateField {
       return "weak password or must contain numbers and letters and @,#";
     }
     return null;
-  }
-
-  String? validateEmirateId(String? newValue) {
-    if (newValue!.isEmpty) {
-      return "this field is required";
-    } else if (newValue.length != 15) {
-      return "the length of id must be equal 15 numbers";
-    } else {
-      return null;
-    }
   }
 }

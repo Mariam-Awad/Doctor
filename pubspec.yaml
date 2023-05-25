@@ -19,6 +19,7 @@ dependencies:
     sdk: flutter
   intl: any
   flutter_rounded_date_picker: ^3.0.3
+  dio: ^5.1.2
 
 
 dev_dependencies:

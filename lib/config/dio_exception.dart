@@ -22,20 +22,18 @@ class DioExceptions implements Exception {
   }
 
   static dynamic _handleErrorMessage(
-      int? statusCode, Map<String, dynamic> error) {
+      int? statusCode, DioError error) {
     switch (statusCode) {
       case 400:
-        return error["error"];
+        return "Bad request and the error is ${error.response!.data}";
       case 404:
-        return error["error"];
+        return error.response!.data["error"];
       case 409:
-        return error["error"];
+        return error.response!.data["error"];
       case 500:
         return "internal server error";
       case 401:
         return "Unauthorized";
-      case 422:
-        return error["errors"].toString();
       case 405:
         return "method not allowed";
       default:
