@@ -19,7 +19,7 @@ class ValidateAuthField {
     if (value!.isEmpty) {
       return "this field is required";
     } else if (!value.contains("@") || !value.contains("com")) {
-      return "the formate is wrong";
+      return "the format is wrong";
     }
     return null;
   }
