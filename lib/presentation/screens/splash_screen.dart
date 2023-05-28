@@ -13,6 +13,7 @@ import '../../core/components/doctor_services_card_component.dart';
 import '../../core/components/gender_component.dart';
 import '../../core/components/identity_verification_selfie_card.dart';
 import '../../core/components/notification_component.dart';
+import '../../core/components/past_canceled_visit_component.dart';
 import '../../core/components/visa_component.dart';
 import '../../core/components/weight.component.dart';
 
@@ -164,6 +165,26 @@ class _SplashScreenState extends State<SplashScreen> {
                 onTap: () {
                   // todo
                 },
+              ),
+              20.verticalSpace,
+              PastCanceledVisitComponent(
+                iconAsset: AppAssetsUtil.doctorImage,
+                doctorName: 'DR.Karim Aggour',
+                doctorSpicialization: 'Dermatologist',
+                status: 'Visited',
+                statusColor: AppColorUtil.green,
+                date: 'Monday, 11 Feb',
+                time: '1:30 PM',
+              ),
+              20.verticalSpace,
+              PastCanceledVisitComponent(
+                iconAsset: AppAssetsUtil.doctorImage,
+                doctorName: 'DR.Karim Aggour',
+                doctorSpicialization: 'Dermatologist',
+                status: 'Canceled',
+                statusColor: AppColorUtil.red,
+                date: 'Monday, 11 Feb',
+                time: '1:30 PM',
               ),
               20.verticalSpace,
             ],

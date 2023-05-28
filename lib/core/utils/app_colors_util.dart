@@ -8,7 +8,6 @@ class AppColorUtil {
   static Color backgroundLightBabyBlue = const Color(0xffECFAFA);
 
   // LightGreen
-  static Color shadowBackgroundLightGreen = const Color(0xffECFAFA);
   static Color backgroundLightGreen = const Color(0xff6AC6C6);
   static Color background2LightGreen = const Color(0xff63C4C3);
   static Color darkGreen = const Color(0xff016F6F);
@@ -38,4 +37,5 @@ class AppColorUtil {
   static Color tomato = const Color(0xffF57C85);
   static Color amber = const Color(0xffF4AE5C);
   static Color red = const Color(0xffF70D3A);
+  static Color green = const Color(0xff1CC429);
 }
