@@ -20,6 +20,9 @@ dependencies:
   intl: any
   flutter_rounded_date_picker: ^3.0.3
   dio: ^5.1.2
+  flutter_screenutil: ^5.7.0
+  flutter_svg: ^2.0.5
+  dotted_border: ^2.0.0+3
 
 
 dev_dependencies:
@@ -45,9 +48,9 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-assets:
-  - assets/icons
-  - assets/images
+  assets:
+    - assets/icons/
+    - assets/images/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
@@ -60,16 +63,21 @@ assets:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-fonts:
-  - family: Lato-Black
-    fonts:
-      - asset: assets/fonts/Lato/Lato-Black.ttf
-  - family: Lato-Regular
-    fonts:
-      - asset: assets/fonts/Lato/Lato-Regular.ttff
-  - family: Lato-Bold
-    fonts:
-      - asset: assets/fonts/Lato/Lato-Bold.ttff
+  fonts:
+    - family: Lato
+      fonts:
+        - asset: assets/fonts/Lato/Lato-Black.ttf
+        - asset: assets/fonts/Lato/Lato-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/Lato/Lato-Bold.ttf
+          weight: 700
+          
+    #- family: Lato-Regular
+     # fonts:
+      #  - asset: assets/fonts/Lato/Lato-Regular.ttff
+    #- family: Lato-Bold
+     # fonts:
+      #  - asset: assets/fonts/Lato/Lato-Bold.ttff
         #style: italic
   #   - family: Trajan Pro
   #     fonts:
