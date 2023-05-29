@@ -1,13 +1,23 @@
 import 'package:doctor/config/routes/app_routes.dart';
+import 'package:doctor/presentation/screens/forget_password_screen.dart';
+import 'package:doctor/presentation/screens/login_screen.dart';
 import 'package:doctor/presentation/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
 
-class RouteManger {
+class AppRouteManger {
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
-      case AppRoutes.splashScreenRoute:
+      case AppRoutes.splashScreenRouteName:
         return MaterialPageRoute(
           builder: (context) => const SplashScreen(),
+        );
+      case AppRoutes.loginScreenRouteName:
+        return MaterialPageRoute(
+          builder: (context) => const LoginScreen(),
+        );
+      case AppRoutes.forgetPasswordRouteName:
+        return MaterialPageRoute(
+          builder: (context) => const ForgetPasswordScreen(),
         );
       default:
         return _undefinedRoute();

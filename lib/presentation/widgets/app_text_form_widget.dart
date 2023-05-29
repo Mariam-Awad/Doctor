@@ -1,22 +1,23 @@
 import 'package:flutter/material.dart';
 
 class AppTextFormWidget extends StatelessWidget {
-  final String label, hint, initialValue;
+  final String? label, hint, initialValue;
   final dynamic Function(String?) onChangeListener;
   final String? Function(String?) onValidateListener;
-  final IconData prefIcon;
+  final IconData? prefIcon;
   final TextInputType textType;
   final String? fontType;
-  final double textSize;
-  final double labelSize;
-  final double hintSize;
-  final double radius, sideWidth;
-  final Color sideColor;
+  final double? textSize;
+  final double? labelSize;
+  final double? hintSize;
+  final double? radius, sideWidth;
+  final Color? sideColor, fillColor;
+  final bool? isFiled;
   const AppTextFormWidget(
-      {required this.label,
+      {this.label,
       required this.hint,
       required this.textType,
-      required this.prefIcon,
+      this.prefIcon,
       required this.onChangeListener,
       required this.onValidateListener,
       required this.initialValue,
@@ -27,6 +28,8 @@ class AppTextFormWidget extends StatelessWidget {
       required this.radius,
       required this.sideColor,
       required this.sideWidth,
+      this.fillColor,
+      this.isFiled,
       Key? key})
       : super(key: key);
   static bool? passwordObscure = true;
@@ -45,13 +48,13 @@ class AppTextFormWidget extends StatelessWidget {
             fontSize: textSize,
           ),
           decoration: InputDecoration(
-            border: _textFieldBorder(radius, sideColor, sideWidth),
-            disabledBorder: _textFieldBorder(radius, sideColor, sideWidth),
-            enabledBorder: _textFieldBorder(radius, sideColor, sideWidth),
-            focusedBorder: _textFieldBorder(radius, sideColor, sideWidth),
+            border: _textFieldBorder(radius!, sideColor!, sideWidth!),
+            disabledBorder: _textFieldBorder(radius!, sideColor!, sideWidth!),
+            enabledBorder: _textFieldBorder(radius!, sideColor!, sideWidth!),
+            focusedBorder: _textFieldBorder(radius!, sideColor!, sideWidth!),
             hintText: hint,
             label: Text(
-              label,
+              label == null ? "" : label!,
               style: TextStyle(
                 fontSize: labelSize,
                 fontFamily: fontType,
@@ -66,7 +69,7 @@ class AppTextFormWidget extends StatelessWidget {
               prefIcon,
               size: 22,
             ),
-            suffixIcon: label.toLowerCase().contains("password")
+            suffixIcon: label!.toLowerCase().contains("password")
                 ? IconButton(
                     onPressed: () {
                       setState(() {
@@ -81,8 +84,10 @@ class AppTextFormWidget extends StatelessWidget {
                     ),
                   )
                 : null,
+            fillColor: fillColor,
+            filled: isFiled,
           ),
-          obscureText: label.toLowerCase().contains("password")
+          obscureText: label!.toLowerCase().contains("password")
               ? passwordObscure!
               : false,
           enabled: true,

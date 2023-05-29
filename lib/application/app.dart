@@ -25,8 +25,8 @@ class _MyAppState extends State<MyApp> {
       designSize: const Size(375, 812),
       builder: (context, child) => MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: AppRoutes.splashScreenRoute,
-        onGenerateRoute: RouteManger.generateRoute,
+        initialRoute: AppRoutes.loginScreenRouteName,
+        onGenerateRoute: AppRouteManger.generateRoute,
         locale: const Locale('en'),
         localizationsDelegates: const [
           AppLocalizations.delegate,
