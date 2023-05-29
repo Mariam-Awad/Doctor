@@ -15,6 +15,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({Key? key}) : super(key: key);
+  static GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -82,7 +83,7 @@ class LoginScreen extends StatelessWidget {
                   ),
                 ),
                 child: Form(
-                  key: AuthHelper.instance().formKey,
+                  key: _formKey,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -141,7 +142,8 @@ class LoginScreen extends StatelessWidget {
                           FontWeight.normal,
                         )!,
                         onClick: () {
-                          AuthHelper.instance().navToForgetPasswordScreen(context);
+                          AuthHelper.instance()
+                              .navToForgetPasswordScreen(context);
                         },
                       ),
                       SizedBox(
@@ -222,7 +224,8 @@ class LoginScreen extends StatelessWidget {
                       ),
                       AppButtonWidget(
                         onClick: () {
-                          AuthHelper.instance().loginFun(context, "model");
+                          AuthHelper.instance()
+                              .loginFun(context, "model", _formKey);
                         },
                         customChild: Text(
                           AppLocalizations.of(context)!.sign_in,

@@ -12,8 +12,6 @@ class AuthHelper {
     return _authHelper!;
   }
 
-  GlobalKey<FormState> formKey = GlobalKey<FormState>();
-
   navToForgetPasswordScreen(BuildContext context) {
     Navigator.of(context).push(
       AppRouteManger.generateRoute(
@@ -26,13 +24,13 @@ class AuthHelper {
 
   navBack(BuildContext context)=> Navigator.of(context).pop();
 
-  loginFun(BuildContext context, var model) {
+  loginFun(BuildContext context, var model,GlobalKey<FormState> formKey) {
     if (formKey.currentState!.validate()) {
       ///TODO: call login fun here
     }
   }
 
-  registerFun(BuildContext context, var model) {
+  registerFun(BuildContext context, var model,GlobalKey<FormState> formKey) {
     if (formKey.currentState!.validate()) {
       ///TODO: call register fun here
     }
