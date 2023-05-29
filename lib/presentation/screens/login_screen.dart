@@ -1,3 +1,5 @@
+import 'package:doctor/config/routes/app_navigation_manager.dart';
+import 'package:doctor/config/routes/app_routes.dart';
 import 'package:doctor/config/screen_resizer.dart';
 import 'package:doctor/config/validate_auth_field.dart';
 import 'package:doctor/core/utils/app_assets_util.dart';
@@ -142,8 +144,10 @@ class LoginScreen extends StatelessWidget {
                           FontWeight.normal,
                         )!,
                         onClick: () {
-                          AuthHelper.instance()
-                              .navToForgetPasswordScreen(context);
+                          AppNavigationManager.navPush(
+                            screen: AppRoutes.forgetPasswordRouteName,
+                            context: context,
+                          );
                         },
                       ),
                       SizedBox(

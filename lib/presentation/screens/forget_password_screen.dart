@@ -1,3 +1,4 @@
+import 'package:doctor/config/routes/app_navigation_manager.dart';
 import 'package:doctor/config/screen_resizer.dart';
 import 'package:doctor/config/validate_auth_field.dart';
 import 'package:doctor/core/utils/app_assets_util.dart';
@@ -46,7 +47,7 @@ class ForgetPasswordScreen extends StatelessWidget {
                 children: [
                   InkWell(
                     onTap: () {
-                      AuthHelper.instance().navBack(context);
+                      AppNavigationManager.navPop(context);
                     },
                     child: Icon(
                       Icons.arrow_back,

@@ -26,7 +26,7 @@ class _MyAppState extends State<MyApp> {
       builder: (context, child) => MaterialApp(
         debugShowCheckedModeBanner: false,
         initialRoute: AppRoutes.loginScreenRouteName,
-        onGenerateRoute: AppRouteManger.generateRoute,
+        onGenerateRoute: AppRouteManager.generateRoute,
         locale: const Locale('en'),
         localizationsDelegates: const [
           AppLocalizations.delegate,

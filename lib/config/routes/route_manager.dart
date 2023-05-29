@@ -4,7 +4,7 @@ import 'package:doctor/presentation/screens/login_screen.dart';
 import 'package:doctor/presentation/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
 
-class AppRouteManger {
+class AppRouteManager {
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
       case AppRoutes.splashScreenRouteName:

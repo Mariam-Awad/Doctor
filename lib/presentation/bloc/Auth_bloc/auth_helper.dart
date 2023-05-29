@@ -13,13 +13,7 @@ class AuthHelper {
   }
 
   navToForgetPasswordScreen(BuildContext context) {
-    Navigator.of(context).push(
-      AppRouteManger.generateRoute(
-        const RouteSettings(
-          name: AppRoutes.forgetPasswordRouteName,
-        ),
-      ),
-    );
+
   }
 
   navBack(BuildContext context)=> Navigator.of(context).pop();
