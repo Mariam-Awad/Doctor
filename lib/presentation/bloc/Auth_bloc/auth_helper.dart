@@ -1,5 +1,3 @@
-import 'package:doctor/config/routes/app_routes.dart';
-import 'package:doctor/config/routes/route_manager.dart';
 import 'package:flutter/material.dart';
 
 class AuthHelper {

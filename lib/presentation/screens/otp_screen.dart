@@ -1,19 +1,16 @@
 import 'package:doctor/config/routes/app_navigation_manager.dart';
-import 'package:doctor/config/routes/app_routes.dart';
 import 'package:doctor/config/screen_resizer.dart';
-import 'package:doctor/config/validate_auth_field.dart';
 import 'package:doctor/core/utils/app_assets_util.dart';
 import 'package:doctor/core/utils/app_colors_util.dart';
-import 'package:doctor/core/utils/app_strings.dart';
 import 'package:doctor/core/utils/app_styles_util.dart';
 import 'package:doctor/presentation/widgets/app_button_widget.dart';
-import 'package:doctor/presentation/widgets/app_text_form_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-class ForgetPasswordScreen extends StatelessWidget {
-  const ForgetPasswordScreen({Key? key}) : super(key: key);
+class OtpScreen extends StatelessWidget {
+  const OtpScreen({Key? key}) : super(key: key);
+
   static GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   @override
@@ -44,6 +41,7 @@ class ForgetPasswordScreen extends StatelessWidget {
                 height: 20.h,
               ),
               Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   InkWell(
                     onTap: () {
@@ -58,13 +56,34 @@ class ForgetPasswordScreen extends StatelessWidget {
                   SizedBox(
                     width: 30.w,
                   ),
-                  Text(
-                    AppLocalizations.of(context)!.forget_password,
-                    style: AppStylesUtil.textBoldStyle(
-                      18.sp,
-                      Colors.white,
-                      FontWeight.bold,
-                    ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        AppLocalizations.of(context)!.otp,
+                        style: AppStylesUtil.textBoldStyle(
+                          18.sp,
+                          Colors.white,
+                          FontWeight.bold,
+                        ),
+                      ),
+                      SizedBox(
+                        height: 5.h,
+                      ),
+                      SizedBox(
+                        width: 250.h,
+                        child: Text(
+                          AppLocalizations.of(context)!
+                              .enter_the_activation_code_that_has_been_sent_to_your_phone_number,
+                          style: AppStylesUtil.textBoldStyle(
+                            11.sp,
+                            Colors.white,
+                            FontWeight.normal,
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ],
               ),
@@ -72,7 +91,7 @@ class ForgetPasswordScreen extends StatelessWidget {
               Align(
                 alignment: Alignment.center,
                 child: Container(
-                  height: 200.h,
+                  height: 250.h,
                   width: 335.w,
                   padding: EdgeInsets.all(15.sp),
                   decoration: BoxDecoration(
@@ -87,38 +106,9 @@ class ForgetPasswordScreen extends StatelessWidget {
                     key: _formKey,
                     child: Column(
                       children: [
-                        AppTextFormWidget(
-                          label: AppLocalizations.of(context)!.email +
-                              " / ".toString() +
-                              AppLocalizations.of(context)!.mobile_number,
-                          hint: AppLocalizations.of(context)!.user_name,
-                          textType: TextInputType.text,
-                          onChangeListener: (value) {},
-                          onValidateListener: (value) {
-                            return ValidateAuthField.instance()
-                                .validateField(value!);
-                          },
-                          initialValue: "",
-                          fontType: appFontBold,
-                          textSize: 12.sp,
-                          hintSize: 10.sp,
-                          labelSize: 10.sp,
-                          radius: 12.sp,
-                          sideColor: Colors.white,
-                          sideWidth: 1,
-                          fillColor: Colors.white,
-                          isFiled: true,
-                        ),
-                        SizedBox(
-                          height: 30.h,
-                        ),
+                        Spacer(),
                         AppButtonWidget(
-                          onClick: () {
-                            AppNavigationManager.navPush(
-                              context: context,
-                              screen: AppRoutes.otpRouteName,
-                            );
-                          },
+                          onClick: () {},
                           customChild: Text(
                             AppLocalizations.of(context)!.continues,
                             style: AppStylesUtil.textRegularStyle(
