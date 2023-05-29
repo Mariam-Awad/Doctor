@@ -12,12 +12,6 @@ class AuthHelper {
     return _authHelper!;
   }
 
-  navToForgetPasswordScreen(BuildContext context) {
-
-  }
-
-  navBack(BuildContext context)=> Navigator.of(context).pop();
-
   loginFun(BuildContext context, var model,GlobalKey<FormState> formKey) {
     if (formKey.currentState!.validate()) {
       ///TODO: call login fun here
