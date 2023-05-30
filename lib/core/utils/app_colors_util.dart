@@ -38,4 +38,5 @@ class AppColorUtil {
   static Color amber = const Color(0xffF4AE5C);
   static Color red = const Color(0xffF70D3A);
   static Color green = const Color(0xff1CC429);
+  static Color loginContainerColor = const Color(0xffEAF6FF);
 }

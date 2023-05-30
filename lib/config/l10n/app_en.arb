@@ -1,6 +1,8 @@
 {
   "user_name": "Username",
   "password": "Password",
+  "email": "Email",
+  "mobile_number": "Mobile Number",
   "forget_password": "Forget Password",
   "or": "Or",
   "sign_in_with": "Sign In With",
