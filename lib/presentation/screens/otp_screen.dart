@@ -121,6 +121,8 @@ class OtpScreen extends StatelessWidget {
                           btnPadding: EdgeInsets.all(5.sp),
                           btnSize: Size(302.w, 50.h),
                           btnRadius: 12,
+                          height: 40.h,
+                          width: 302.w,
                         ),
                       ],
                     ),
