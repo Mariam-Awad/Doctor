@@ -28,7 +28,7 @@ class LoginScreen extends StatelessWidget {
           height: ScreenResizer.getScreenHeight(context),
           width: ScreenResizer.getScreenWidth(context),
           padding: EdgeInsets.symmetric(
-            vertical: 60.h,
+            vertical: 150.h,
             horizontal: 20.w,
           ),
           decoration: const BoxDecoration(
@@ -44,9 +44,6 @@ class LoginScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(
-                height: 150.h,
-              ),
               SizedBox(
                 width: 200.w,
                 child: Text(

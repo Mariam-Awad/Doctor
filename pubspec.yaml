@@ -23,6 +23,7 @@ dependencies:
   flutter_screenutil: ^5.7.0
   flutter_svg: ^2.0.5
   dotted_border: ^2.0.0+3
+  flutter_otp_text_field: ^1.1.1
 
 
 dev_dependencies:

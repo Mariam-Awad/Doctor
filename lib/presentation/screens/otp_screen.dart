@@ -4,7 +4,9 @@ import 'package:doctor/core/utils/app_assets_util.dart';
 import 'package:doctor/core/utils/app_colors_util.dart';
 import 'package:doctor/core/utils/app_styles_util.dart';
 import 'package:doctor/presentation/widgets/app_button_widget.dart';
+import 'package:doctor/presentation/widgets/app_text_link_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -36,6 +38,7 @@ class OtpScreen extends StatelessWidget {
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
               SizedBox(
                 height: 20.h,
@@ -88,42 +91,99 @@ class OtpScreen extends StatelessWidget {
                 ],
               ),
               const Spacer(),
-              Align(
-                alignment: Alignment.center,
-                child: Container(
-                  height: 250.h,
-                  width: 335.w,
-                  padding: EdgeInsets.all(15.sp),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
-                    color: AppColorUtil.loginContainerColor.withOpacity(0.6),
-                    border: Border.all(
-                      color: Colors.white,
-                      width: 1.2.sp,
-                    ),
+              Container(
+                height: 250.h,
+                width: 335.w,
+                padding: EdgeInsets.all(15.sp),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  color: AppColorUtil.loginContainerColor.withOpacity(0.6),
+                  border: Border.all(
+                    color: Colors.white,
+                    width: 1.2.sp,
                   ),
-                  child: Form(
-                    key: _formKey,
-                    child: Column(
-                      children: [
-                        Spacer(),
-                        AppButtonWidget(
-                          onClick: () {},
-                          customChild: Text(
-                            AppLocalizations.of(context)!.continues,
-                            style: AppStylesUtil.textRegularStyle(
-                              17.sp,
-                              AppColorUtil.textDarkGreen,
-                              FontWeight.bold,
-                            ),
-                          ),
-                          btnBackgroundColor: AppColorUtil.white,
-                          btnPadding: EdgeInsets.all(5.sp),
-                          btnSize: Size(302.w, 50.h),
-                          btnRadius: 12,
+                ),
+                child: Form(
+                  key: _formKey,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      OtpTextField(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        fieldWidth: 50.w,
+                        borderRadius: BorderRadius.circular(10.sp),
+                        fillColor: AppColorUtil.white,
+                        filled: true,
+                        numberOfFields: 4,
+                        borderColor: AppColorUtil.iconsDarkGreen,
+                        enabled: true,
+                        focusedBorderColor: AppColorUtil.iconsDarkGreen,
+                        disabledBorderColor: AppColorUtil.white,
+                        enabledBorderColor: AppColorUtil.white,
+                        showFieldAsBox: true,
+                        margin: EdgeInsets.only(right: 20.w),
+                        textStyle: AppStylesUtil.textRegularStyle(
+                          15.sp,
+                          AppColorUtil.iconsDarkGreen,
+                          FontWeight.bold,
                         ),
-                      ],
-                    ),
+                        onCodeChanged: (String code) {},
+                        onSubmit: (String verificationCode) {
+                          showDialog(
+                              context: context,
+                              builder: (context) {
+                                return AlertDialog(
+                                  title: const Text("Verification Code"),
+                                  content:
+                                      Text('Code entered is $verificationCode'),
+                                );
+                              });
+                        }, // end onSubmit
+                      ),
+                      SizedBox(
+                        height: 25.h,
+                      ),
+                      Text(
+                        AppLocalizations.of(context)!
+                            .a_code_has_been_sent_to_your_phone,
+                        style: AppStylesUtil.textBoldStyle(
+                          12.sp,
+                          AppColorUtil.textSemiDarkGrey,
+                          FontWeight.normal,
+                        ),
+                      ),
+                      SizedBox(
+                        height: 5.h,
+                      ),
+                      AppTextLinkWidget(
+                        title: AppLocalizations.of(context)!.request_code_again,
+                        style: AppStylesUtil.textBoldStyle(
+                          13.sp,
+                          AppColorUtil.orange,
+                          FontWeight.bold,
+                        )!,
+                        onClick: () {},
+                      ),
+                      SizedBox(
+                        height: 25.h,
+                      ),
+                      AppButtonWidget(
+                        onClick: () {},
+                        customChild: Text(
+                          AppLocalizations.of(context)!.continues,
+                          style: AppStylesUtil.textRegularStyle(
+                            17.sp,
+                            AppColorUtil.textDarkGreen,
+                            FontWeight.bold,
+                          ),
+                        ),
+                        btnBackgroundColor: AppColorUtil.white,
+                        btnPadding: EdgeInsets.all(5.sp),
+                        btnSize: Size(302.w, 50.h),
+                        btnRadius: 12,
+                      ),
+                    ],
                   ),
                 ),
               ),
