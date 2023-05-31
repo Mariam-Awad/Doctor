@@ -1,4 +1,5 @@
 import 'package:doctor/config/routes/app_navigation_manager.dart';
+import 'package:doctor/config/routes/app_routes.dart';
 import 'package:doctor/config/screen_resizer.dart';
 import 'package:doctor/core/utils/app_assets_util.dart';
 import 'package:doctor/core/utils/app_colors_util.dart';
@@ -169,7 +170,11 @@ class OtpScreen extends StatelessWidget {
                         height: 25.h,
                       ),
                       AppButtonWidget(
-                        onClick: () {},
+                        onClick: () {
+                          AppNavigationManager.navPush(
+                              screen: AppRoutes.mainRouteName,
+                              context: context);
+                        },
                         customChild: Text(
                           AppLocalizations.of(context)!.continues,
                           style: AppStylesUtil.textRegularStyle(

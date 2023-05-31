@@ -7,7 +7,7 @@ class ChatScreen extends StatelessWidget {
     return const Scaffold(
       body: Center(
         child: Text(
-          "Hello world",
+          "chat screen",
         ),
       ),
     );;

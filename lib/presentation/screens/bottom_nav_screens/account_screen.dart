@@ -7,7 +7,7 @@ class AccountScreen extends StatelessWidget {
     return const Scaffold(
       body: Center(
         child: Text(
-          "Hello world",
+          "account screen",
         ),
       ),
     );
