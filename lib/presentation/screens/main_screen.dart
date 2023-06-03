@@ -2,7 +2,7 @@ import 'package:doctor/config/screen_resizer.dart';
 import 'package:doctor/core/components/app_bottom_navigation_component.dart';
 import 'package:doctor/core/utils/app_assets_util.dart';
 import 'package:doctor/core/utils/app_colors_util.dart';
-import 'package:doctor/presentation/bloc/main_bloc/main_helper.dart';
+import 'package:doctor/presentation/helpers/main_screen_helper.dart';
 import 'package:doctor/presentation/widgets/app_bottom_navigation_item.dart';
 import 'package:flutter/material.dart';
 
@@ -20,7 +20,7 @@ class _MainScreenState extends State<MainScreen> {
       bottomNavigationBar: AppBottomNavigationComponent(
         bottomColor: AppColorUtil.white,
         selectedColor: AppColorUtil.background2LightGreen,
-        currentIndex: MainHelper.instance().currentIndex,
+        currentIndex: MainScreenHelper.instance().currentIndex,
         bottomItems: [
           bottomNavItem(
             icon: AppAssetsUtil.bookIcon,
@@ -40,16 +40,16 @@ class _MainScreenState extends State<MainScreen> {
         ],
         onCLick: (value) {
           setState(() {
-            MainHelper.instance().changeCurrentIndex(value);
+            MainScreenHelper.instance().changeCurrentIndex(value);
           });
         },
       ),
       body: SizedBox(
         height: ScreenResizer.getScreenHeight(context),
         width: ScreenResizer.getScreenWidth(context),
-        child: MainHelper.instance()
+        child: MainScreenHelper.instance()
             .screens
-            .elementAt(MainHelper.instance().currentIndex),
+            .elementAt(MainScreenHelper.instance().currentIndex),
       ),
     );
     ;

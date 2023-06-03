@@ -5,14 +5,14 @@ import 'package:doctor/presentation/screens/bottom_nav_screens/notification_scre
 import 'package:doctor/presentation/screens/bottom_nav_screens/visits_screen.dart';
 import 'package:flutter/material.dart';
 
-class MainHelper {
-  static MainHelper? _mainHelper;
-  MainHelper._internal();
-  static MainHelper instance() {
-    if (_mainHelper == null) {
-      return _mainHelper = MainHelper._internal();
+class MainScreenHelper {
+  static MainScreenHelper? _mainScreenHelper;
+  MainScreenHelper._internal();
+  static MainScreenHelper instance() {
+    if (_mainScreenHelper == null) {
+      return _mainScreenHelper = MainScreenHelper._internal();
     }
-    return _mainHelper!;
+    return _mainScreenHelper!;
   }
 
   List<Widget> screens = const [

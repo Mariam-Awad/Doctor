@@ -47,47 +47,49 @@ class OtpScreen extends StatelessWidget {
               Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  InkWell(
-                    onTap: () {
-                      AppNavigationManager.navPop(context);
-                    },
-                    child: Icon(
-                      Icons.arrow_back,
-                      size: 25.sp,
-                      color: Colors.white,
-                    ),
-                  ),
-                  SizedBox(
-                    width: 30.w,
-                  ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        AppLocalizations.of(context)!.otp,
-                        style: AppStylesUtil.textBoldStyle(
-                          18.sp,
-                          Colors.white,
-                          FontWeight.bold,
+                  Align(
+                      alignment: Alignment.topLeft,
+                      child: InkWell(
+                        onTap: () {
+                          AppNavigationManager.navPop(context);
+                        },
+                        child: Icon(
+                          Icons.arrow_back,
+                          size: 25.sp,
+                          color: Colors.white,
                         ),
-                      ),
-                      SizedBox(
-                        height: 5.h,
-                      ),
-                      SizedBox(
-                        width: 250.h,
-                        child: Text(
-                          AppLocalizations.of(context)!
-                              .enter_the_activation_code_that_has_been_sent_to_your_phone_number,
+                      )),
+                  50.horizontalSpace,
+                  Center(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          AppLocalizations.of(context)!.otp,
                           style: AppStylesUtil.textBoldStyle(
-                            11.sp,
+                            18.sp,
                             Colors.white,
-                            FontWeight.normal,
+                            FontWeight.bold,
                           ),
                         ),
-                      ),
-                    ],
+                        SizedBox(
+                          height: 5.h,
+                        ),
+                        SizedBox(
+                          width: 260.h,
+                          child: Text(
+                            AppLocalizations.of(context)!
+                                .enter_the_activation_code_that_has_been_sent_to_your_phone_number,
+                            style: AppStylesUtil.textBoldStyle(
+                              11.sp,
+                              Colors.white,
+                              FontWeight.normal,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ],
               ),
@@ -179,13 +181,15 @@ class OtpScreen extends StatelessWidget {
                           AppLocalizations.of(context)!.continues,
                           style: AppStylesUtil.textRegularStyle(
                             17.sp,
-                            AppColorUtil.textDarkGreen,
+                            AppColorUtil.darkGreen,
                             FontWeight.bold,
                           ),
                         ),
                         btnBackgroundColor: AppColorUtil.white,
                         btnPadding: EdgeInsets.all(5.sp),
                         btnSize: Size(302.w, 50.h),
+                        width: 302.w,
+                        height: 50.h,
                         btnRadius: 12,
                       ),
                     ],

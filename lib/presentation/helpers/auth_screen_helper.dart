@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class AuthHelper {
-  static AuthHelper? _authHelper;
-  AuthHelper._internal();
-  static AuthHelper instance() {
-    if (_authHelper == null) {
-      return _authHelper = AuthHelper._internal();
+class AuthScreenHelper {
+  static AuthScreenHelper? _authScreenHelper;
+  AuthScreenHelper._internal();
+  static AuthScreenHelper instance() {
+    if (_authScreenHelper == null) {
+      return _authScreenHelper = AuthScreenHelper._internal();
     }
-    return _authHelper!;
+    return _authScreenHelper!;
   }
 
   loginFun(BuildContext context, var model,GlobalKey<FormState> formKey) {
