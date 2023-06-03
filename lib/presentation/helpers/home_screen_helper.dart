@@ -1,4 +1,7 @@
+import 'dart:ui';
+
 import 'package:doctor/core/utils/app_assets_util.dart';
+import 'package:doctor/core/utils/app_colors_util.dart';
 
 class HomeScreenHelper {
   static HomeScreenHelper? _homeScreenHelper;
@@ -28,4 +31,17 @@ class HomeScreenHelper {
     'International trainer@biolifusa',
     'Specialist in Dermatology and Aesthetic Medicine,Ain-shams University',
   ];
+
+  Color setCircleContainerColor(int index) =>
+      index == 2 ? AppColorUtil.darkGreen : AppColorUtil.white;
+
+
+  bool showCircleContainer(int index) => index == 0 ? false : true;
+
+
+  Color setOnBoardingTextColor(int index)=> index == 0
+      ? AppColorUtil.darkGreen
+      : index == 2
+      ? AppColorUtil.darkGreen
+      : AppColorUtil.white;
 }

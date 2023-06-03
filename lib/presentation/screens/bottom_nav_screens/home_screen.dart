@@ -49,11 +49,8 @@ class HomeScreen extends StatelessWidget {
                             HomeScreenHelper.instance().onBoardingTitles[0],
                             style: AppStylesUtil.textBoldStyle(
                               20.sp,
-                              index == 0
-                                  ? AppColorUtil.darkGreen
-                                  : index == 2
-                                      ? AppColorUtil.darkGreen
-                                      : AppColorUtil.white,
+                              HomeScreenHelper.instance()
+                                  .setOnBoardingTextColor(index),
                               FontWeight.bold,
                             ),
                           ),
@@ -66,15 +63,15 @@ class HomeScreen extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
                               Visibility(
-                                visible: index == 0 ? false : true,
+                                visible: HomeScreenHelper.instance()
+                                    .showCircleContainer(index),
                                 child: Container(
                                   height: 8.h,
                                   width: 8.w,
                                   decoration: BoxDecoration(
                                     shape: BoxShape.circle,
-                                    color: index == 2
-                                        ? AppColorUtil.darkGreen
-                                        : AppColorUtil.white,
+                                    color: HomeScreenHelper.instance()
+                                        .setCircleContainerColor(index),
                                   ),
                                 ),
                               ),
@@ -88,11 +85,8 @@ class HomeScreen extends StatelessWidget {
                                   textAlign: TextAlign.center,
                                   style: AppStylesUtil.textRegularStyle(
                                     13.sp,
-                                    index == 0
-                                        ? AppColorUtil.darkGreen
-                                        : index == 2
-                                            ? AppColorUtil.darkGreen
-                                            : AppColorUtil.white,
+                                    HomeScreenHelper.instance()
+                                        .setOnBoardingTextColor(index),
                                     FontWeight.normal,
                                   ),
                                 ),
