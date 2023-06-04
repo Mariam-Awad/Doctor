@@ -25,7 +25,7 @@ class AccountScreen extends StatelessWidget {
               Text(
                 AppLocalizations.of(context)!.profile,
                 style: AppStylesUtil.textBoldStyle(
-                  18.sp,
+                  20.sp,
                   AppColorUtil.darkGreen,
                   FontWeight.bold,
                 ),
@@ -38,11 +38,16 @@ class AccountScreen extends StatelessWidget {
                     return Padding(
                       padding: EdgeInsets.only(bottom: 20.h),
                       child: AppButtonWidget(
-                        onClick: () {},
+                        onClick: () {
+                          AccountScreenHelper.instance()
+                              .navBetweenScreens(
+                                  context, index);
+                        },
                         customChild: Align(
                           alignment: Alignment.centerLeft,
                           child: Text(
-                            AccountScreenHelper.instance().setBtnTitles(context)[index],
+                            AccountScreenHelper.instance()
+                                .setBtnTitles(context)[index],
                             style: AppStylesUtil.textBoldStyle(
                               14.sp,
                               AppColorUtil.white,

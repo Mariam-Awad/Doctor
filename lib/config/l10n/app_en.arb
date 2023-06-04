@@ -74,5 +74,8 @@
   "profile": "Profile",
   "user_profile": "User Profile",
   "settings": "Settings",
-  "logout": "Logout"
+  "logout": "Logout",
+  "save": "Save",
+  "edit": "Edit",
+  "age": "Age"
 }

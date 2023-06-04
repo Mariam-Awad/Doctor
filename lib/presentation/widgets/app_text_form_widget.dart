@@ -43,12 +43,12 @@ class AppTextFormWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return StatefulBuilder(
       builder: (context, setState) {
-        return Container(
+        return SizedBox(
           //color: Colors.lightBlue,
           height: 60.h,
           child: TextFormField(
             cursorColor: AppColorUtil.darkGreen,
-            //initialValue: initialValue,
+            initialValue: initialValue,
             onChanged: onChangeListener,
             validator: onValidateListener,
             keyboardType: textType,

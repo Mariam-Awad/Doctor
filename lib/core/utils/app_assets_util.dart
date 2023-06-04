@@ -85,4 +85,5 @@ class AppAssetsUtil {
   static const String plusImage =
       "assets/images/White Round Medical Cross Symbol.H03.2k.png";
   static const String backgroundDoctorCard = "assets/images/widget.png";
+  static const String profileImage = "assets/images/profile_img.jpg";
 }
