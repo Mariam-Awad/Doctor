@@ -54,7 +54,7 @@ class UserProfileDetailsScreen extends StatelessWidget {
                         containerBorderWidth: index == 0 ? 1.2 : 0.01,
                         containerChild:
                             UserProfileDetailsScreenHelper.instance()
-                                .setContainerChildes(context)[index],
+                                .setContainerChildes()[index],
                       );
                     },
                   ),
