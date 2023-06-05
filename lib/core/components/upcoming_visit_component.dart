@@ -1,5 +1,9 @@
+import 'package:doctor/core/utils/app_assets_util.dart';
+import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
+import '../../presentation/widgets/app_button_widget.dart';
 import '../utils/app_colors_util.dart';
 import '../utils/app_styles_util.dart';
 
@@ -139,7 +143,66 @@ class UpcomingVisitComponent extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        // todo two buttons
+                        AppButtonWidget(
+                          width: 100.w,
+                          height: 25.h,
+                          btnSize: Size(100.w, 25.h),
+                          btnRadius: 12.0,
+                          btnBackgroundColor: AppColorUtil.white,
+                          onClick: () {
+                            showDialog(
+                              context: context,
+                              barrierColor: AppColorUtil.backgroundLightBabyBlue
+                                  .withOpacity(0.74),
+                              builder: (_) => Material(
+                                type: MaterialType.transparency,
+                                child: Center(
+                                  child: DottedBorder(
+                                    color: AppColorUtil.textDarkGreen,
+                                    strokeWidth: 2.0,
+                                    dashPattern: const [8, 8, 8, 8],
+                                    borderType: BorderType.RRect,
+                                    radius: Radius.circular(12.r),
+                                    child: Container(
+                                      width: 302.w,
+                                      height: 184.h,
+                                      color: Colors.transparent,
+                                      child: Column(
+                                        children: [
+                                          SvgPicture.asset(
+                                              AppAssetsUtil.cancelCircleIcon,
+                                              width: 58.w,
+                                              height: 58.h,
+                                              fit: BoxFit.contain),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            );
+                          },
+                          borderSide: BorderSide(
+                              color: AppColorUtil.textDarkGreen, width: 1.0),
+                          customChild: Text(
+                            'Cancel',
+                            style: AppStylesUtil.textRegularStyle(10.sp,
+                                AppColorUtil.textDarkGreen, FontWeight.w400),
+                          ),
+                        ),
+                        AppButtonWidget(
+                          width: 100.w,
+                          height: 25.h,
+                          btnSize: Size(100.w, 25.h),
+                          btnRadius: 12.0,
+                          btnBackgroundColor: AppColorUtil.textDarkGreen,
+                          onClick: () {},
+                          customChild: Text(
+                            'Reschedule',
+                            style: AppStylesUtil.textRegularStyle(
+                                10.sp, AppColorUtil.white, FontWeight.w400),
+                          ),
+                        ),
                       ],
                     )
                   ]))),
