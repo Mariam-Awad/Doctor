@@ -1,14 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
-BottomNavigationBarItem bottomNavItem({
-  required String title,
-  required IconData icon,
-  IconData? activeIcon,
-  Color? backgroundColor,
+Widget bottomNavItem({
+  required String icon,
 }) =>
-    BottomNavigationBarItem(
-      label: title,
-      icon: Icon(icon),
-      activeIcon: Icon(activeIcon),
-      backgroundColor: backgroundColor,
-    );
+    SvgPicture.asset(icon,);

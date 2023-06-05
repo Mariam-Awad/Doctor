@@ -1,21 +1,11 @@
-import 'package:doctor/core/components/identity_verification_done_card.dart';
-import 'package:doctor/core/components/visit_type_card_component.dart';
+import 'dart:async';
 import 'package:doctor/core/utils/app_assets_util.dart';
 import 'package:doctor/core/utils/app_colors_util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../../core/components/Testimonials_component.dart';
-import '../../core/components/about_doctor_card_component.dart';
-import '../../core/components/branch_location_component.dart';
-import '../../core/components/certificates-doctor_component.dart';
-import '../../core/components/checkout_total_amount.dart';
-import '../../core/components/doctor_services_card_component.dart';
-import '../../core/components/gender_component.dart';
-import '../../core/components/identity_verification_selfie_card.dart';
-import '../../core/components/notification_component.dart';
-import '../../core/components/past_canceled_visit_component.dart';
-import '../../core/components/visa_component.dart';
-import '../../core/components/weight.component.dart';
+import '../../core/utils/app_styles_util.dart';
+import '../widgets/background_widget.dart';
+import '../widgets/login_form_widget.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -25,168 +15,222 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+  bool animation0 = false;
+  bool animation1 = false;
+  bool animation2 = false;
+  bool animation3 = false;
+  bool animation4 = false;
+  bool animation5 = false;
+  bool animationbackground = false;
+
+  @override
+  void initState() {
+    super.initState();
+    Future.delayed(const Duration(milliseconds: 200), () {
+      WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+        setState(() {
+          animation0 = true;
+          animation1 = true;
+          animation2 = true;
+          animation3 = true;
+          animation4 = true;
+          animation5 = true;
+          animationbackground = true;
+        });
+      });
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColorUtil.backgroundGrey,
-      body: Center(
-        child: SingleChildScrollView(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      backgroundColor: AppColorUtil.background2LightGreen,
+      body: SingleChildScrollView(
+        child: Container(
+          color: Colors.transparent,
+          height: MediaQuery.of(context).size.height,
+          width: MediaQuery.of(context).size.width,
+          child: Stack(
             children: [
-              20.verticalSpace,
-              GenderComponent(
-                widthContainer: 140,
-                heightContainer: 40,
-                iconAsset: AppAssetsUtil.maleIcon,
-                title: 'Male',
-                pressedIconColor: AppColorUtil.white,
-                pressedTitleColor: AppColorUtil.white,
-                onTap: () {
-                  // Todo
-                },
+              Positioned(
+                top: -60,
+                child: AnimatedContainer(
+                  duration: const Duration(milliseconds: 2500),
+                  transform: Matrix4.translationValues(
+                      animation0
+                          ? MediaQuery.of(context).size.width // msh mwgoda,
+                          : 0, // mwgoda
+                      0,
+                      0),
+                  curve: Curves.easeInOut,
+                  color: Colors.transparent,
+                  child: Image.asset(
+                    AppAssetsUtil.sama3aImage,
+                    height: 350,
+                    width: MediaQuery.of(context).size.width,
+                    fit: BoxFit.contain,
+                  ),
+                ),
               ),
-              20.verticalSpace,
-              GenderComponent(
-                widthContainer: 140,
-                heightContainer: 40,
-                iconAsset: AppAssetsUtil.femaleIcon,
-                title: 'Female',
-                pressedIconColor: AppColorUtil.white,
-                pressedTitleColor: AppColorUtil.white,
-                onTap: () {
-                  // Todo
-                },
+              Positioned(
+                top: 180.h,
+                left: 210.w,
+                child: AnimatedContainer(
+                  duration: const Duration(milliseconds: 2500),
+                  transform: Matrix4.translationValues(
+                      animation1
+                          ? MediaQuery.of(context).size.width // msh mwgoda,
+                          : 0, // mwgoda
+                      0,
+                      0),
+                  curve: Curves.easeInOut,
+                  color: Colors.transparent,
+                  child: Image.asset(
+                    AppAssetsUtil.plusImage,
+                    height: 300.h,
+                    width: 200.w,
+                    fit: BoxFit.contain,
+                  ),
+                ),
               ),
-              20.verticalSpace,
-              WeightComponent(
-                widthContainer: 68,
-                heightContainer: 45,
-                title: 'Kg',
-                pressedTitleColor: AppColorUtil.backgroundDarkBabyBlue,
-                onTap: () {
-                  // Todo
-                },
+              Positioned(
+                bottom: -40,
+                left: 210.w,
+                child: AnimatedContainer(
+                  duration: const Duration(milliseconds: 2500),
+                  transform: Matrix4.translationValues(
+                      animation1
+                          ? MediaQuery.of(context).size.width // msh mwgoda,
+                          : 0, // mwgoda
+                      0,
+                      0),
+                  curve: Curves.easeInOut,
+                  color: Colors.transparent,
+                  child: Image.asset(
+                    AppAssetsUtil.anabebImage,
+                    height: 350.h,
+                    width: 300.w,
+                    fit: BoxFit.contain,
+                  ),
+                ),
               ),
-              20.verticalSpace,
-              const IdentityVerificationDoneCard(
-                  widthContainer: 150,
-                  heightContainer: 175,
-                  iconAsset: AppAssetsUtil.checkCircleFillIcon,
-                  title: 'Identity Verification',
-                  descreption: 'Your data has been saved'),
-              20.verticalSpace,
-              const IdentityVerificationSelfieCard(
-                  widthContainer: 150,
-                  heightContainer: 175,
-                  iconAsset: AppAssetsUtil.selfieIcon,
-                  title: 'Selfie Photo',
-                  descreption:
-                      'its Required by our system\nto verify your identity'),
-              20.verticalSpace,
-              const VisitTypeCardComponent(
-                  widthContainer: 150,
-                  heightContainer: 145,
-                  iconAsset: AppAssetsUtil.typeVisit1Icon,
-                  typetitle: 'MEDICAL\nEXAMINATION'),
-              20.verticalSpace,
-              const VisitTypeCardComponent(
-                widthContainer: 150,
-                heightContainer: 145,
-                iconAsset: AppAssetsUtil.typeVisit2Icon,
-                typetitle: 'MEDICAL\nCONSULTATION',
+              Positioned(
+                bottom: 100.h,
+                left: -50.w,
+                child: AnimatedContainer(
+                  duration: const Duration(milliseconds: 2500),
+                  transform: Matrix4.translationValues(
+                      animation2
+                          ? -300 // msh mwgoda,
+                          : 0, // mwgoda
+                      0,
+                      0),
+                  curve: Curves.easeInOut,
+                  color: Colors.transparent,
+                  child: Image.asset(
+                    AppAssetsUtil.capsolaImage1,
+                    height: 350.h,
+                    width: 340.w,
+                    fit: BoxFit.contain,
+                  ),
+                ),
               ),
-              20.verticalSpace,
-              const BranchLocationComponent(
-                widthContainer: 234,
-                heightContainer: 64,
-                iconAsset: AppAssetsUtil.locationIcon,
-                textlocation:
-                    '16-EL-fath Street, Mohandsien\nMit Okba,Giza Governorate',
+              Positioned(
+                top: 50.h,
+                left: -160.w,
+                child: AnimatedContainer(
+                  duration: const Duration(milliseconds: 2500),
+                  transform: Matrix4.translationValues(
+                      animation3
+                          ? -300 // msh mwgoda,
+                          : 0, // mwgoda
+                      0,
+                      0),
+                  curve: Curves.easeInOut,
+                  color: Colors.transparent,
+                  child: Image.asset(
+                    AppAssetsUtil.termometerImage,
+                    height: 440.h,
+                    width: 400.w,
+                    fit: BoxFit.contain,
+                  ),
+                ),
               ),
-              20.verticalSpace,
-              VisaComponent(
-                widthContainer: 240,
-                heightContainer: 135,
-                backgroundcolorone: AppColorUtil.visaDarkBlue,
-                backgroundcolortwo: AppColorUtil.visaLightBlue,
-                cardnumber: '3455 5363 2732 3727',
-                duedate: '02/25',
-                name: 'Samar Maged',
+              AnimatedContainer(
+                height: MediaQuery.of(context).size.height,
+                width: MediaQuery.of(context).size.width,
+                duration: const Duration(milliseconds: 2500),
+                transform: Matrix4.translationValues(
+                    animationbackground
+                        ? 0 // mwgoda
+                        : MediaQuery.of(context).size.width, // msh mwgoda,
+                    0,
+                    0),
+                curve: Curves.easeInOut,
+                color: Colors.transparent,
+                child: Image.asset(
+                  AppAssetsUtil.loginBackgroundSVG,
+                  height: MediaQuery.of(context).size.height,
+                  width: MediaQuery.of(context).size.width,
+                  fit: BoxFit.cover,
+                ),
               ),
-              20.verticalSpace,
-              CheckoutTotalAmount(
-                widthContainer: 303,
-                heightContainer: 163,
-                colorContainer: AppColorUtil.textDarkGreen,
-                feeAmount: 2000,
-                chargesAmount: 500,
-                discountAmount: 200,
-                totalAmount: 2300,
+              AnimatedContainer(
+                duration: const Duration(milliseconds: 2600),
+                transform: Matrix4.translationValues(
+                    animation4
+                        ? -80 // msh mwgoda,
+                        : 0, // mwgoda
+                    animation4
+                        ? -180 // msh mwgoda,
+                        : 0, // mwgoda
+                    0),
+                curve: Curves.easeInOut,
+                color: Colors.transparent,
+                child: Center(
+                  child: Padding(
+                    padding: EdgeInsets.only(top: 350.h),
+                    child: Column(
+                      children: [
+                        TweenAnimationBuilder(
+                            tween: Tween<double>(begin: 40, end: 30),
+                            duration: const Duration(seconds: 2),
+                            builder: (context, dynamic value, child) {
+                              return Text("Dr.KARIM\n AGGOUR",
+                                  textAlign: TextAlign.center,
+                                  style: AppStylesUtil.textBoldStyle(
+                                    value,
+                                    AppColorUtil.white,
+                                    FontWeight.bold,
+                                  ));
+                            }),
+                        Text(
+                          "  Dermatologist",
+                          textAlign: TextAlign.center,
+                          style: AppStylesUtil.textRegularStyle(
+                            18.sp,
+                            AppColorUtil.backgroundDarkWhite,
+                            FontWeight.w400,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
               ),
-              20.verticalSpace,
-              const AboutDoctorCardComponent(
-                  widthContainer: 302,
-                  heightContainer: 202,
-                  doctorName: 'Dr. KARIM\nAGGOUR',
-                  doctorSpecialization: 'Dermatologist'),
-              20.verticalSpace,
-              const DoctorServicesCardComponent(
-                iconAsset: AppAssetsUtil.group7Icon,
-                title: 'Skin Diseases',
+              Center(
+                child: AnimatedContainer(
+                  duration: Duration(milliseconds: 2600),
+                  transform: Matrix4.translationValues(
+                      0,
+                      animation5
+                          ? MediaQuery.of(context).size.height / 10 // mwgoda
+                          : 600, // msh mwgoda,
+                      0),
+                  curve: Curves.easeInOut,
+                  child: const LoginFormWidget(),
+                ),
               ),
-              20.verticalSpace,
-              const CertificateDoctorComponent(
-                widthContainer: 302,
-                heightContainer: 221,
-                iconAssetCertificate1: AppAssetsUtil.certificateIcon1,
-                iconAssetCertificate2: AppAssetsUtil.certificateIcon2,
-                iconAssetCertificate3: AppAssetsUtil.certificateIcon3,
-                title: 'Certificates',
-                discreption:
-                    'Dr. Karim has received numerous certifications throughout his career, including board certification from the American Board of Dermatology and membership in the American Academy of Dermatology.',
-              ),
-              20.verticalSpace,
-              const TestimonialsComponent(
-                widthContainer: 302,
-                heightContainer: 85,
-                iconAsset: AppAssetsUtil.testimonialsImage1,
-                title: 'Will Steve',
-                discreption:
-                    '“I’ve been seeing Dr. Karim for years for my acne and he always knows exactly what to do to keep it under control.”',
-              ),
-              20.verticalSpace,
-              NotificationComponent(
-                widthContainer: 302,
-                heightContainer: 76,
-                title: 'Appointment Confirmed',
-                discreption:
-                    'Appointment Confirmed with DR.Karim will be held on Saturday, 11th of January 10:30 AM',
-                onTap: () {
-                  // todo
-                },
-              ),
-              20.verticalSpace,
-              PastCanceledVisitComponent(
-                iconAsset: AppAssetsUtil.doctorImage,
-                doctorName: 'DR.Karim Aggour',
-                doctorSpicialization: 'Dermatologist',
-                status: 'Visited',
-                statusColor: AppColorUtil.green,
-                date: 'Monday, 11 Feb',
-                time: '1:30 PM',
-              ),
-              20.verticalSpace,
-              PastCanceledVisitComponent(
-                iconAsset: AppAssetsUtil.doctorImage,
-                doctorName: 'DR.Karim Aggour',
-                doctorSpicialization: 'Dermatologist',
-                status: 'Canceled',
-                statusColor: AppColorUtil.red,
-                date: 'Monday, 11 Feb',
-                time: '1:30 PM',
-              ),
-              20.verticalSpace,
             ],
           ),
         ),

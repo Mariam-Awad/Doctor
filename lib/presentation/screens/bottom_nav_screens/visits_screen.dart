@@ -7,7 +7,7 @@ class VisitsScreen extends StatelessWidget {
     return const Scaffold(
       body: Center(
         child: Text(
-          "Hello world",
+          "visits screen",
         ),
       ),
     );

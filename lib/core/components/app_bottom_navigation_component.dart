@@ -1,33 +1,26 @@
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 
 class AppBottomNavigationComponent extends StatelessWidget {
   const AppBottomNavigationComponent({
-    required this.bottomType,
-  required this.bottomColor,
-  required this.selectedColor,
-  required this.unSelectedColor,
-  required this.selectedFont,
-  required this.unSelectedFont,
-  required this.bottomItems,
-  required this.onCLick,
-  Key? key,
-}) : super(key: key);
-  final BottomNavigationBarType? bottomType ;
-  final Color bottomColor,selectedColor,unSelectedColor ;
-  final double selectedFont;
-  final double unSelectedFont ;
+    required this.bottomColor,
+    required this.selectedColor,
+    required this.bottomItems,
+    required this.onCLick,
+    required this.currentIndex,
+    Key? key,
+  }) : super(key: key);
+  final Color bottomColor, selectedColor;
   final void Function(int value)? onCLick;
-  final List<BottomNavigationBarItem> bottomItems;
+  final List<Widget> bottomItems;
+  final int currentIndex;
 
   @override
   Widget build(BuildContext context) {
-    return BottomNavigationBar(
-      type: bottomType,
+    return CurvedNavigationBar(
+      index: currentIndex,
       backgroundColor: bottomColor,
-      selectedItemColor: selectedColor,
-      unselectedItemColor: unSelectedColor,
-      selectedFontSize: selectedFont,
-      unselectedFontSize: unSelectedFont,
+      color: selectedColor,
       onTap: onCLick,
       items: bottomItems,
     );

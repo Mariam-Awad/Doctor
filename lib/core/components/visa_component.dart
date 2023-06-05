@@ -27,7 +27,7 @@ class VisaComponent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(10.0),
+      padding: EdgeInsets.all(10.0.sp),
       width: widthContainer,
       height: heightContainer,
       decoration: BoxDecoration(
@@ -65,20 +65,35 @@ class VisaComponent extends StatelessWidget {
             children: [
               Column(
                 children: [
-                  Text('Card Holder',
-                      textAlign: TextAlign.center,
-                      style: AppStylesUtil.textRegularStyle(
-                          8.sp, AppColorUtil.textgrey, FontWeight.bold)),
-                  Text(name,
-                      textAlign: TextAlign.center,
-                      style: AppStylesUtil.textRegularStyle(
-                          9.sp, AppColorUtil.white, FontWeight.w400)),
+                  Text(
+                    'Card Holder',
+                    textAlign: TextAlign.center,
+                    style: AppStylesUtil.textRegularStyle(
+                      8.sp,
+                      AppColorUtil.textgrey,
+                      FontWeight.bold,
+                    ),
+                  ),
+                  Text(
+                    name,
+                    textAlign: TextAlign.center,
+                    style: AppStylesUtil.textRegularStyle(
+                      9.sp,
+                      AppColorUtil.white,
+                      FontWeight.w400,
+                    ),
+                  ),
                 ],
               ),
-              Text(duedate,
-                  textAlign: TextAlign.center,
-                  style: AppStylesUtil.textRegularStyle(
-                      9.sp, AppColorUtil.white, FontWeight.w400)),
+              Text(
+                duedate,
+                textAlign: TextAlign.center,
+                style: AppStylesUtil.textRegularStyle(
+                  9.sp,
+                  AppColorUtil.white,
+                  FontWeight.w400,
+                ),
+              ),
             ],
           )
         ],

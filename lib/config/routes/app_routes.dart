@@ -4,4 +4,8 @@ class AppRoutes {
   static const String forgetPasswordRouteName = "/forgetPasswordScreen";
   static const String otpRouteName = "/otpScreen";
   static const String myVisitsName = "/myVisitsScreen";
+  static const String mainRouteName = "/mainScreen";
+  static const String userProfileDetailsRouteName = "/UserProfileDetailsScreen";
+  static const String paymentRouteName = "/paymentScreen";
+  static const String settingsRouteName = "/settingsScreen";
 }

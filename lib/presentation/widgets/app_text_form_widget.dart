@@ -43,12 +43,12 @@ class AppTextFormWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return StatefulBuilder(
       builder: (context, setState) {
-        return Container(
+        return SizedBox(
           //color: Colors.lightBlue,
           height: 60.h,
           child: TextFormField(
             cursorColor: AppColorUtil.darkGreen,
-            //initialValue: initialValue,
+            initialValue: initialValue,
             onChanged: onChangeListener,
             validator: onValidateListener,
             keyboardType: textType,
@@ -72,8 +72,8 @@ class AppTextFormWidget extends StatelessWidget {
               hintStyle: AppStylesUtil.textRegularStyle(
                   hintSize!, AppColorUtil.textLightGrey, FontWeight.w400),
               labelText: label ?? "",
-              labelStyle: AppStylesUtil.textRegularStyle(labelSize ?? 12.sp,
-                  AppColorUtil.textblackBold, FontWeight.w400),
+              labelStyle:AppStylesUtil.textRegularStyle(
+                  hintSize!, AppColorUtil.textLightGrey, FontWeight.w400),
               suffixIcon: hint!.toLowerCase().contains("password")
                   ? IconButton(
                       onPressed: () {

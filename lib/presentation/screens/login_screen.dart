@@ -6,7 +6,7 @@ import 'package:doctor/core/utils/app_assets_util.dart';
 import 'package:doctor/core/utils/app_colors_util.dart';
 import 'package:doctor/core/utils/app_strings.dart';
 import 'package:doctor/core/utils/app_styles_util.dart';
-import 'package:doctor/presentation/bloc/Auth_bloc/auth_helper.dart';
+import 'package:doctor/presentation/helpers/auth_screen_helper.dart';
 import 'package:doctor/presentation/widgets/app_button_widget.dart';
 import 'package:doctor/presentation/widgets/app_text_form_widget.dart';
 import 'package:doctor/presentation/widgets/app_text_link_widget.dart';
@@ -19,10 +19,11 @@ import '../widgets/background_widget.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({Key? key}) : super(key: key);
-  static GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  
 
   @override
   Widget build(BuildContext context) {
+    var _formKey;
     return Background(
       imageAsset: AppAssetsUtil.loginBackgroundImage,
       child: Scaffold(
@@ -87,12 +88,13 @@ class LoginScreen extends StatelessWidget {
                         AppTextFormWidget(
                           hint: AppLocalizations.of(context)!.user_name,
                           textType: TextInputType.text,
-                          onChangeListener: (value) {},
+                          onChangeListener: (value) {
+                          },
                           onValidateListener: (value) {
                             return ValidateAuthField.instance()
                                 .validateField(value!);
                           },
-                          initialValue: "",
+                          initialValue: "userName",
                           fontType: appFontRegular,
                           textSize: 12.sp,
                           hintSize: 12.sp,
@@ -103,6 +105,7 @@ class LoginScreen extends StatelessWidget {
                           isFiled: true,
                         ),
                         AppTextFormWidget(
+                          label: "Password",
                           hint: AppLocalizations.of(context)!.password,
                           textType: TextInputType.visiblePassword,
                           onChangeListener: (value) {},
@@ -110,7 +113,7 @@ class LoginScreen extends StatelessWidget {
                             return ValidateAuthField.instance()
                                 .validatePassword(value!);
                           },
-                          initialValue: "",
+                          initialValue: "password",
                           fontType: appFontRegular,
                           textSize: 12.sp,
                           hintSize: 12.sp,
@@ -207,7 +210,7 @@ class LoginScreen extends StatelessWidget {
                         22.verticalSpace,
                         AppButtonWidget(
                           onClick: () {
-                            AuthHelper.instance()
+                            AuthScreenHelper.instance()
                                 .loginFun(context, "model", _formKey);
                           },
                           customChild: Text(
@@ -229,6 +232,7 @@ class LoginScreen extends StatelessWidget {
                     ),
                   ),
                 ),
+              
               ],
             ),
           ),
@@ -237,3 +241,4 @@ class LoginScreen extends StatelessWidget {
     );
   }
 }
+

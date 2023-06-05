@@ -182,7 +182,7 @@ class UpcomingVisitComponent extends StatelessWidget {
                               ),
                             );
                           },
-                          borderSide: BorderSide(
+                          border: BorderSide(
                               color: AppColorUtil.textDarkGreen, width: 1.0),
                           customChild: Text(
                             'Cancel',
