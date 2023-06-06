@@ -4,7 +4,6 @@ import 'package:doctor/presentation/screens/main_screen.dart';
 import 'package:doctor/presentation/screens/otp_screen.dart';
 import 'package:doctor/presentation/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
-
 import '../../presentation/screens/login_screen.dart';
 
 class AppRouteManager {
@@ -25,6 +24,10 @@ class AppRouteManager {
       case AppRoutes.otpRouteName:
         return MaterialPageRoute(
           builder: (context) => const OtpScreen(),
+        );
+      case AppRoutes.mainRouteName:
+        return MaterialPageRoute(
+          builder: (context) => const MainScreen(),
         );
       default:
         return _undefinedRoute();

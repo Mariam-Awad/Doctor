@@ -41,6 +41,7 @@ class LoginFormWidget extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         AppTextFormWidget(
+                          label: AppLocalizations.of(context)!.user_name,
                           hint: AppLocalizations.of(context)!.user_name,
                           textType: TextInputType.text,
                           onChangeListener: (value) {
@@ -49,7 +50,7 @@ class LoginFormWidget extends StatelessWidget {
                             return ValidateAuthField.instance()
                                 .validateField(value!);
                           },
-                          initialValue: "userName",
+                          initialValue: "",
                           fontType: appFontRegular,
                           textSize: 12.sp,
                           hintSize: 12.sp,
@@ -60,7 +61,7 @@ class LoginFormWidget extends StatelessWidget {
                           isFiled: true,
                         ),
                         AppTextFormWidget(
-                          label: "Password",
+                          label: AppLocalizations.of(context)!.password,
                           hint: AppLocalizations.of(context)!.password,
                           textType: TextInputType.visiblePassword,
                           onChangeListener: (value) {},
@@ -68,7 +69,7 @@ class LoginFormWidget extends StatelessWidget {
                             return ValidateAuthField.instance()
                                 .validatePassword(value!);
                           },
-                          initialValue: "password",
+                          initialValue: "",
                           fontType: appFontRegular,
                           textSize: 12.sp,
                           hintSize: 12.sp,

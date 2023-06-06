@@ -88,4 +88,12 @@ class AppAssetsUtil {
       "assets/images/White Round Medical Cross Symbol.H03.2k.png";
   static const String backgroundDoctorCard = "assets/images/widget.png";
   static const String profileImage = "assets/images/profile_img.jpg";
+  static const String onboardingLeftButtonImpossible =
+      "assets/images/onboardingleftbuttonimpossible.svg";
+  static const String onboardingLeftButtonpossible =
+      "assets/images/onboardingleftbuttonpossible.svg";
+  static const String onboardingRightButtonImpossible =
+      "assets/images/onboardingrightbuttonimpossible.svg";
+  static const String onboardingRightButtonpossible =
+      "assets/images/onboardingrightbuttonpossible.svg";
 }

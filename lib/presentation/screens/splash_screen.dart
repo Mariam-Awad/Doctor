@@ -4,7 +4,7 @@ import 'package:doctor/core/utils/app_colors_util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../core/utils/app_styles_util.dart';
-import '../widgets/background_widget.dart';
+import '../helpers/splash_screen_helper.dart';
 import '../widgets/login_form_widget.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -15,30 +15,18 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-  bool animation0 = false;
-  bool animation1 = false;
-  bool animation2 = false;
-  bool animation3 = false;
-  bool animation4 = false;
-  bool animation5 = false;
-  bool animationbackground = false;
 
   @override
   void initState() {
     super.initState();
     Future.delayed(const Duration(milliseconds: 200), () {
       WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-        setState(() {
-          animation0 = true;
-          animation1 = true;
-          animation2 = true;
-          animation3 = true;
-          animation4 = true;
-          animation5 = true;
-          animationbackground = true;
+         setState(() {
+            SplahScreenHelper.instance().configState();
         });
       });
     });
+
   }
 
   @override
@@ -57,7 +45,7 @@ class _SplashScreenState extends State<SplashScreen> {
                 child: AnimatedContainer(
                   duration: const Duration(milliseconds: 2500),
                   transform: Matrix4.translationValues(
-                      animation0
+                      SplahScreenHelper.instance().animation0
                           ? MediaQuery.of(context).size.width // msh mwgoda,
                           : 0, // mwgoda
                       0,
@@ -78,7 +66,7 @@ class _SplashScreenState extends State<SplashScreen> {
                 child: AnimatedContainer(
                   duration: const Duration(milliseconds: 2500),
                   transform: Matrix4.translationValues(
-                      animation1
+                      SplahScreenHelper.instance().animation1
                           ? MediaQuery.of(context).size.width // msh mwgoda,
                           : 0, // mwgoda
                       0,
@@ -99,7 +87,7 @@ class _SplashScreenState extends State<SplashScreen> {
                 child: AnimatedContainer(
                   duration: const Duration(milliseconds: 2500),
                   transform: Matrix4.translationValues(
-                      animation1
+                      SplahScreenHelper.instance().animation1
                           ? MediaQuery.of(context).size.width // msh mwgoda,
                           : 0, // mwgoda
                       0,
@@ -120,7 +108,7 @@ class _SplashScreenState extends State<SplashScreen> {
                 child: AnimatedContainer(
                   duration: const Duration(milliseconds: 2500),
                   transform: Matrix4.translationValues(
-                      animation2
+                      SplahScreenHelper.instance().animation2
                           ? -300 // msh mwgoda,
                           : 0, // mwgoda
                       0,
@@ -141,7 +129,7 @@ class _SplashScreenState extends State<SplashScreen> {
                 child: AnimatedContainer(
                   duration: const Duration(milliseconds: 2500),
                   transform: Matrix4.translationValues(
-                      animation3
+                      SplahScreenHelper.instance().animation3
                           ? -300 // msh mwgoda,
                           : 0, // mwgoda
                       0,
@@ -161,7 +149,7 @@ class _SplashScreenState extends State<SplashScreen> {
                 width: MediaQuery.of(context).size.width,
                 duration: const Duration(milliseconds: 2500),
                 transform: Matrix4.translationValues(
-                    animationbackground
+                    SplahScreenHelper.instance().animationbackground
                         ? 0 // mwgoda
                         : MediaQuery.of(context).size.width, // msh mwgoda,
                     0,
@@ -178,10 +166,10 @@ class _SplashScreenState extends State<SplashScreen> {
               AnimatedContainer(
                 duration: const Duration(milliseconds: 2600),
                 transform: Matrix4.translationValues(
-                    animation4
+                    SplahScreenHelper.instance().animation4
                         ? -80 // msh mwgoda,
                         : 0, // mwgoda
-                    animation4
+                    SplahScreenHelper.instance().animation4
                         ? -180 // msh mwgoda,
                         : 0, // mwgoda
                     0),
@@ -220,10 +208,10 @@ class _SplashScreenState extends State<SplashScreen> {
               ),
               Center(
                 child: AnimatedContainer(
-                  duration: Duration(milliseconds: 2600),
+                  duration: const Duration(milliseconds: 2600),
                   transform: Matrix4.translationValues(
                       0,
-                      animation5
+                      SplahScreenHelper.instance().animation5
                           ? MediaQuery.of(context).size.height / 10 // mwgoda
                           : 600, // msh mwgoda,
                       0),

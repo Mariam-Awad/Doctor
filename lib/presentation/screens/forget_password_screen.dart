@@ -37,7 +37,8 @@ class ForgetPasswordScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Align(alignment: Alignment.topLeft,
+                  Align(
+                      alignment: Alignment.topLeft,
                       child: InkWell(
                         onTap: () {
                           AppNavigationManager.navPop(context);
@@ -78,6 +79,9 @@ class ForgetPasswordScreen extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           AppTextFormWidget(
+                            label: AppLocalizations.of(context)!.email +
+                                " / ".toString() +
+                                AppLocalizations.of(context)!.mobile_number,
                             hint: AppLocalizations.of(context)!.email +
                                 " / ".toString() +
                                 AppLocalizations.of(context)!.mobile_number,
