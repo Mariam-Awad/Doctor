@@ -65,6 +65,8 @@ class AppAssetsUtil {
   static const String termometerImage =
       "assets/images/Digital Thermometer.B04.2k.png";
   static const String doctorImage = "assets/images/doctor.jpg";
+  static const String loginBackgroundSVG =
+      "assets/images/login svg background.png";
   static const String homeBackground1Image = "assets/images/Home -1.jpg";
   static const String homeBackground2Image = "assets/images/Home – 2.jpg";
   static const String homeBackground3Image = "assets/images/Home – 3.jpg";
@@ -86,4 +88,12 @@ class AppAssetsUtil {
       "assets/images/White Round Medical Cross Symbol.H03.2k.png";
   static const String backgroundDoctorCard = "assets/images/widget.png";
   static const String profileImage = "assets/images/profile_img.jpg";
+  static const String onboardingLeftButtonImpossible =
+      "assets/images/onboardingleftbuttonimpossible.svg";
+  static const String onboardingLeftButtonpossible =
+      "assets/images/onboardingleftbuttonpossible.svg";
+  static const String onboardingRightButtonImpossible =
+      "assets/images/onboardingrightbuttonimpossible.svg";
+  static const String onboardingRightButtonpossible =
+      "assets/images/onboardingrightbuttonpossible.svg";
 }

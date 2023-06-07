@@ -47,6 +47,7 @@ class AppTextFormWidget extends StatelessWidget {
           //color: Colors.lightBlue,
           height: 60.h,
           child: TextFormField(
+            
             cursorColor: AppColorUtil.darkGreen,
             initialValue: initialValue,
             onChanged: onChangeListener,
@@ -55,6 +56,7 @@ class AppTextFormWidget extends StatelessWidget {
             style: AppStylesUtil.textRegularStyle(
                 14.sp, AppColorUtil.textblackBold, FontWeight.w400),
             decoration: InputDecoration(
+              floatingLabelBehavior: FloatingLabelBehavior.never,
               helperText: '',
               helperMaxLines: 1,
               helperStyle: AppStylesUtil.textRegularStyle(

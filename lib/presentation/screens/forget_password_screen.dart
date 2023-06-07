@@ -79,6 +79,9 @@ class ForgetPasswordScreen extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           AppTextFormWidget(
+                            label: AppLocalizations.of(context)!.email +
+                                " / ".toString() +
+                                AppLocalizations.of(context)!.mobile_number,
                             hint: AppLocalizations.of(context)!.email +
                                 " / ".toString() +
                                 AppLocalizations.of(context)!.mobile_number,

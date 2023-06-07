@@ -1,13 +1,10 @@
 import 'package:doctor/config/routes/app_routes.dart';
 import 'package:doctor/presentation/screens/forget_password_screen.dart';
-import 'package:doctor/presentation/screens/login_screen.dart';
 import 'package:doctor/presentation/screens/main_screen.dart';
 import 'package:doctor/presentation/screens/otp_screen.dart';
-import 'package:doctor/presentation/screens/payment_screen.dart';
-import 'package:doctor/presentation/screens/settings_screen.dart';
 import 'package:doctor/presentation/screens/splash_screen.dart';
-import 'package:doctor/presentation/screens/user_profile_details_screen.dart';
 import 'package:flutter/material.dart';
+import '../../presentation/screens/login_screen.dart';
 
 class AppRouteManager {
   static Route<dynamic> generateRoute(RouteSettings settings) {
@@ -31,18 +28,6 @@ class AppRouteManager {
       case AppRoutes.mainRouteName:
         return MaterialPageRoute(
           builder: (context) => const MainScreen(),
-        );
-      case AppRoutes.userProfileDetailsRouteName:
-        return MaterialPageRoute(
-          builder: (context) => const UserProfileDetailsScreen(),
-        );
-      case AppRoutes.paymentRouteName:
-        return MaterialPageRoute(
-          builder: (context) => const PaymentScreen(),
-        );
-      case AppRoutes.settingsRouteName:
-        return MaterialPageRoute(
-          builder: (context) => const SettingsScreen(),
         );
       default:
         return _undefinedRoute();

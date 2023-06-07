@@ -41,9 +41,7 @@ class OtpScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              SizedBox(
-                height: 20.h,
-              ),
+              20.verticalSpace,
               Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -73,16 +71,15 @@ class OtpScreen extends StatelessWidget {
                             FontWeight.bold,
                           ),
                         ),
-                        SizedBox(
-                          height: 5.h,
-                        ),
+                        5.verticalSpace,
                         SizedBox(
                           width: 260.h,
                           child: Text(
                             AppLocalizations.of(context)!
                                 .enter_the_activation_code_that_has_been_sent_to_your_phone_number,
+                            textAlign: TextAlign.center,
                             style: AppStylesUtil.textBoldStyle(
-                              11.sp,
+                              12.sp,
                               Colors.white,
                               FontWeight.normal,
                             ),
@@ -144,9 +141,7 @@ class OtpScreen extends StatelessWidget {
                               });
                         }, // end onSubmit
                       ),
-                      SizedBox(
-                        height: 25.h,
-                      ),
+                      25.verticalSpace,
                       Text(
                         AppLocalizations.of(context)!
                             .a_code_has_been_sent_to_your_phone,
@@ -156,9 +151,7 @@ class OtpScreen extends StatelessWidget {
                           FontWeight.normal,
                         ),
                       ),
-                      SizedBox(
-                        height: 5.h,
-                      ),
+                      5.verticalSpace,
                       AppTextLinkWidget(
                         title: AppLocalizations.of(context)!.request_code_again,
                         style: AppStylesUtil.textBoldStyle(
@@ -168,9 +161,7 @@ class OtpScreen extends StatelessWidget {
                         )!,
                         onClick: () {},
                       ),
-                      SizedBox(
-                        height: 25.h,
-                      ),
+                      25.verticalSpace,
                       AppButtonWidget(
                         onClick: () {
                           AppNavigationManager.navPush(

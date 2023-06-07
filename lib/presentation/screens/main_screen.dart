@@ -52,6 +52,6 @@ class _MainScreenState extends State<MainScreen> {
             .elementAt(MainScreenHelper.instance().currentIndex),
       ),
     );
-    ;
+    
   }
 }

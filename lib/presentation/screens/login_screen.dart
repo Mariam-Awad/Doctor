@@ -23,6 +23,7 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var _formKey;
     return Background(
       imageAsset: AppAssetsUtil.loginBackgroundImage,
       child: Scaffold(
@@ -87,13 +88,12 @@ class LoginScreen extends StatelessWidget {
                         AppTextFormWidget(
                           hint: AppLocalizations.of(context)!.user_name,
                           textType: TextInputType.text,
-                          onChangeListener: (value) {
-                          },
+                          onChangeListener: (value) {},
                           onValidateListener: (value) {
                             return ValidateAuthField.instance()
                                 .validateField(value!);
                           },
-                          initialValue: "userName",
+                          initialValue: "",
                           fontType: appFontRegular,
                           textSize: 12.sp,
                           hintSize: 12.sp,
@@ -104,7 +104,6 @@ class LoginScreen extends StatelessWidget {
                           isFiled: true,
                         ),
                         AppTextFormWidget(
-                          label: "Password",
                           hint: AppLocalizations.of(context)!.password,
                           textType: TextInputType.visiblePassword,
                           onChangeListener: (value) {},
@@ -112,7 +111,7 @@ class LoginScreen extends StatelessWidget {
                             return ValidateAuthField.instance()
                                 .validatePassword(value!);
                           },
-                          initialValue: "password",
+                          initialValue: "",
                           fontType: appFontRegular,
                           textSize: 12.sp,
                           hintSize: 12.sp,
@@ -158,7 +157,8 @@ class LoginScreen extends StatelessWidget {
                             ),
                             14.horizontalSpace,
                             AppButtonWidget(
-                              onClick: () {},
+                              onClick: () {
+                              },
                               customChild: SvgPicture.asset(
                                 AppAssetsUtil.appleIcon,
                                 width: 20.w,

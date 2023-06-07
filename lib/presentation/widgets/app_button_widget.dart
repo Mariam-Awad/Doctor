@@ -13,6 +13,7 @@ class AppButtonWidget extends StatelessWidget {
     Key? key,
     required this.width,
     required this.height,
+    //this.borderSide,
   }) : super(key: key);
 
   final void Function()? onClick;
@@ -23,7 +24,7 @@ class AppButtonWidget extends StatelessWidget {
   final double btnRadius;
   final double width;
   final double height;
-  final BorderSide? border ;
+  final BorderSide? border;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -35,7 +36,7 @@ class AppButtonWidget extends StatelessWidget {
           backgroundColor: btnBackgroundColor,
           padding: btnPadding,
           fixedSize: btnSize,
-          side:border,
+          side: border,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(btnRadius),
           ),
