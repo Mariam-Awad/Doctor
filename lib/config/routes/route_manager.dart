@@ -1,8 +1,10 @@
 import 'package:doctor/config/routes/app_routes.dart';
 import 'package:doctor/presentation/screens/forget_password_screen.dart';
 import 'package:doctor/presentation/screens/main_screen.dart';
+import 'package:doctor/presentation/screens/my_visits_screen.dart';
 import 'package:doctor/presentation/screens/otp_screen.dart';
 import 'package:doctor/presentation/screens/splash_screen.dart';
+import 'package:doctor/presentation/screens/verify_identity_screen.dart';
 import 'package:flutter/material.dart';
 import '../../presentation/screens/login_screen.dart';
 
@@ -28,6 +30,14 @@ class AppRouteManager {
       case AppRoutes.mainRouteName:
         return MaterialPageRoute(
           builder: (context) => const MainScreen(),
+        );
+      case AppRoutes.myVisitsName:
+        return MaterialPageRoute(
+          builder: (context) => const MyVisitsScreen(),
+        );
+      case AppRoutes.verifyIdentityRouteName:
+        return MaterialPageRoute(
+          builder: (context) => const VerifyIdentityScreen(),
         );
       default:
         return _undefinedRoute();

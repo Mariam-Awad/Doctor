@@ -8,4 +8,5 @@ class AppRoutes {
   static const String userProfileDetailsRouteName = "/UserProfileDetailsScreen";
   static const String paymentRouteName = "/paymentScreen";
   static const String settingsRouteName = "/settingsScreen";
+  static const String verifyIdentityRouteName = "/verifyIdentityScreen";
 }

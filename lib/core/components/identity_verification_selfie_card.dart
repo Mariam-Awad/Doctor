@@ -27,6 +27,7 @@ class IdentityVerificationSelfieCard extends StatelessWidget {
     return DottedBorder(
       color: AppColorUtil.textDarkGreen,
       dashPattern: const [8, 8, 8, 8],
+      strokeWidth: 2.0,
       borderType: BorderType.RRect,
       radius: Radius.circular(12.r),
       child: Container(
@@ -52,10 +53,11 @@ class IdentityVerificationSelfieCard extends StatelessWidget {
               Text(descreption,
                   textAlign: TextAlign.center,
                   overflow: TextOverflow.ellipsis,
+                  maxLines: 2,
                   style: AppStylesUtil.textRegularStyle(
                       10.sp,
                       AppColorUtil.textDarkGreen, // White
-                      FontWeight.w400)),
+                      FontWeight.w500)),
               25.verticalSpace,
               SvgPicture.asset(iconAsset,
                   width: 55.w, height: 55.h, fit: BoxFit.contain),
