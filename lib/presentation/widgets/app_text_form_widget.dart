@@ -1,7 +1,6 @@
 import 'package:doctor/core/utils/app_colors_util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import '../../core/utils/app_styles_util.dart';
 
 class AppTextFormWidget extends StatelessWidget {
@@ -47,7 +46,6 @@ class AppTextFormWidget extends StatelessWidget {
           //color: Colors.lightBlue,
           height: 60.h,
           child: TextFormField(
-            
             cursorColor: AppColorUtil.darkGreen,
             initialValue: initialValue,
             onChanged: onChangeListener,
@@ -74,7 +72,7 @@ class AppTextFormWidget extends StatelessWidget {
               hintStyle: AppStylesUtil.textRegularStyle(
                   hintSize!, AppColorUtil.textLightGrey, FontWeight.w400),
               labelText: label ?? "",
-              labelStyle:AppStylesUtil.textRegularStyle(
+              labelStyle: AppStylesUtil.textRegularStyle(
                   hintSize!, AppColorUtil.textLightGrey, FontWeight.w400),
               suffixIcon: hint!.toLowerCase().contains("password")
                   ? IconButton(
