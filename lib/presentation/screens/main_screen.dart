@@ -26,16 +26,16 @@ class _MainScreenState extends State<MainScreen> {
             icon: AppAssetsUtil.bookIcon,
           ),
           bottomNavItem(
-            icon:  AppAssetsUtil.notificationIcon,
+            icon: AppAssetsUtil.notificationIcon,
           ),
           bottomNavItem(
-            icon:  AppAssetsUtil.homeIcon,
+            icon: AppAssetsUtil.homeIcon,
           ),
           bottomNavItem(
-            icon:  AppAssetsUtil.chatIcon,
+            icon: AppAssetsUtil.chatIcon,
           ),
           bottomNavItem(
-            icon:  AppAssetsUtil.doctorIcon,
+            icon: AppAssetsUtil.doctorIcon,
           ),
         ],
         onCLick: (value) {
@@ -52,6 +52,5 @@ class _MainScreenState extends State<MainScreen> {
             .elementAt(MainScreenHelper.instance().currentIndex),
       ),
     );
-    
   }
 }

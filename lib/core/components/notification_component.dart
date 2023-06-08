@@ -4,27 +4,21 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../utils/app_styles_util.dart';
 
 class NotificationComponent extends StatelessWidget {
-  final double widthContainer;
-  final double heightContainer;
   final String title;
   final String discreption;
   final void Function()? onTap;
 
   const NotificationComponent(
-      {super.key,
-      required this.widthContainer,
-      required this.heightContainer,
-      required this.title,
-      required this.discreption,
-      this.onTap});
+      {super.key, required this.title, required this.discreption, this.onTap});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: widthContainer,
-      height: heightContainer,
+      width: 302.w,
+      height: 76.h,
+      margin: const EdgeInsets.all(4.0),
       decoration: BoxDecoration(
-          color: AppColorUtil.textDarkGreen,
+          color: AppColorUtil.textDarkGreen.withOpacity(0.75),
           borderRadius: BorderRadius.circular(12.r)),
       child: Stack(
         children: [

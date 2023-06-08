@@ -80,7 +80,7 @@ class AppAssetsUtil {
   static const String reviewBackgroundImage = "assets/images/Review.jpg";
   static const String profileBackgroundImage =
       "assets/images/User Profile – 4.jpg";
-  static const String capsolaBackgroundImage =
+  static const String verifyIdentityBackgroundImage =
       "assets/images/Verify Identity.jpg";
   static const String weightBackgroundImage =
       "assets/images/What is your weight.jpg";

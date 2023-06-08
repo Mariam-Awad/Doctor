@@ -56,7 +56,7 @@ class _MyVisitsScreenState extends State<MyVisitsScreen>
               padding: EdgeInsets.symmetric(
                 vertical: 20.h,
                 horizontal: 20.w,
-              ),
+              ),  
               child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.center,
