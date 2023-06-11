@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:doctor/core/app_debug_prints.dart';
 import 'package:doctor/core/utils/app_assets_util.dart';
 import 'package:doctor/core/utils/app_colors_util.dart';
 
@@ -12,7 +13,8 @@ class HomeScreenHelper {
     }
     return _homeScreenHelper!;
   }
-  int index = 0 ;
+
+  int index = 0;
 
   List<String> backGroundImages = [
     AppAssetsUtil.homeBackground1Image,
@@ -45,4 +47,31 @@ class HomeScreenHelper {
           : AppColorUtil.white;
 
   String setBackGroundImage() => backGroundImages[index];
+
+  navOnBoardingToRight(void Function(void Function() fn) setState) {
+    if (index <= 4) {
+      printInfo("the index => $index");
+      setState(() {
+        index++;
+        setBackGroundImage();
+      });
+    }
+  }
+
+  navOnBoardingToLeft(void Function(void Function() fn) setState) {
+    if (index > 0) {
+      setState(() {
+        index--;
+        setBackGroundImage();
+      });
+    }
+  }
+
+  String setOnBoardingNavImgRightBtn() => index <= 4
+      ? AppAssetsUtil.onboardingRightButtonpossible
+      : AppAssetsUtil.onboardingRightButtonImpossible;
+
+  String setOnBoardingNavImgLeftBtn() => index > 0
+      ? AppAssetsUtil.onboardingLeftButtonpossible
+      : AppAssetsUtil.onboardingLeftButtonImpossible;
 }

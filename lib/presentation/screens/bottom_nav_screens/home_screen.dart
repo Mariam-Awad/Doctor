@@ -48,17 +48,10 @@ class _HomeScreenState extends State<HomeScreen> {
                     bottom: 400.h,
                     child: InkWell(
                       onTap: () {
-                        if (HomeScreenHelper.instance().index >0) {
-                          setState(() {
-                            HomeScreenHelper.instance().index--;
-                            HomeScreenHelper.instance().setBackGroundImage();
-                          });
-                        }
+                        HomeScreenHelper.instance().navOnBoardingToLeft(setState);
                       },
                       child: SvgPicture.asset(
-                        HomeScreenHelper.instance().index >0
-                            ? AppAssetsUtil.onboardingLeftButtonpossible
-                            : AppAssetsUtil.onboardingLeftButtonImpossible,
+                        HomeScreenHelper.instance().setOnBoardingNavImgLeftBtn()
                       ),
                     ),
                   ),
@@ -67,19 +60,10 @@ class _HomeScreenState extends State<HomeScreen> {
                     bottom: 200.h,
                     child: InkWell(
                       onTap: () {
-                        if (HomeScreenHelper.instance().index <= 4) {
-                          printInfo(
-                              "the index => ${HomeScreenHelper.instance().index}");
-                          setState(() {
-                            HomeScreenHelper.instance().index++;
-                            HomeScreenHelper.instance().setBackGroundImage();
-                          });
-                        }
+                        HomeScreenHelper.instance().navOnBoardingToRight(setState);
                       },
                       child: SvgPicture.asset(
-                        HomeScreenHelper.instance().index <= 4
-                            ? AppAssetsUtil.onboardingRightButtonpossible
-                            : AppAssetsUtil.onboardingRightButtonImpossible,
+                        HomeScreenHelper.instance().setOnBoardingNavImgRightBtn()
                       ),
                     ),
                   ),
