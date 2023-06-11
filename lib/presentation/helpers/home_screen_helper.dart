@@ -12,6 +12,7 @@ class HomeScreenHelper {
     }
     return _homeScreenHelper!;
   }
+  int index = 0 ;
 
   List<String> backGroundImages = [
     AppAssetsUtil.homeBackground1Image,
@@ -35,13 +36,13 @@ class HomeScreenHelper {
   Color setCircleContainerColor(int index) =>
       index == 2 ? AppColorUtil.darkGreen : AppColorUtil.white;
 
-
   bool showCircleContainer(int index) => index == 0 ? false : true;
 
-
-  Color setOnBoardingTextColor(int index)=> index == 0
+  Color setOnBoardingTextColor(int index) => index == 0
       ? AppColorUtil.darkGreen
       : index == 2
-      ? AppColorUtil.darkGreen
-      : AppColorUtil.white;
+          ? AppColorUtil.darkGreen
+          : AppColorUtil.white;
+
+  String setBackGroundImage() => backGroundImages[index];
 }
