@@ -18,7 +18,7 @@ class _MainScreenState extends State<MainScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: AppBottomNavigationComponent(
-        bottomColor: AppColorUtil.white,
+        bottomColor: AppColorUtil.backgroundLightBabyBlue,
         selectedColor: AppColorUtil.background2LightGreen,
         currentIndex: MainScreenHelper.instance().currentIndex,
         bottomItems: [
