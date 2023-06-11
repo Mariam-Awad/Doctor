@@ -20,42 +20,41 @@ class TestimonialsComponent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Material(
-        elevation: 8.0,
-        color: AppColorUtil.backgroundDarkWhite,
-        shadowColor: AppColorUtil.semiDarkWhite,
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 14.w, vertical: 12.h),
+      width: widthContainer,
+      height: heightContainer,
+      decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12.r),
-        child: Container(
-          padding: EdgeInsets.symmetric(horizontal: 14.w, vertical: 12.h),
-          width: widthContainer,
-          height: heightContainer,
-          child: Row(
-            children: [
-              Image.asset(iconAsset,
-                  width: 55.w, height: 65.h, fit: BoxFit.contain),
-              10.horizontalSpace,
-              Expanded(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      title,
-                      style: AppStylesUtil.textRegularStyle(
-                          12.sp, AppColorUtil.textblackBold, FontWeight.bold),
-                    ),
-                    Text(
-                      discreption,
-                      overflow: TextOverflow.ellipsis,
-                      maxLines: 3,
-                      style: AppStylesUtil.textRegularStyle(
-                          11.sp, AppColorUtil.textblackBold, FontWeight.w400),
-                    ),
-                  ],
+        color: Colors.grey[200]!.withOpacity(0.4),
+      ),
+      child: Row(
+        children: [
+          Image.asset(iconAsset,
+              width: 55.w, height: 65.h, fit: BoxFit.contain),
+          10.horizontalSpace,
+          Expanded(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  title,
+                  style: AppStylesUtil.textRegularStyle(
+                      12.sp, AppColorUtil.textblackBold, FontWeight.bold),
                 ),
-              )
-            ],
-          ),
-        ));
+                Text(
+                  discreption,
+                  overflow: TextOverflow.ellipsis,
+                  maxLines: 3,
+                  style: AppStylesUtil.textRegularStyle(
+                      11.sp, AppColorUtil.textblackBold, FontWeight.w400),
+                ),
+              ],
+            ),
+          )
+        ],
+      ),
+    );
   }
 }

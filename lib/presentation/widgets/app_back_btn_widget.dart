@@ -8,12 +8,17 @@ class AppBackBtnWidget extends StatelessWidget {
     required this.onClick,
     this.title,
     required this.titleIsVisible,
+    required this.titleStyle,
+    required this.iconColor,
+    required this.space,
     super.key,
   });
-  final String? title ;
-  final bool titleIsVisible ;
+  final String? title;
+  final bool titleIsVisible;
   final void Function() onClick;
-
+  final TextStyle? titleStyle;
+  final Color iconColor;
+  final Widget space;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -23,19 +28,15 @@ class AppBackBtnWidget extends StatelessWidget {
           child: Icon(
             Icons.arrow_back,
             size: 20.sp,
-            color: AppColorUtil.darkGreen,
+            color: iconColor,
           ),
         ),
-        70.horizontalSpace,
+        space,
         Visibility(
           visible: titleIsVisible,
           child: Text(
-            title == null ? "":title!,
-            style: AppStylesUtil.textBoldStyle(
-              18.sp,
-              AppColorUtil.textDarkGreen,
-              FontWeight.bold,
-            ),
+            title == null ? "" : title!,
+            style: titleStyle,
           ),
         )
       ],

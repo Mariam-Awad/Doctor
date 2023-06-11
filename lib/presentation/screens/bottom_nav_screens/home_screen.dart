@@ -1,3 +1,5 @@
+import 'package:doctor/config/routes/app_navigation_manager.dart';
+import 'package:doctor/config/routes/app_routes.dart';
 import 'package:doctor/config/screen_resizer.dart';
 import 'package:doctor/core/app_debug_prints.dart';
 import 'package:doctor/core/utils/app_assets_util.dart';
@@ -48,11 +50,11 @@ class _HomeScreenState extends State<HomeScreen> {
                     bottom: 400.h,
                     child: InkWell(
                       onTap: () {
-                        HomeScreenHelper.instance().navOnBoardingToLeft(setState);
+                        HomeScreenHelper.instance()
+                            .navOnBoardingToLeft(setState);
                       },
-                      child: SvgPicture.asset(
-                        HomeScreenHelper.instance().setOnBoardingNavImgLeftBtn()
-                      ),
+                      child: SvgPicture.asset(HomeScreenHelper.instance()
+                          .setOnBoardingNavImgLeftBtn()),
                     ),
                   ),
                   Positioned(
@@ -60,11 +62,11 @@ class _HomeScreenState extends State<HomeScreen> {
                     bottom: 200.h,
                     child: InkWell(
                       onTap: () {
-                        HomeScreenHelper.instance().navOnBoardingToRight(setState);
+                        HomeScreenHelper.instance()
+                            .navOnBoardingToRight(setState);
                       },
-                      child: SvgPicture.asset(
-                        HomeScreenHelper.instance().setOnBoardingNavImgRightBtn()
-                      ),
+                      child: SvgPicture.asset(HomeScreenHelper.instance()
+                          .setOnBoardingNavImgRightBtn()),
                     ),
                   ),
                   Positioned(
@@ -180,7 +182,11 @@ class _HomeScreenState extends State<HomeScreen> {
                             height: 20.h,
                           ),
                           AppButtonWidget(
-                            onClick: () {},
+                            onClick: () {
+                              AppNavigationManager.navPush(
+                                  context: context,
+                                  screen: AppRoutes.biographyRouteName);
+                            },
                             customChild: Text(
                               AppLocalizations.of(context)!.biography,
                               style: AppStylesUtil.textBoldStyle(

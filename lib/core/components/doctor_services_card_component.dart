@@ -27,7 +27,7 @@ class DoctorServicesCardComponent extends StatelessWidget {
           title,
           textAlign: TextAlign.center,
           style: AppStylesUtil.textRegularStyle(
-              10.sp, AppColorUtil.textblackBold, FontWeight.w500),
+              8.sp,   AppColorUtil.textblackBold, FontWeight.w400),
         ),
       ],
     );
