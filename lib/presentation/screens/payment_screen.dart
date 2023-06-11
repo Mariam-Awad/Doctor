@@ -56,7 +56,7 @@ class PaymentScreen extends StatelessWidget {
               ),
               const Spacer(),
               Padding(
-                padding:  EdgeInsets.symmetric(
+                padding: EdgeInsets.symmetric(
                   horizontal: 10.w,
                 ),
                 child: AppButtonWidget(
@@ -64,7 +64,7 @@ class PaymentScreen extends StatelessWidget {
                   customChild: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                       SvgPicture.asset(
+                      SvgPicture.asset(
                         AppAssetsUtil.addAltIcon,
                       ),
                       10.horizontalSpace,

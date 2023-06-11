@@ -1,6 +1,4 @@
 import 'package:doctor/config/screen_resizer.dart';
-import 'package:doctor/core/app_debug_prints.dart';
-import 'package:doctor/core/utils/app_assets_util.dart';
 import 'package:doctor/core/utils/app_colors_util.dart';
 import 'package:doctor/core/utils/app_styles_util.dart';
 import 'package:doctor/presentation/helpers/home_screen_helper.dart';

@@ -1,0 +1,177 @@
+import 'package:carousel_slider/carousel_slider.dart';
+import 'package:doctor/core/app_debug_prints.dart';
+import 'package:doctor/core/utils/app_colors_util.dart';
+import 'package:doctor/presentation/helpers/define_problem_helper.dart';
+import 'package:doctor/presentation/helpers/old_screen_helper.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../../config/routes/app_navigation_manager.dart';
+import '../../core/components/visit_type_card_component.dart';
+import '../../core/utils/app_assets_util.dart';
+import '../../core/utils/app_styles_util.dart';
+import '../widgets/app_button_widget.dart';
+import '../widgets/background_widget.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
+class OldScreen extends StatefulWidget {
+  const OldScreen({super.key});
+
+  @override
+  State<OldScreen> createState() => _OldScreenState();
+}
+
+class _OldScreenState extends State<OldScreen> {
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Background(
+        imageAsset: AppAssetsUtil.oldBackgroundImage,
+        child: Scaffold(
+            backgroundColor: Colors.transparent,
+            body: SizedBox(
+              width: MediaQuery.of(context).size.width,
+              height: MediaQuery.of(context).size.height,
+              child: Padding(
+                padding: EdgeInsets.only(
+                    top: 30.h, bottom: 20.h, left: 10.w, right: 10.w),
+                child: Stack(
+                  alignment: AlignmentDirectional.topCenter,
+                  children: [
+                    Positioned(
+                      top: 30.h,
+                      left: 10.w,
+                      child: InkWell(
+                        onTap: () {
+                          AppNavigationManager.navPop(context);
+                        },
+                        child: Icon(
+                          Icons.arrow_back,
+                          size: 23.0,
+                          weight: 20.0,
+                          color: AppColorUtil.textDarkGreen,
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(top: 30.h),
+                      child: Center(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Text(
+                              AppLocalizations.of(context)!.how_old_are_you,
+                              textAlign: TextAlign.center,
+                              style: AppStylesUtil.textBoldStyle(
+                                20.sp,
+                                AppColorUtil.textDarkGreen,
+                                FontWeight.bold,
+                              ),
+                            ),
+                            5.verticalSpace,
+                            SizedBox(
+                              width: 260.h,
+                              child: Text(
+                                AppLocalizations.of(context)!
+                                    .most_therapies_depend_on_it,
+                                textAlign: TextAlign.center,
+                                style: AppStylesUtil.textBoldStyle(
+                                  12.sp,
+                                  AppColorUtil.textDarkGreen.withOpacity(0.60),
+                                  FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      top: 170.h,
+                      child: SizedBox(
+                        height: 95.h,
+                        width: MediaQuery.of(context).size.width,
+                        child: ListView.builder(
+                            scrollDirection: Axis.horizontal,
+                            physics: const ScrollPhysics(),
+                            shrinkWrap: true,
+                            itemCount: OldScreenHelper.instance().ages.length,
+                            itemBuilder: (context, index) {
+                              return InkWell(
+                                onTap: () {
+                                  printDone('index $index');
+                                },
+                                child: Container(
+                                  height: 95.h,
+                                  width: 70.w,
+                                  padding: const EdgeInsets.all(8.0),
+                                  margin: const EdgeInsets.all(4.0),
+                                  decoration: BoxDecoration(
+                                      border: Border.all(
+                                          color: AppColorUtil.textDarkGreen),
+                                      borderRadius: BorderRadius.circular(12.r),
+                                      color: AppColorUtil.white),
+                                  child: Center(
+                                    child: Text(
+                                      OldScreenHelper.instance().ages[index],
+                                      style: AppStylesUtil.textRegularStyle(
+                                        30.sp,
+                                        AppColorUtil.textDarkGreen,
+                                        FontWeight.w500,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              );
+                            }),
+                      ),
+                    ),
+                    Positioned(
+                        bottom: 100,
+                        left: 10,
+                        child: SizedBox(
+                          height: 153.h,
+                          width: 130.w,
+                          child: Text(
+                            AppLocalizations.of(context)!.lorem,
+                            textAlign: TextAlign.start,
+                            overflow: TextOverflow.clip,
+                            style: AppStylesUtil.textBoldStyle(
+                              20.sp,
+                              AppColorUtil.white,
+                              FontWeight.bold,
+                            ),
+                          ),
+                        )),
+                    Positioned(
+                      bottom: 30.h,
+                      child: AppButtonWidget(
+                        onClick: () {
+                          // todo
+                        },
+                        customChild: Text(
+                          AppLocalizations.of(context)!.continues,
+                          style: AppStylesUtil.textRegularStyle(
+                            16.sp,
+                            AppColorUtil.textDarkGreen,
+                            FontWeight.bold,
+                          ),
+                        ),
+                        btnBackgroundColor: AppColorUtil.white,
+                        btnPadding: EdgeInsets.all(5.sp),
+                        btnSize: Size(302.w, 40.h),
+                        btnRadius: 12,
+                        height: 40.h,
+                        width: 302.w,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            )));
+  }
+}

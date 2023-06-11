@@ -42,7 +42,7 @@ class AppAssetsUtil {
       "assets/images/Add Patient Details -Personal Information 1 – 2.jpg";
   static const String patientBackgroundSheretImage =
       "assets/images/Add Patient Details – 8.jpg";
-  static const String patientBackgroundPlusImage =
+  static const String oldBackgroundImage =
       "assets/images/Add Patient Details – 9.jpg";
   static const String patientBackgroundEmptyImage =
       "assets/images/Add Patient Details – 9 copy.jpg";
@@ -60,7 +60,7 @@ class AppAssetsUtil {
       "assets/images/Choose Branch.jpg";
   static const String anabebImage =
       "assets/images/Coronavirus Blood Samples Mixed.G03.2k.png";
-  static const String patientBackgroundTermometerImage =
+  static const String defineProblemBackgroundImage =
       "assets/images/Define Problem- Treatment – 1.jpg";
   static const String termometerImage =
       "assets/images/Digital Thermometer.B04.2k.png";

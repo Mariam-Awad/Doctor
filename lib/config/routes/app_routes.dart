@@ -9,4 +9,6 @@ class AppRoutes {
   static const String paymentRouteName = "/paymentScreen";
   static const String settingsRouteName = "/settingsScreen";
   static const String verifyIdentityRouteName = "/verifyIdentityScreen";
+  static const String defineProblemRouteName = "/defineProblemScreen";
+  static const String oldRouteName = "/oldScreen";
 }
