@@ -1,35 +1,40 @@
-import 'package:carousel_slider/carousel_slider.dart';
-import 'package:doctor/core/app_debug_prints.dart';
+import 'package:animated_weight_picker/animated_weight_picker.dart';
+import 'package:doctor/core/components/weight.component.dart';
 import 'package:doctor/core/utils/app_colors_util.dart';
-import 'package:doctor/presentation/helpers/define_problem_helper.dart';
 import 'package:doctor/presentation/helpers/old_screen_helper.dart';
+import 'package:doctor/presentation/helpers/weight_screen_helper.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../config/routes/app_navigation_manager.dart';
-import '../../core/components/visit_type_card_component.dart';
 import '../../core/utils/app_assets_util.dart';
 import '../../core/utils/app_styles_util.dart';
 import '../widgets/app_button_widget.dart';
 import '../widgets/background_widget.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-class OldScreen extends StatefulWidget {
-  const OldScreen({super.key});
+class WeightScreen extends StatefulWidget {
+  const WeightScreen({super.key});
 
   @override
-  State<OldScreen> createState() => _OldScreenState();
+  State<WeightScreen> createState() => _WeightScreenState();
 }
 
-class _OldScreenState extends State<OldScreen> {
+class _WeightScreenState extends State<WeightScreen> {
+  final double min = 40;
+  final double max = 150;
+  String selectedValue = '';
+
   @override
   void initState() {
     super.initState();
+    selectedValue = min.toString();
   }
 
   @override
   Widget build(BuildContext context) {
     return Background(
-        imageAsset: AppAssetsUtil.oldBackgroundImage,
+        imageAsset: AppAssetsUtil.weightBackgroundImage,
         child: Scaffold(
             backgroundColor: Colors.transparent,
             body: SizedBox(
@@ -64,7 +69,7 @@ class _OldScreenState extends State<OldScreen> {
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             Text(
-                              AppLocalizations.of(context)!.how_old_are_you,
+                              AppLocalizations.of(context)!.what_is_your_weight,
                               textAlign: TextAlign.center,
                               style: AppStylesUtil.textBoldStyle(
                                 20.sp,
@@ -91,63 +96,67 @@ class _OldScreenState extends State<OldScreen> {
                       ),
                     ),
                     Positioned(
-                      top: 170.h,
+                        top: 100.h,
+                        child: Row(
+                          children: [
+                            WeightComponent(
+                              widthContainer: 70.w,
+                              heightContainer: 46.h,
+                              title: 'Kg',
+                              pressedBackgroundContainerColor:
+                                  WeightScreenHelper.instance()
+                                      .backgroundColor0,
+                              pressedTitleColor:
+                                  WeightScreenHelper.instance().textColor0,
+                              onTap: () {
+                                setState(() {
+                                  WeightScreenHelper.instance()
+                                      .changeCurrentColor(0);
+                                });
+                              },
+                            ),
+                            10.horizontalSpace,
+                            WeightComponent(
+                              widthContainer: 70.w,
+                              heightContainer: 46.h,
+                              title: 'Lbs',
+                              pressedBackgroundContainerColor:
+                                  WeightScreenHelper.instance()
+                                      .backgroundColor1,
+                              pressedTitleColor:
+                                  WeightScreenHelper.instance().textColor1,
+                              onTap: () {
+                                setState(() {
+                                  WeightScreenHelper.instance()
+                                      .changeCurrentColor(1);
+                                });
+                              },
+                            ),
+                          ],
+                        )),
+                    Positioned(
+                      top: 180.h,
                       child: SizedBox(
-                        height: 114.h,
+                        height: 100.h,
                         width: MediaQuery.of(context).size.width,
-                        child: ListView.builder(
-                            scrollDirection: Axis.horizontal,
-                            physics: const ScrollPhysics(),
-                            shrinkWrap: true,
-                            itemCount: 60,
-                            itemBuilder: (context, index) {
-                              return InkWell(
-                                  onTap: () {
-                                    setState(() {
-                                      OldScreenHelper.instance()
-                                          .onChangeAge(index);
-                                    });
-                                  },
-                                  child: Container(
-                                    height: OldScreenHelper.instance()
-                                                .selectedIndex ==
-                                            index
-                                        ? 114.h
-                                        : 95.h,
-                                    width: 70.w,
-                                    padding: const EdgeInsets.all(8.0),
-                                    margin: const EdgeInsets.all(4.0),
-                                    decoration: BoxDecoration(
-                                      color: OldScreenHelper.instance()
-                                                  .selectedIndex ==
-                                              index
-                                          ? AppColorUtil.backgroundDarkBabyBlue
-                                          : AppColorUtil.white,
-                                      border: Border.all(
-                                          color: OldScreenHelper.instance()
-                                                      .selectedIndex ==
-                                                  index
-                                              ? AppColorUtil.white
-                                              : AppColorUtil
-                                                  .backgroundDarkBabyBlue),
-                                      borderRadius: BorderRadius.circular(12.r),
-                                    ),
-                                    child: Center(
-                                      child: Text(
-                                        (22 + index).toString(),
-                                        style: AppStylesUtil.textRegularStyle(
-                                          30.sp,
-                                          OldScreenHelper.instance()
-                                                      .selectedIndex ==
-                                                  index
-                                              ? AppColorUtil.white
-                                              : AppColorUtil.textDarkGreen,
-                                          FontWeight.w500,
-                                        ),
-                                      ),
-                                    ),
-                                  ));
-                            }),
+                        child: AnimatedWeightPicker(
+                          min: min,
+                          max: max,
+                          majorIntervalThickness: 3,
+                          majorIntervalHeight: 20.0,
+                          selectedValueColor: AppColorUtil.textDarkGreen,
+                          dialColor: AppColorUtil.textDarkGreen,
+                          dialHeight: 45.h,
+                          dialThickness: 2.0,
+                          suffixText: WeightScreenHelper.instance().suffixText,
+                          squeeze: 2.0,
+                          suffixTextColor: AppColorUtil.textDarkGreen,
+                          onChange: (newValue) {
+                            setState(() {
+                              selectedValue = newValue;
+                            });
+                          },
+                        ),
                       ),
                     ),
                     Positioned(

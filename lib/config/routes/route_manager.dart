@@ -7,6 +7,7 @@ import 'package:doctor/presentation/screens/old_screen.dart';
 import 'package:doctor/presentation/screens/otp_screen.dart';
 import 'package:doctor/presentation/screens/splash_screen.dart';
 import 'package:doctor/presentation/screens/verify_identity_screen.dart';
+import 'package:doctor/presentation/screens/weight_screen.dart';
 import 'package:flutter/material.dart';
 import '../../presentation/screens/login_screen.dart';
 
@@ -48,6 +49,10 @@ class AppRouteManager {
       case AppRoutes.oldRouteName:
         return MaterialPageRoute(
           builder: (context) => const OldScreen(),
+        );
+      case AppRoutes.weightRouteName:
+        return MaterialPageRoute(
+          builder: (context) => const WeightScreen(),
         );
       default:
         return _undefinedRoute();

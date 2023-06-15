@@ -11,4 +11,5 @@ class AppRoutes {
   static const String verifyIdentityRouteName = "/verifyIdentityScreen";
   static const String defineProblemRouteName = "/defineProblemScreen";
   static const String oldRouteName = "/oldScreen";
+  static const String weightRouteName = "/weightScreen";
 }
