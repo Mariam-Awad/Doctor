@@ -9,6 +9,9 @@ import 'package:doctor/presentation/screens/splash_screen.dart';
 import 'package:doctor/presentation/screens/verify_identity_screen.dart';
 import 'package:doctor/presentation/screens/weight_screen.dart';
 import 'package:flutter/material.dart';
+import '../../presentation/screens/blood_screen.dart';
+import '../../presentation/screens/branch_screen.dart';
+import '../../presentation/screens/height_screen.dart';
 import '../../presentation/screens/login_screen.dart';
 
 class AppRouteManager {
@@ -53,6 +56,18 @@ class AppRouteManager {
       case AppRoutes.weightRouteName:
         return MaterialPageRoute(
           builder: (context) => const WeightScreen(),
+        );
+      case AppRoutes.heightRouteName:
+        return MaterialPageRoute(
+          builder: (context) => const HeightScreen(),
+        );
+      case AppRoutes.bloodRouteName:
+        return MaterialPageRoute(
+          builder: (context) => const BloodScreen(),
+        );
+      case AppRoutes.branchRouteName:
+        return MaterialPageRoute(
+          builder: (context) => const BranchScreen(),
         );
       default:
         return _undefinedRoute();

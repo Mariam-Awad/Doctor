@@ -16,6 +16,7 @@ class AppTextFormWidget extends StatelessWidget {
   final double? radius, sideWidth;
   final Color? sideColor, fillColor;
   final bool? isFiled;
+  final TextEditingController? controller;
 
   const AppTextFormWidget(
       {this.label,
@@ -34,8 +35,10 @@ class AppTextFormWidget extends StatelessWidget {
       this.sideWidth,
       this.fillColor,
       this.isFiled,
-      Key? key})
+      Key? key, 
+      this.controller})
       : super(key: key);
+
   static bool? passwordObscure = true;
   static bool? passwordVisibilty = false;
   @override
@@ -46,6 +49,7 @@ class AppTextFormWidget extends StatelessWidget {
           //color: Colors.lightBlue,
           height: 60.h,
           child: TextFormField(
+            controller: controller,
             cursorColor: AppColorUtil.darkGreen,
             initialValue: initialValue,
             onChanged: onChangeListener,
@@ -73,7 +77,7 @@ class AppTextFormWidget extends StatelessWidget {
                   hintSize!, AppColorUtil.textLightGrey, FontWeight.w400),
               labelText: label ?? "",
               labelStyle: AppStylesUtil.textRegularStyle(
-                  hintSize!, AppColorUtil.textLightGrey, FontWeight.w400),
+                  hintSize!, AppColorUtil.textblackBold, FontWeight.w400),
               suffixIcon: hint!.toLowerCase().contains("password")
                   ? IconButton(
                       onPressed: () {

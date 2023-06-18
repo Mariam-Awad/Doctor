@@ -40,13 +40,13 @@ class AppAssetsUtil {
   /// images section with png or jpg or jpeg extension >>>>>>>>>>>>>>>>>>>>>>>>>>>>>.
   static const String patientBackgroundSama3aImage =
       "assets/images/Add Patient Details -Personal Information 1 – 2.jpg";
-  static const String patientBackgroundSheretImage =
+  static const String heightBackgroundImage =
       "assets/images/Add Patient Details – 8.jpg";
   static const String oldBackgroundImage =
       "assets/images/Add Patient Details – 9.jpg";
   static const String patientBackgroundEmptyImage =
       "assets/images/Add Patient Details – 9 copy.jpg";
-  static const String patientBackgroundAnabebImage =
+  static const String bloodBackgroundImage =
       "assets/images/Add Patient Details – 10.jpg";
   static const String testimonialsImage1 = "assets/images/Artboa.png";
   static const String testimonialsImage2 = "assets/images/Artboard – 1.png";
@@ -56,7 +56,7 @@ class AppAssetsUtil {
       "assets/images/Checkout.jpg";
   static const String patientBackgroundAppointmentImage =
       "assets/images/Choose appointment date and time.jpg";
-  static const String patientBackgroundLocationImage =
+  static const String chooseBranchBackgroundImage =
       "assets/images/Choose Branch.jpg";
   static const String anabebImage =
       "assets/images/Coronavirus Blood Samples Mixed.G03.2k.png";

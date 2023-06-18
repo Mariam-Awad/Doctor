@@ -39,4 +39,5 @@ class AppColorUtil {
   static Color red = const Color(0xffF70D3A);
   static Color green = const Color(0xff1CC429);
   static Color loginContainerColor = const Color(0xffEAF6FF);
+  static Color shadowLocationColor = const Color(0xffEDEEF2);
 }

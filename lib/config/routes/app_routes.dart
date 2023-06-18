@@ -12,4 +12,7 @@ class AppRoutes {
   static const String defineProblemRouteName = "/defineProblemScreen";
   static const String oldRouteName = "/oldScreen";
   static const String weightRouteName = "/weightScreen";
+  static const String heightRouteName = "/heightScreen";
+  static const String bloodRouteName = "/bloodScreen";
+  static const String branchRouteName = "/branchScreen";
 }

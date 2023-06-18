@@ -1,39 +1,45 @@
 import 'package:animated_weight_picker/animated_weight_picker.dart';
+import 'package:doctor/core/app_debug_prints.dart';
 import 'package:doctor/core/components/weight.component.dart';
 import 'package:doctor/core/utils/app_colors_util.dart';
 import 'package:doctor/presentation/helpers/weight_screen_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../config/routes/app_navigation_manager.dart';
+import '../../config/validate_auth_field.dart';
 import '../../core/utils/app_assets_util.dart';
+import '../../core/utils/app_strings.dart';
 import '../../core/utils/app_styles_util.dart';
 import '../widgets/app_button_widget.dart';
+import '../widgets/app_text_form_widget.dart';
 import '../widgets/background_widget.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-class WeightScreen extends StatefulWidget {
-  const WeightScreen({super.key});
+class HeightScreen extends StatefulWidget {
+  const HeightScreen({super.key});
 
   @override
-  State<WeightScreen> createState() => _WeightScreenState();
+  State<HeightScreen> createState() => _HeightScreenState();
 }
 
-class _WeightScreenState extends State<WeightScreen> {
+class _HeightScreenState extends State<HeightScreen> {
   final double min = 40;
-  final double max = 150;
+  final double max = 200;
   String selectedValue = '';
-
+  TextEditingController? heightController;
   @override
   void initState() {
     super.initState();
     selectedValue = min.toString();
+    heightController = TextEditingController(text: selectedValue);
   }
 
   @override
   Widget build(BuildContext context) {
     return Background(
-        imageAsset: AppAssetsUtil.weightBackgroundImage,
+        imageAsset: AppAssetsUtil.heightBackgroundImage,
         child: Scaffold(
+            resizeToAvoidBottomInset: false,
             backgroundColor: Colors.transparent,
             body: SizedBox(
               width: MediaQuery.of(context).size.width,
@@ -67,7 +73,7 @@ class _WeightScreenState extends State<WeightScreen> {
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             Text(
-                              AppLocalizations.of(context)!.what_is_your_weight,
+                              'What Is Your Height',
                               textAlign: TextAlign.center,
                               style: AppStylesUtil.textBoldStyle(
                                 20.sp,
@@ -94,46 +100,7 @@ class _WeightScreenState extends State<WeightScreen> {
                       ),
                     ),
                     Positioned(
-                        top: 100.h,
-                        child: Row(
-                          children: [
-                            WeightComponent(
-                              widthContainer: 70.w,
-                              heightContainer: 46.h,
-                              title: 'Kg',
-                              pressedBackgroundContainerColor:
-                                  WeightScreenHelper.instance()
-                                      .backgroundColor0,
-                              pressedTitleColor:
-                                  WeightScreenHelper.instance().textColor0,
-                              onTap: () {
-                                setState(() {
-                                  WeightScreenHelper.instance()
-                                      .changeCurrentColor(0);
-                                });
-                              },
-                            ),
-                            10.horizontalSpace,
-                            WeightComponent(
-                              widthContainer: 70.w,
-                              heightContainer: 46.h,
-                              title: 'Lbs',
-                              pressedBackgroundContainerColor:
-                                  WeightScreenHelper.instance()
-                                      .backgroundColor1,
-                              pressedTitleColor:
-                                  WeightScreenHelper.instance().textColor1,
-                              onTap: () {
-                                setState(() {
-                                  WeightScreenHelper.instance()
-                                      .changeCurrentColor(1);
-                                });
-                              },
-                            ),
-                          ],
-                        )),
-                    Positioned(
-                      top: 180.h,
+                      top: 130.h,
                       child: SizedBox(
                         height: 100.h,
                         width: MediaQuery.of(context).size.width,
@@ -146,27 +113,69 @@ class _WeightScreenState extends State<WeightScreen> {
                           dialColor: AppColorUtil.textDarkGreen,
                           dialHeight: 45.h,
                           dialThickness: 2.0,
-                          suffixText: WeightScreenHelper.instance().suffixText,
+                          suffixText: 'cm',
                           squeeze: 2.0,
                           suffixTextColor: AppColorUtil.textDarkGreen,
                           onChange: (newValue) {
                             setState(() {
                               selectedValue = newValue;
+                              heightController!.text = newValue;
+                              printDone(selectedValue);
                             });
                           },
                         ),
                       ),
                     ),
                     Positioned(
-                        bottom: 100,
+                      top: 250.h,
+                      left: 10.w,
+                      child: Text(
+                        AppLocalizations.of(context)!.your_height,
+                        style: AppStylesUtil.textRegularStyle(
+                          14.sp,
+                          AppColorUtil.textDarkGrey,
+                          FontWeight.w500,
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      top: 270,
+                      left: 10.w,
+                      child: SizedBox(
+                        width: 320.w,
+                        height: 60.h,
+                        child: AppTextFormWidget(
+                          controller: heightController,
+                          hint: '150 cm',
+                          textType: TextInputType.number,
+                          onChangeListener: (value) {
+                            setState(() {
+                              selectedValue = value!;
+                            });
+                          },
+                          onValidateListener: (value) {},
+                          fontType: appFontBold,
+                          textSize: 12.sp,
+                          hintSize: 12.sp,
+                          radius: 12.sp,
+                          sideColor: AppColorUtil.textLightGrey,
+                          sideWidth: 1,
+                          fillColor: Colors.white,
+                          isFiled: true,
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                        bottom: 90,
                         left: 10,
                         child: SizedBox(
-                          height: 153.h,
-                          width: 130.w,
+                          height: 200.h,
+                          width: 180.w,
                           child: Text(
                             AppLocalizations.of(context)!.lorem,
                             textAlign: TextAlign.start,
-                            overflow: TextOverflow.clip,
+                            overflow: TextOverflow.ellipsis,
+                            maxLines: 9,
                             style: AppStylesUtil.textBoldStyle(
                               20.sp,
                               AppColorUtil.white,

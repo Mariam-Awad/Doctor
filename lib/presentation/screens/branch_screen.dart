@@ -1,39 +1,38 @@
 import 'package:animated_weight_picker/animated_weight_picker.dart';
-import 'package:doctor/core/components/weight.component.dart';
+import 'package:doctor/core/app_debug_prints.dart';
+import 'package:doctor/core/components/branch_location_component.dart';
 import 'package:doctor/core/utils/app_colors_util.dart';
-import 'package:doctor/presentation/helpers/weight_screen_helper.dart';
+import 'package:doctor/presentation/helpers/branch_screen_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../config/routes/app_navigation_manager.dart';
 import '../../core/utils/app_assets_util.dart';
+import '../../core/utils/app_strings.dart';
 import '../../core/utils/app_styles_util.dart';
 import '../widgets/app_button_widget.dart';
+import '../widgets/app_text_form_widget.dart';
 import '../widgets/background_widget.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-class WeightScreen extends StatefulWidget {
-  const WeightScreen({super.key});
+class BranchScreen extends StatefulWidget {
+  const BranchScreen({super.key});
 
   @override
-  State<WeightScreen> createState() => _WeightScreenState();
+  State<BranchScreen> createState() => _BranchScreenState();
 }
 
-class _WeightScreenState extends State<WeightScreen> {
-  final double min = 40;
-  final double max = 150;
-  String selectedValue = '';
-
+class _BranchScreenState extends State<BranchScreen> {
   @override
   void initState() {
     super.initState();
-    selectedValue = min.toString();
   }
 
   @override
   Widget build(BuildContext context) {
     return Background(
-        imageAsset: AppAssetsUtil.weightBackgroundImage,
+        imageAsset: AppAssetsUtil.chooseBranchBackgroundImage,
         child: Scaffold(
+            resizeToAvoidBottomInset: false,
             backgroundColor: Colors.transparent,
             body: SizedBox(
               width: MediaQuery.of(context).size.width,
@@ -67,7 +66,7 @@ class _WeightScreenState extends State<WeightScreen> {
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             Text(
-                              AppLocalizations.of(context)!.what_is_your_weight,
+                              AppLocalizations.of(context)!.choose_branch,
                               textAlign: TextAlign.center,
                               style: AppStylesUtil.textBoldStyle(
                                 20.sp,
@@ -80,7 +79,7 @@ class _WeightScreenState extends State<WeightScreen> {
                               width: 260.h,
                               child: Text(
                                 AppLocalizations.of(context)!
-                                    .most_therapies_depend_on_it,
+                                    .your_information_will_be_shared,
                                 textAlign: TextAlign.center,
                                 style: AppStylesUtil.textBoldStyle(
                                   12.sp,
@@ -94,38 +93,49 @@ class _WeightScreenState extends State<WeightScreen> {
                       ),
                     ),
                     Positioned(
-                        top: 100.h,
-                        child: Row(
+                      top: 130.h,
+                      left: 10.w,
+                      child: Text(
+                        AppLocalizations.of(context)!.select_branch,
+                        style: AppStylesUtil.textRegularStyle(
+                          16.sp,
+                          AppColorUtil.visaDarkBlack,
+                          FontWeight.w500,
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                        top: 170.h,
+                        left: 10.w,
+                        child: Column(
                           children: [
-                            WeightComponent(
-                              widthContainer: 70.w,
-                              heightContainer: 46.h,
-                              title: 'Kg',
-                              pressedBackgroundContainerColor:
-                                  WeightScreenHelper.instance()
-                                      .backgroundColor0,
-                              pressedTitleColor:
-                                  WeightScreenHelper.instance().textColor0,
+                            BranchLocationComponent(
+                              widthContainer: 234.w,
+                              heightContainer: 64.h,
+                              iconAsset: AppAssetsUtil.locationIcon,
+                              textlocation:
+                                  '16-El-fath Street ,Mohandsien Mit Okba ,Giza Governorate',
+                              fillContainerColor:
+                                  BranchScreenHelper.instance().fillColor0,
                               onTap: () {
                                 setState(() {
-                                  WeightScreenHelper.instance()
+                                  BranchScreenHelper.instance()
                                       .changeCurrentColor(0);
                                 });
                               },
                             ),
-                            10.horizontalSpace,
-                            WeightComponent(
-                              widthContainer: 70.w,
-                              heightContainer: 46.h,
-                              title: 'Lbs',
-                              pressedBackgroundContainerColor:
-                                  WeightScreenHelper.instance()
-                                      .backgroundColor1,
-                              pressedTitleColor:
-                                  WeightScreenHelper.instance().textColor1,
+                            12.verticalSpace,
+                            BranchLocationComponent(
+                              widthContainer: 234.w,
+                              heightContainer: 64.h,
+                              iconAsset: AppAssetsUtil.locationIcon,
+                              textlocation:
+                                  '16-El-fath Street ,Mohandsien Mit Okba ,Giza Governorate',
+                              fillContainerColor:
+                                  BranchScreenHelper.instance().fillColor1,
                               onTap: () {
                                 setState(() {
-                                  WeightScreenHelper.instance()
+                                  BranchScreenHelper.instance()
                                       .changeCurrentColor(1);
                                 });
                               },
@@ -133,40 +143,16 @@ class _WeightScreenState extends State<WeightScreen> {
                           ],
                         )),
                     Positioned(
-                      top: 180.h,
-                      child: SizedBox(
-                        height: 100.h,
-                        width: MediaQuery.of(context).size.width,
-                        child: AnimatedWeightPicker(
-                          min: min,
-                          max: max,
-                          majorIntervalThickness: 3,
-                          majorIntervalHeight: 20.0,
-                          selectedValueColor: AppColorUtil.textDarkGreen,
-                          dialColor: AppColorUtil.textDarkGreen,
-                          dialHeight: 45.h,
-                          dialThickness: 2.0,
-                          suffixText: WeightScreenHelper.instance().suffixText,
-                          squeeze: 2.0,
-                          suffixTextColor: AppColorUtil.textDarkGreen,
-                          onChange: (newValue) {
-                            setState(() {
-                              selectedValue = newValue;
-                            });
-                          },
-                        ),
-                      ),
-                    ),
-                    Positioned(
-                        bottom: 100,
+                        bottom: 90,
                         left: 10,
                         child: SizedBox(
-                          height: 153.h,
-                          width: 130.w,
+                          height: 200.h,
+                          width: 180.w,
                           child: Text(
                             AppLocalizations.of(context)!.lorem,
                             textAlign: TextAlign.start,
-                            overflow: TextOverflow.clip,
+                            overflow: TextOverflow.ellipsis,
+                            maxLines: 6,
                             style: AppStylesUtil.textBoldStyle(
                               20.sp,
                               AppColorUtil.white,
