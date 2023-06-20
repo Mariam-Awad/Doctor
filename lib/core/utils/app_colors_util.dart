@@ -6,6 +6,7 @@ class AppColorUtil {
   static Color darkBabyBlue = const Color(0xff67D3F7);
   static Color backgroundDarkBabyBlue = const Color(0xff0DD0D0);
   static Color backgroundLightBabyBlue = const Color(0xffECFAFA);
+  static Color genderContainerColor = const Color(0xff0DD0D0);
 
   // LightGreen
   static Color backgroundLightGreen = const Color(0xff6AC6C6);

@@ -4,6 +4,7 @@ import 'package:doctor/presentation/screens/forget_password_screen.dart';
 import 'package:doctor/presentation/screens/main_screen.dart';
 import 'package:doctor/presentation/screens/my_visits_screen.dart';
 import 'package:doctor/presentation/screens/otp_screen.dart';
+import 'package:doctor/presentation/screens/booking_an_appointment_screen.dart';
 import 'package:doctor/presentation/screens/splash_screen.dart';
 import 'package:doctor/presentation/screens/verify_identity_screen.dart';
 import 'package:flutter/material.dart';
@@ -43,6 +44,10 @@ class AppRouteManager {
       case AppRoutes.biographyRouteName:
         return MaterialPageRoute(
           builder: (context) => const BiographyScreen(),
+        );
+      case AppRoutes.personalInfoRouteName:
+        return MaterialPageRoute(
+          builder: (context) => const BookingAnAppointmentScreen(),
         );
       default:
         return _undefinedRoute();

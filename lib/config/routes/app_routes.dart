@@ -10,4 +10,5 @@ class AppRoutes {
   static const String settingsRouteName = "/settingsScreen";
   static const String verifyIdentityRouteName = "/verifyIdentityScreen";
   static const String biographyRouteName = "/biographyScreen";
+  static const String personalInfoRouteName = "/personalInfoScreen";
 }

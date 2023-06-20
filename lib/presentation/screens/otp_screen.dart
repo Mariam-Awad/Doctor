@@ -57,7 +57,7 @@ class OtpScreen extends StatelessWidget {
                           color: Colors.white,
                         ),
                       )),
-                  50.horizontalSpace,
+                  20.horizontalSpace,
                   Center(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
@@ -122,7 +122,7 @@ class OtpScreen extends StatelessWidget {
                         disabledBorderColor: AppColorUtil.white,
                         enabledBorderColor: AppColorUtil.white,
                         showFieldAsBox: true,
-                        margin: EdgeInsets.only(right: 20.w),
+                        margin: EdgeInsets.only(left: 20.w),
                         textStyle: AppStylesUtil.textRegularStyle(
                           15.sp,
                           AppColorUtil.iconsDarkGreen,
