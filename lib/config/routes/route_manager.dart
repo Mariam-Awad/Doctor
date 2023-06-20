@@ -1,4 +1,5 @@
 import 'package:doctor/config/routes/app_routes.dart';
+import 'package:doctor/presentation/screens/choose_date_screen.dart';
 import 'package:doctor/presentation/screens/define_problem_screen.dart';
 import 'package:doctor/presentation/screens/forget_password_screen.dart';
 import 'package:doctor/presentation/screens/main_screen.dart';
@@ -11,6 +12,7 @@ import 'package:doctor/presentation/screens/weight_screen.dart';
 import 'package:flutter/material.dart';
 import '../../presentation/screens/blood_screen.dart';
 import '../../presentation/screens/branch_screen.dart';
+import '../../presentation/screens/define_problem_screen_two.dart';
 import '../../presentation/screens/height_screen.dart';
 import '../../presentation/screens/login_screen.dart';
 
@@ -49,6 +51,10 @@ class AppRouteManager {
         return MaterialPageRoute(
           builder: (context) => const DefineProblemScreen(),
         );
+      case AppRoutes.defineProblemTwoRouteName:
+        return MaterialPageRoute(
+          builder: (context) => const DefineProblemScreenTwo(),
+        );
       case AppRoutes.oldRouteName:
         return MaterialPageRoute(
           builder: (context) => const OldScreen(),
@@ -68,6 +74,10 @@ class AppRouteManager {
       case AppRoutes.branchRouteName:
         return MaterialPageRoute(
           builder: (context) => const BranchScreen(),
+        );
+      case AppRoutes.chooseDateRouteName:
+        return MaterialPageRoute(
+          builder: (context) => const ChooseDateScreen(),
         );
       default:
         return _undefinedRoute();

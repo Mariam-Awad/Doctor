@@ -17,6 +17,7 @@ class AppTextFormWidget extends StatelessWidget {
   final Color? sideColor, fillColor;
   final bool? isFiled;
   final TextEditingController? controller;
+  final int? maxLines;
 
   const AppTextFormWidget(
       {this.label,
@@ -35,7 +36,8 @@ class AppTextFormWidget extends StatelessWidget {
       this.sideWidth,
       this.fillColor,
       this.isFiled,
-      Key? key, 
+      this.maxLines,
+      Key? key,
       this.controller})
       : super(key: key);
 
@@ -49,6 +51,7 @@ class AppTextFormWidget extends StatelessWidget {
           //color: Colors.lightBlue,
           height: 60.h,
           child: TextFormField(
+            maxLines: maxLines,
             controller: controller,
             cursorColor: AppColorUtil.darkGreen,
             initialValue: initialValue,

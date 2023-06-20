@@ -54,7 +54,7 @@ class AppAssetsUtil {
       "assets/images/Attachments.jpg";
   static const String patientBackgroundCheckOutImage =
       "assets/images/Checkout.jpg";
-  static const String patientBackgroundAppointmentImage =
+  static const String chooseDateBackgroundImage =
       "assets/images/Choose appointment date and time.jpg";
   static const String chooseBranchBackgroundImage =
       "assets/images/Choose Branch.jpg";
