@@ -85,8 +85,7 @@ class PersonalInfoScreen1 extends StatelessWidget {
                       textType: TextInputType.text,
                       onChangeListener: (value) {},
                       onValidateListener: (value) {
-                        return ValidateAuthField.instance()
-                            .validateField(value!);
+                        return ValidateAuthField.instance().validateField(value!);
                       },
                       sideColor: AppColorUtil.shadowGrey,
                       radius: 10.sp,
@@ -116,8 +115,7 @@ class PersonalInfoScreen1 extends StatelessWidget {
                       textType: TextInputType.number,
                       onChangeListener: (value) {},
                       onValidateListener: (value) {
-                        return ValidateAuthField.instance()
-                            .validatePhoneNumber(value!);
+                        return ValidateAuthField.instance().validatePhoneNumber(value!);
                       },
                       sideColor: AppColorUtil.shadowGrey,
                       radius: 10.sp,

@@ -11,8 +11,6 @@ import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-import '../helpers/booking_appointment_screen_helper.dart';
-
 class OtpScreen extends StatelessWidget {
   const OtpScreen({Key? key}) : super(key: key);
 
@@ -166,7 +164,9 @@ class OtpScreen extends StatelessWidget {
                       25.verticalSpace,
                       AppButtonWidget(
                         onClick: () {
-                          BookingAppointmentScreenHelper.instance().navToSecondPage(7);
+                          AppNavigationManager.navPush(
+                              screen: AppRoutes.mainRouteName,
+                              context: context);
                         },
                         customChild: Text(
                           AppLocalizations.of(context)!.continues,

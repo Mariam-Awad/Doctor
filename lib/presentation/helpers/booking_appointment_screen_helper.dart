@@ -46,13 +46,13 @@ class BookingAppointmentScreenHelper {
   ];
 
   navToSecondPage(int pageIndex) {
-   // if (formKeyScreen1.currentState!.validate()) {
-      bookingController.animateToPage(
-        pageIndex,
-        duration: const Duration(seconds: 1),
-        curve: Curves.easeInOut,
-      );
-   // }
+    // if (formKeyScreen1.currentState!.validate()) {
+    bookingController.animateToPage(
+      pageIndex,
+      duration: const Duration(milliseconds: 1),
+      curve: Curves.easeInOut,
+    );
+    // }
   }
 
   navToThirdPage(int pageIndex) {

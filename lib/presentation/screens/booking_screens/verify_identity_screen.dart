@@ -54,7 +54,12 @@ class _VerifyIdentityScreenState extends State<VerifyIdentityScreen> {
                       left: 10.w,
                       child: InkWell(
                         onTap: () {
-                          AppNavigationManager.navPop(context);
+                          BookingAppointmentScreenHelper.instance()
+                              .bookingController
+                              .previousPage(
+                                duration: const Duration(seconds: 0),
+                                curve: Curves.easeInOut,
+                              );
                         },
                         child: Icon(
                           Icons.arrow_back,
@@ -166,7 +171,8 @@ class _VerifyIdentityScreenState extends State<VerifyIdentityScreen> {
                       bottom: 30.h,
                       child: AppButtonWidget(
                         onClick: () {
-                          BookingAppointmentScreenHelper.instance().navToSecondPage(3);
+                          BookingAppointmentScreenHelper.instance()
+                              .navToSecondPage(3);
                         },
                         customChild: Text(
                           AppLocalizations.of(context)!.continues,

@@ -51,7 +51,12 @@ class _WeightScreenState extends State<WeightScreen> {
                       left: 10.w,
                       child: InkWell(
                         onTap: () {
-                          AppNavigationManager.navPop(context);
+                          BookingAppointmentScreenHelper.instance()
+                              .bookingController
+                              .previousPage(
+                                duration: const Duration(seconds: 1),
+                                curve: Curves.easeInOut,
+                              );
                         },
                         child: Icon(
                           Icons.arrow_back,
@@ -180,7 +185,8 @@ class _WeightScreenState extends State<WeightScreen> {
                       bottom: 30.h,
                       child: AppButtonWidget(
                         onClick: () {
-                          BookingAppointmentScreenHelper.instance().navToSecondPage(4);
+                          BookingAppointmentScreenHelper.instance()
+                              .navToSecondPage(4);
                         },
                         customChild: Text(
                           AppLocalizations.of(context)!.continues,
