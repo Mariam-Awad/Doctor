@@ -11,4 +11,5 @@ class AppRoutes {
   static const String verifyIdentityRouteName = "/verifyIdentityScreen";
   static const String biographyRouteName = "/biographyScreen";
   static const String personalInfoRouteName = "/personalInfoScreen";
+  static const String reviewInfoRouteName = "/ReviewBookingInfoScreen";
 }

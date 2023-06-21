@@ -1,5 +1,6 @@
 import 'package:doctor/config/routes/app_routes.dart';
 import 'package:doctor/presentation/screens/biography_screen.dart';
+import 'package:doctor/presentation/screens/booking_screens/review_booking_info_screen.dart';
 import 'package:doctor/presentation/screens/forget_password_screen.dart';
 import 'package:doctor/presentation/screens/main_screen.dart';
 import 'package:doctor/presentation/screens/my_visits_screen.dart';
@@ -48,6 +49,10 @@ class AppRouteManager {
       case AppRoutes.personalInfoRouteName:
         return MaterialPageRoute(
           builder: (context) => const BookingAnAppointmentScreen(),
+        );
+      case AppRoutes.reviewInfoRouteName:
+        return MaterialPageRoute(
+          builder: (context) => const ReviewBookingInfoScreen(),
         );
       default:
         return _undefinedRoute();

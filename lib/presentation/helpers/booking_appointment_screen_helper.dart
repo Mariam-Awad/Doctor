@@ -2,7 +2,7 @@ import 'package:doctor/core/app_debug_prints.dart';
 import 'package:doctor/core/utils/app_colors_util.dart';
 import 'package:doctor/presentation/screens/booking_screens/personal_info_screen1.dart';
 import 'package:doctor/presentation/screens/booking_screens/personal_info_screen2.dart';
-import 'package:doctor/presentation/screens/booking_screens/personal_info_screen3.dart';
+import 'package:doctor/presentation/screens/booking_screens/review_booking_info_screen.dart';
 import 'package:flutter/material.dart';
 
 class BookingAppointmentScreenHelper {
@@ -23,7 +23,7 @@ class BookingAppointmentScreenHelper {
   List<Widget> bookingScreens = const [
     PersonalInfoScreen1(),
     PersonalInfoScreen2(),
-    PersonalInfoScreen3(),
+    ReviewBookingInfoScreen(),
   ];
 
   navToSecondPage(int pageIndex) {
@@ -35,8 +35,9 @@ class BookingAppointmentScreenHelper {
       );
     }
   }
-  navToThirdPage(int pageIndex){
-    if(gender.isNotEmpty){
+
+  navToThirdPage(int pageIndex) {
+    if (gender.isNotEmpty) {
       bookingController.animateToPage(
         pageIndex,
         duration: const Duration(seconds: 1),
@@ -44,8 +45,6 @@ class BookingAppointmentScreenHelper {
       );
     }
   }
-
-
 
   String gender = '';
   Color maleContainerColor = AppColorUtil.white;

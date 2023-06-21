@@ -116,9 +116,14 @@ class BiographyScreen extends StatelessWidget {
               Container(
                 height: 200.h,
                 width: double.maxFinite,
-                color: Colors.grey[300],
-                child: const Center(
-                  child: Text("Map"),
+                decoration: BoxDecoration(
+                  color: Colors.grey[300],
+                  image: const DecorationImage(
+                    image: AssetImage(
+                      AppAssetsUtil.mapImage,
+                    ),
+                    fit: BoxFit.fill,
+                  ),
                 ),
               ),
               20.verticalSpace,
