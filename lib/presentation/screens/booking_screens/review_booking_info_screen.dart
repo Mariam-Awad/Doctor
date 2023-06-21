@@ -36,11 +36,7 @@ class ReviewBookingInfoScreen extends StatelessWidget {
               AppBackBtnWidget(
                 onClick: () {
                   BookingAppointmentScreenHelper.instance()
-                      .bookingController
-                      .previousPage(
-                        duration: const Duration(seconds: 1),
-                        curve: Curves.easeInOut,
-                      );
+                      .navBackPage();
                 },
                 titleIsVisible: true,
                 titleStyle: AppStylesUtil.textBoldStyle(

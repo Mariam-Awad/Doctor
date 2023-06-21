@@ -37,7 +37,10 @@ class PaymentOtpScreen extends StatelessWidget {
             children: [
               70.verticalSpace,
               AppBackBtnWidget(
-                onClick: () {},
+                onClick: () {
+                  BookingAppointmentScreenHelper.instance()
+                      .navBackPage();
+                },
                 titleIsVisible: true,
                 titleStyle: AppStylesUtil.textBoldStyle(
                   18.sp,

@@ -38,11 +38,7 @@ class PersonalInfoScreen2 extends StatelessWidget {
               AppBackBtnWidget(
                 onClick: () {
                   BookingAppointmentScreenHelper.instance()
-                      .bookingController
-                      .previousPage(
-                        duration: const Duration(seconds: 1),
-                        curve: Curves.easeInOut,
-                      );
+                      .navBackPage();
                 },
                 titleIsVisible: true,
                 title: AppLocalizations.of(context)!.personal_information,

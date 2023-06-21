@@ -47,9 +47,17 @@ class BookingAppointmentScreenHelper {
       );
     }
   }
-  navToPage(int pageIndex){
+
+  navToPage(int pageIndex) {
     bookingController.animateToPage(
       pageIndex,
+      duration: const Duration(seconds: 1),
+      curve: Curves.easeInOut,
+    );
+  }
+
+  navBackPage() {
+    bookingController.previousPage(
       duration: const Duration(seconds: 1),
       curve: Curves.easeInOut,
     );
