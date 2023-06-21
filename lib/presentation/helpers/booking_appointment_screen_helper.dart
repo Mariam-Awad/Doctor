@@ -3,6 +3,7 @@ import 'package:doctor/core/utils/app_colors_util.dart';
 import 'package:doctor/presentation/screens/booking_screens/personal_info_screen1.dart';
 import 'package:doctor/presentation/screens/booking_screens/personal_info_screen2.dart';
 import 'package:doctor/presentation/screens/booking_screens/review_booking_info_screen.dart';
+import 'package:doctor/presentation/screens/booking_screens/payment_otp_screen.dart';
 import 'package:flutter/material.dart';
 
 class BookingAppointmentScreenHelper {
@@ -24,6 +25,7 @@ class BookingAppointmentScreenHelper {
     PersonalInfoScreen1(),
     PersonalInfoScreen2(),
     ReviewBookingInfoScreen(),
+    PaymentOtpScreen(),
   ];
 
   navToSecondPage(int pageIndex) {
@@ -45,10 +47,18 @@ class BookingAppointmentScreenHelper {
       );
     }
   }
+  navToPage(int pageIndex){
+    bookingController.animateToPage(
+      pageIndex,
+      duration: const Duration(seconds: 1),
+      curve: Curves.easeInOut,
+    );
+  }
 
   String gender = '';
   Color maleContainerColor = AppColorUtil.white;
   Color femaleContainerColor = AppColorUtil.white;
+  GlobalKey<FormState> paymentOtpFormKey = GlobalKey<FormState>();
 
   Color setFemaleColor() =>
       BookingAppointmentScreenHelper.instance().gender == "female"

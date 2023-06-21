@@ -52,11 +52,11 @@ class PersonalInfoScreen2 extends StatelessWidget {
                   FontWeight.bold,
                 ),
                 iconColor: AppColorUtil.iconsDarkGreen,
-                space: 30.horizontalSpace,
+                space: 70.horizontalSpace,
               ),
               10.verticalSpace,
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: 30.w),
+                padding: EdgeInsets.symmetric(horizontal: 40.w),
                 child: Text(
                   AppLocalizations.of(context)!.your_information_will_be_shared,
                   style: AppStylesUtil.textBoldStyle(
@@ -215,7 +215,7 @@ class PersonalInfoScreen2 extends StatelessWidget {
                 customChild: Text(
                   AppLocalizations.of(context)!.continues,
                   style: AppStylesUtil.textBoldStyle(
-                    18.sp,
+                    16.sp,
                     AppColorUtil.iconsDarkGreen,
                     FontWeight.bold,
                   ),
@@ -223,11 +223,11 @@ class PersonalInfoScreen2 extends StatelessWidget {
                 btnBackgroundColor: AppColorUtil.white,
                 btnSize: Size(
                   double.maxFinite,
-                  50.h,
+                  45.h,
                 ),
                 btnRadius: 10.sp,
                 width: double.maxFinite,
-                height: 50.h,
+                height: 45.h,
               ),
             ],
           ),
