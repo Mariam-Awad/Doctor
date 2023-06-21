@@ -4,6 +4,7 @@ import 'package:doctor/core/utils/app_colors_util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../config/routes/app_navigation_manager.dart';
+import '../../config/routes/app_routes.dart';
 import '../../core/utils/app_assets_util.dart';
 import '../../core/utils/app_styles_util.dart';
 import '../widgets/app_button_widget.dart';
@@ -164,7 +165,10 @@ class _VerifyIdentityScreenState extends State<VerifyIdentityScreen> {
                       bottom: 30.h,
                       child: AppButtonWidget(
                         onClick: () {
-                          // todo
+                          AppNavigationManager.navPush(
+                              screen: AppRoutes.weightRouteName,
+                              context: context,
+                            );
                         },
                         customChild: Text(
                           AppLocalizations.of(context)!.continues,

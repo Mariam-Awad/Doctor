@@ -4,6 +4,7 @@ import 'package:doctor/presentation/helpers/weight_screen_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../config/routes/app_navigation_manager.dart';
+import '../../config/routes/app_routes.dart';
 import '../../core/components/weight_component.dart';
 import '../../core/utils/app_assets_util.dart';
 import '../../core/utils/app_styles_util.dart';
@@ -178,7 +179,10 @@ class _WeightScreenState extends State<WeightScreen> {
                       bottom: 30.h,
                       child: AppButtonWidget(
                         onClick: () {
-                          // todo
+                          AppNavigationManager.navPush(
+                              screen: AppRoutes.heightRouteName,
+                              context: context,
+                            );
                         },
                         customChild: Text(
                           AppLocalizations.of(context)!.continues,

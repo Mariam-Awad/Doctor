@@ -4,6 +4,7 @@ import 'package:doctor/core/utils/app_colors_util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../config/routes/app_navigation_manager.dart';
+import '../../config/routes/app_routes.dart';
 import '../../core/utils/app_assets_util.dart';
 import '../../core/utils/app_strings.dart';
 import '../../core/utils/app_styles_util.dart';
@@ -184,7 +185,10 @@ class _HeightScreenState extends State<HeightScreen> {
                       bottom: 30.h,
                       child: AppButtonWidget(
                         onClick: () {
-                          // todo
+                          AppNavigationManager.navPush(
+                              screen: AppRoutes.bloodRouteName,
+                              context: context,
+                            );
                         },
                         customChild: Text(
                           AppLocalizations.of(context)!.continues,
