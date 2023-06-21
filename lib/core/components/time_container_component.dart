@@ -29,13 +29,13 @@ class TimeContainerComponent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: onTap,
+      onTap: enabled ? onTap : null,
       child: Container(
         width: containerWidth,
         height: containerHeight,
         padding: const EdgeInsets.all(4.0),
         decoration: BoxDecoration(
-            color: AppColorUtil.white,
+            color: enabled ? containerFillColor : AppColorUtil.white,
             border: Border.all(
                 color: enabled ? borderColor : AppColorUtil.textLightGrey,
                 width: 1),
@@ -44,7 +44,7 @@ class TimeContainerComponent extends StatelessWidget {
           child: Text(timeText,
               textAlign: TextAlign.center,
               style: AppStylesUtil.textRegularStyle(
-                  11.sp,
+                  14.sp,
                   enabled ? textColor : AppColorUtil.textLightGrey, // White
                   FontWeight.w400)),
         ),

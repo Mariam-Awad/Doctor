@@ -1,8 +1,10 @@
+import 'package:date_time_picker_widget/date_time_picker_widget.dart';
 import 'package:doctor/core/components/time_container_component.dart';
 import 'package:doctor/core/utils/app_colors_util.dart';
 import 'package:doctor/presentation/helpers/choose_date_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:intl/intl.dart';
 import '../../config/routes/app_navigation_manager.dart';
 import '../../core/utils/app_assets_util.dart';
 import '../../core/utils/app_styles_util.dart';
@@ -18,6 +20,9 @@ class ChooseDateScreen extends StatefulWidget {
 }
 
 class _ChooseDateScreenState extends State<ChooseDateScreen> {
+  final DateTime dt = DateTime.now();
+  String? d2, t1;
+
   @override
   void initState() {
     super.initState();
@@ -76,6 +81,8 @@ class _ChooseDateScreenState extends State<ChooseDateScreen> {
                                 AppLocalizations.of(context)!
                                     .your_information_will_be_shared,
                                 textAlign: TextAlign.center,
+                                overflow: TextOverflow.ellipsis,
+                                maxLines: 2,
                                 style: AppStylesUtil.textBoldStyle(
                                   12.sp,
                                   AppColorUtil.textDarkGreen.withOpacity(0.60),
@@ -88,8 +95,8 @@ class _ChooseDateScreenState extends State<ChooseDateScreen> {
                       ),
                     ),
                     Positioned(
-                      top: 225.h,
-                      left: 30.w,
+                      top: 250.h,
+                      left: 16.w,
                       child: Text(
                         AppLocalizations.of(context)!.select_time,
                         textAlign: TextAlign.left,
@@ -101,35 +108,66 @@ class _ChooseDateScreenState extends State<ChooseDateScreen> {
                       ),
                     ),
                     Positioned(
-                      top: 230.0,
-                      left: 30.w,
-                      right: 30.w,
+                      top: 70.h,
+                      child: SizedBox(
+                          height: 200.h,
+                          width: 320.w,
+                          child: DateTimePicker(
+                            datePickerTitle: '',
+                            type: DateTimePickerType.Date,
+                            onDateChanged: (date) {
+                              setState(() {
+                                d2 = DateFormat('dd MMM, yyyy').format(date);
+                              });
+                            },
+                          )),
+                    ),
+                    Positioned(
+                      top: 245.0,
+                      left: 16.w,
+                      right: 16.w,
                       child: GridView.builder(
                         shrinkWrap: true,
                         physics: const NeverScrollableScrollPhysics(),
                         gridDelegate:
                             const SliverGridDelegateWithFixedCrossAxisCount(
                           crossAxisCount: 4,
-                          childAspectRatio: 2.0,
-                          crossAxisSpacing: 12,
+                          childAspectRatio: 2.2,
+                          crossAxisSpacing: 8,
                           mainAxisSpacing: 8,
                         ),
                         itemCount: ChooseDateHelper.instance().time.length,
                         itemBuilder: (context, index) {
                           return TimeContainerComponent(
-                            containerWidth: 56.w,
-                            containerHeight: 32.h,
-                            containerFillColor: AppColorUtil.white,
-                            borderColor: AppColorUtil.darkBabyBlue,
-                            textColor: AppColorUtil.darkBabyBlue,
+                            containerWidth: 45.w,
+                            containerHeight: 28.h,
+                            containerFillColor: index ==
+                                    ChooseDateHelper.instance().selectedIndex
+                                ? AppColorUtil.backgroundDarkBabyBlue
+                                : AppColorUtil.white,
+                            borderColor: index ==
+                                    ChooseDateHelper.instance().selectedIndex
+                                ? AppColorUtil.white
+                                : AppColorUtil.backgroundDarkBabyBlue,
+                            textColor: index ==
+                                    ChooseDateHelper.instance().selectedIndex
+                                ? AppColorUtil.white
+                                : AppColorUtil.backgroundDarkBabyBlue,
                             enabled:
                                 ChooseDateHelper.instance().timeFree[index],
                             timeText: ChooseDateHelper.instance().time[index],
+                            onTap: ChooseDateHelper.instance().timeFree[index]
+                                ? () {
+                                    setState(() {
+                                      ChooseDateHelper.instance()
+                                          .onChangeTimeType(index);
+                                    });
+                                  }
+                                : null,
                           );
                         },
                       ),
                     ),
-                    Positioned(top: 250.h, child: Container()),
                     Positioned(
                         bottom: 140,
                         left: 10,

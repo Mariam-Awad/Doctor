@@ -10,16 +10,26 @@ class ChooseDateHelper {
     return _oldScreenHelper!;
   }
 
-  List<String> time = ['10:00am', '11:00am', '12:00am', '12:30am','02:00pm', '03:00pm', '04:00pm', '05:00pm'];
-  List<bool> timeFree = [false, true, false, false, true,false,true,false];
+  List<String> time = [
+    '10:00am',
+    '11:00am',
+    '12:00am',
+    '12:30am',
+    '02:00pm',
+    '03:00pm',
+    '04:00pm',
+    '05:00pm'
+  ];
+  List<bool> timeFree = [false, true, false, false, true, false, true, false];
 
   int selectedIndex = -1;
 
   bool bloodWidget1animation = false;
   bool bloodWidget2animation = false;
 
-  onChangeBloodType(int index) {
+  onChangeTimeType(int index) {
     selectedIndex = index;
+    //timeFree[index] = false;
     printDone(selectedIndex);
   }
 }
