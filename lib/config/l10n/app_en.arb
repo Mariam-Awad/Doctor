@@ -77,5 +77,11 @@
   "logout": "Logout",
   "save": "Save",
   "edit": "Edit",
-  "age": "Age"
+  "age": "Age",
+  "weight": "Weight",
+  "height": "Height",
+  "blood_type": "BloodType",
+  "your_problem": "Your Problem",
+  "appointment_date": "Appointment Date",
+  "branch": "Branch"
 }

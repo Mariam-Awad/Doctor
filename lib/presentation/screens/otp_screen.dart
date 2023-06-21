@@ -11,6 +11,8 @@ import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
+import '../helpers/booking_appointment_screen_helper.dart';
+
 class OtpScreen extends StatelessWidget {
   const OtpScreen({Key? key}) : super(key: key);
 
@@ -57,7 +59,7 @@ class OtpScreen extends StatelessWidget {
                           color: Colors.white,
                         ),
                       )),
-                  50.horizontalSpace,
+                  20.horizontalSpace,
                   Center(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
@@ -122,7 +124,7 @@ class OtpScreen extends StatelessWidget {
                         disabledBorderColor: AppColorUtil.white,
                         enabledBorderColor: AppColorUtil.white,
                         showFieldAsBox: true,
-                        margin: EdgeInsets.only(right: 20.w),
+                        margin: EdgeInsets.only(left: 20.w),
                         textStyle: AppStylesUtil.textRegularStyle(
                           15.sp,
                           AppColorUtil.iconsDarkGreen,
@@ -164,9 +166,7 @@ class OtpScreen extends StatelessWidget {
                       25.verticalSpace,
                       AppButtonWidget(
                         onClick: () {
-                          AppNavigationManager.navPush(
-                              screen: AppRoutes.mainRouteName,
-                              context: context);
+                          BookingAppointmentScreenHelper.instance().navToSecondPage(7);
                         },
                         customChild: Text(
                           AppLocalizations.of(context)!.continues,

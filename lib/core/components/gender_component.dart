@@ -9,7 +9,7 @@ class GenderComponent extends StatelessWidget {
   final double heightContainer;
   final String iconAsset;
   final String title;
-  final Color pressedTitleColor;
+  final Color pressedTitleColor, containerColor, iconColor, textColor;
   final Color pressedIconColor;
   final void Function()? onTap;
 
@@ -21,6 +21,9 @@ class GenderComponent extends StatelessWidget {
       required this.title,
       required this.pressedIconColor,
       required this.pressedTitleColor,
+      required this.containerColor,
+      required this.iconColor,
+      required this.textColor,
       this.onTap});
 
   @override
@@ -32,18 +35,29 @@ class GenderComponent extends StatelessWidget {
           height: heightContainer.h,
           padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.w),
           decoration: BoxDecoration(
-              color: AppColorUtil.white,
-              borderRadius: BorderRadius.circular(12.r)),
+            color: containerColor,
+            borderRadius: BorderRadius.circular(12.r),
+          ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               10.horizontalSpace,
-              SvgPicture.asset(iconAsset,
-                  width: 15.w, height: 15.h, fit: BoxFit.contain),
-              40.horizontalSpace,
-              Text(title,
-                  style: AppStylesUtil.textRegularStyle(
-                      13.sp, AppColorUtil.textblackBold, FontWeight.w500))
+              SvgPicture.asset(
+                iconAsset,
+                width: 15.w,
+                height: 15.h,
+                fit: BoxFit.contain,
+                color: iconColor,
+              ),
+              20.horizontalSpace,
+              Text(
+                title,
+                style: AppStylesUtil.textRegularStyle(
+                  13.sp,
+                  textColor,
+                  FontWeight.w500,
+                ),
+              )
             ],
           ),
         ));

@@ -1,19 +1,22 @@
 import 'package:doctor/config/routes/app_routes.dart';
-import 'package:doctor/presentation/screens/choose_date_screen.dart';
-import 'package:doctor/presentation/screens/define_problem_screen.dart';
+import 'package:doctor/presentation/screens/booking_screens/choose_date_screen.dart';
+import 'package:doctor/presentation/screens/booking_screens/define_problem_screen.dart';
+import 'package:doctor/presentation/screens/biography_screen.dart';
+import 'package:doctor/presentation/screens/booking_screens/review_booking_info_screen.dart';
 import 'package:doctor/presentation/screens/forget_password_screen.dart';
 import 'package:doctor/presentation/screens/main_screen.dart';
 import 'package:doctor/presentation/screens/my_visits_screen.dart';
-import 'package:doctor/presentation/screens/old_screen.dart';
+import 'package:doctor/presentation/screens/booking_screens/old_screen.dart';
 import 'package:doctor/presentation/screens/otp_screen.dart';
+import 'package:doctor/presentation/screens/booking_an_appointment_screen.dart';
 import 'package:doctor/presentation/screens/splash_screen.dart';
-import 'package:doctor/presentation/screens/verify_identity_screen.dart';
-import 'package:doctor/presentation/screens/weight_screen.dart';
+import 'package:doctor/presentation/screens/booking_screens/verify_identity_screen.dart';
+import 'package:doctor/presentation/screens/booking_screens/weight_screen.dart';
 import 'package:flutter/material.dart';
-import '../../presentation/screens/blood_screen.dart';
-import '../../presentation/screens/branch_screen.dart';
-import '../../presentation/screens/define_problem_screen_two.dart';
-import '../../presentation/screens/height_screen.dart';
+import '../../presentation/screens/booking_screens/blood_screen.dart';
+import '../../presentation/screens/booking_screens/branch_screen.dart';
+import '../../presentation/screens/booking_screens/define_problem_screen_two.dart';
+import '../../presentation/screens/booking_screens/height_screen.dart';
 import '../../presentation/screens/login_screen.dart';
 
 class AppRouteManager {
@@ -78,6 +81,18 @@ class AppRouteManager {
       case AppRoutes.chooseDateRouteName:
         return MaterialPageRoute(
           builder: (context) => const ChooseDateScreen(),
+        );
+      case AppRoutes.biographyRouteName:
+        return MaterialPageRoute(
+          builder: (context) => const BiographyScreen(),
+        );
+      case AppRoutes.personalInfoRouteName:
+        return MaterialPageRoute(
+          builder: (context) => const BookingAnAppointmentScreen(),
+        );
+      case AppRoutes.reviewInfoRouteName:
+        return MaterialPageRoute(
+          builder: (context) => const ReviewBookingInfoScreen(),
         );
       default:
         return _undefinedRoute();

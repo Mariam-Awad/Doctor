@@ -17,4 +17,7 @@ class AppRoutes {
   static const String bloodRouteName = "/bloodScreen";
   static const String branchRouteName = "/branchScreen";
   static const String chooseDateRouteName = "/chooseDateScreen";
+  static const String biographyRouteName = "/biographyScreen";
+  static const String personalInfoRouteName = "/personalInfoScreen";
+  static const String reviewInfoRouteName = "/ReviewBookingInfoScreen";
 }

@@ -1,29 +1,35 @@
-import 'package:doctor/core/components/identity_verification_done_card.dart';
-import 'package:doctor/core/components/identity_verification_selfie_card.dart';
 import 'package:doctor/core/utils/app_colors_util.dart';
 import 'package:doctor/presentation/helpers/define_problem_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../../config/routes/app_navigation_manager.dart';
-import '../../config/routes/app_routes.dart';
-import '../../core/components/visit_type_card_component.dart';
-import '../../core/utils/app_assets_util.dart';
-import '../../core/utils/app_styles_util.dart';
-import '../widgets/app_button_widget.dart';
-import '../widgets/background_widget.dart';
+import '../../../config/routes/app_navigation_manager.dart';
+import '../../../config/routes/app_routes.dart';
+import '../../../core/components/visit_type_card_component.dart';
+import '../../../core/utils/app_assets_util.dart';
+import '../../../core/utils/app_strings.dart';
+import '../../../core/utils/app_styles_util.dart';
+import '../../helpers/booking_appointment_screen_helper.dart';
+import '../../widgets/app_button_widget.dart';
+import '../../widgets/app_drop_down_widget.dart';
+import '../../widgets/app_text_form_widget.dart';
+import '../../widgets/background_widget.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-class DefineProblemScreen extends StatefulWidget {
-  const DefineProblemScreen({super.key});
+class DefineProblemScreenTwo extends StatefulWidget {
+  const DefineProblemScreenTwo({super.key});
 
   @override
-  State<DefineProblemScreen> createState() => _DefineProblemScreenState();
+  State<DefineProblemScreenTwo> createState() => _DefineProblemScreenTwoState();
 }
 
-class _DefineProblemScreenState extends State<DefineProblemScreen> {
+class _DefineProblemScreenTwoState extends State<DefineProblemScreenTwo> {
+  TextEditingController? problemController;
+  Object? dropdownValue;
+
   @override
   void initState() {
     super.initState();
+    problemController = TextEditingController(text: 'my problrm is ....');
   }
 
   @override
@@ -31,6 +37,7 @@ class _DefineProblemScreenState extends State<DefineProblemScreen> {
     return Background(
         imageAsset: AppAssetsUtil.defineProblemBackgroundImage,
         child: Scaffold(
+            resizeToAvoidBottomInset: false,
             backgroundColor: Colors.transparent,
             body: SizedBox(
               width: MediaQuery.of(context).size.width,
@@ -91,54 +98,100 @@ class _DefineProblemScreenState extends State<DefineProblemScreen> {
                       ),
                     ),
                     Positioned(
-                      top: 140.h,
-                      left: 30.w,
+                      top: 130.h,
+                      left: 10.w,
                       child: Text(
-                        AppLocalizations.of(context)!.visit_type,
+                        AppLocalizations.of(context)!.choose_from_below,
                         textAlign: TextAlign.left,
                         style: AppStylesUtil.textRegularStyle(
                           16.sp,
-                          AppColorUtil.textblackBold,
+                          AppColorUtil.textDarkGrey,
                           FontWeight.w500,
                         ),
                       ),
                     ),
                     Positioned(
-                      top: 180.h,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          VisitTypeCardComponent(
-                            widthContainer: 146.w,
-                            heightContainer: 146.h,
-                            iconAsset: AppAssetsUtil.typeVisit1Icon,
-                            typetitle: AppLocalizations.of(context)!
-                                .medical_examination,
-                            color: DefineProblemHelper.instance().borderColor0,
-                            onTap: () {
-                              setState(() {
-                                DefineProblemHelper.instance()
-                                    .changeCurrentColor(0);
-                              });
-                            },
-                          ),
-                          10.horizontalSpace,
-                          VisitTypeCardComponent(
-                            widthContainer: 146.w,
-                            heightContainer: 146.h,
-                            iconAsset: AppAssetsUtil.typeVisit2Icon,
-                            typetitle: AppLocalizations.of(context)!
-                                .medical_consultation,
-                            color: DefineProblemHelper.instance().borderColor1,
-                            onTap: () {
-                              setState(() {
-                                DefineProblemHelper.instance()
-                                    .changeCurrentColor(1);
-                              });
-                            },
-                          ),
-                        ],
+                      top: 160.h,
+                      left: 10.w,
+                      child: SizedBox(
+                        width: 320.w,
+                        height: 80.h,
+                        child: AppDropDownWidget(
+                          itemHeight: 70.h,
+                          items: const [
+                            DropdownMenuItem(
+                              value: '1',
+                              child: Text('choose one'),
+                            ),
+                            DropdownMenuItem(
+                              value: '2',
+                              child: Text('choose two'),
+                            ),
+                            DropdownMenuItem(
+                              value: '3',
+                              child: Text('choose three'),
+                            ),
+                          ],
+                          dropDownValue: dropdownValue,
+                          iconEnabledColor: AppColorUtil.textDarkGrey,
+                          iconSize: 25.0,
+                          dropDownFill: true,
+                          dropDownFillColor: AppColorUtil.white,
+                          dropDownTextStyle: AppStylesUtil.textRegularStyle(
+                              14.0,
+                              AppColorUtil.textblackBold,
+                              FontWeight.w400)!,
+                          hintText: 'choose',
+                          hintStyle: AppStylesUtil.textRegularStyle(14.0,
+                              AppColorUtil.textblackBold, FontWeight.w400)!,
+                          dropdownColor: AppColorUtil.white,
+                          side: BorderSide(
+                              color: AppColorUtil.semiDarkWhite, width: 1.0),
+                          radius: 12.r,
+                          isDense: false,
+                          onChange: (Object? value) {
+                            setState(() {
+                              dropdownValue = value;
+                            });
+                          },
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      top: 230.h,
+                      left: 10.w,
+                      child: Text(
+                        AppLocalizations.of(context)!.whats_your_problem,
+                        textAlign: TextAlign.left,
+                        style: AppStylesUtil.textRegularStyle(
+                          16.sp,
+                          AppColorUtil.textDarkGrey,
+                          FontWeight.w500,
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      top: 260.h,
+                      left: 10.w,
+                      child: SizedBox(
+                        width: 320.w,
+                        height: 100.h,
+                        child: AppTextFormWidget(
+                          controller: problemController,
+                          hint: 'my problem is ..',
+                          maxLines: 6,
+                          textType: TextInputType.text,
+                          onChangeListener: (value) {},
+                          onValidateListener: (value) {},
+                          fontType: appFontBold,
+                          textSize: 12.sp,
+                          hintSize: 14.sp,
+                          radius: 12.sp,
+                          sideColor: AppColorUtil.textLightGrey,
+                          sideWidth: 1,
+                          fillColor: Colors.white,
+                          isFiled: true,
+                        ),
                       ),
                     ),
                     Positioned(
@@ -180,10 +233,8 @@ class _DefineProblemScreenState extends State<DefineProblemScreen> {
                       bottom: 30.h,
                       child: AppButtonWidget(
                         onClick: () {
-                          AppNavigationManager.navPush(
-                              screen: AppRoutes.defineProblemTwoRouteName,
-                              context: context,
-                            );
+                          BookingAppointmentScreenHelper.instance()
+                              .navToSecondPage(9);
                         },
                         customChild: Text(
                           AppLocalizations.of(context)!.continues,

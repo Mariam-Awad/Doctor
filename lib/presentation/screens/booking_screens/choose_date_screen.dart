@@ -5,12 +5,13 @@ import 'package:doctor/presentation/helpers/choose_date_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/intl.dart';
-import '../../config/routes/app_navigation_manager.dart';
-import '../../config/routes/app_routes.dart';
-import '../../core/utils/app_assets_util.dart';
-import '../../core/utils/app_styles_util.dart';
-import '../widgets/app_button_widget.dart';
-import '../widgets/background_widget.dart';
+import '../../../config/routes/app_navigation_manager.dart';
+import '../../../config/routes/app_routes.dart';
+import '../../../core/utils/app_assets_util.dart';
+import '../../../core/utils/app_styles_util.dart';
+import '../../helpers/booking_appointment_screen_helper.dart';
+import '../../widgets/app_button_widget.dart';
+import '../../widgets/background_widget.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class ChooseDateScreen extends StatefulWidget {
@@ -190,10 +191,7 @@ class _ChooseDateScreenState extends State<ChooseDateScreen> {
                       bottom: 30.h,
                       child: AppButtonWidget(
                         onClick: () {
-                          AppNavigationManager.navPush(
-                            screen: AppRoutes.branchRouteName,
-                            context: context,
-                          );
+                          BookingAppointmentScreenHelper.instance().navToSecondPage(10);
                         },
                         customChild: Text(
                           AppLocalizations.of(context)!.continues,

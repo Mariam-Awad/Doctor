@@ -1,3 +1,5 @@
+import 'package:doctor/config/routes/app_navigation_manager.dart';
+import 'package:doctor/config/routes/app_routes.dart';
 import 'package:doctor/config/screen_resizer.dart';
 import 'package:doctor/core/utils/app_colors_util.dart';
 import 'package:doctor/core/utils/app_styles_util.dart';
@@ -25,6 +27,7 @@ class _HomeScreenState extends State<HomeScreen> {
         child: PageView.builder(
           scrollDirection: Axis.horizontal,
           itemCount: 6,
+          physics: const NeverScrollableScrollPhysics(),
           itemBuilder: (context, index) {
             return Container(
               height: ScreenResizer.getScreenHeight(context),
@@ -46,10 +49,12 @@ class _HomeScreenState extends State<HomeScreen> {
                     bottom: 400.h,
                     child: InkWell(
                       onTap: () {
-                        HomeScreenHelper.instance().navOnBoardingToLeft(setState);
+                        HomeScreenHelper.instance()
+                            .navOnBoardingToLeft(setState);
                       },
                       child: SvgPicture.asset(
-                        HomeScreenHelper.instance().setOnBoardingNavImgLeftBtn()
+                        HomeScreenHelper.instance()
+                            .setOnBoardingNavImgLeftBtn(),
                       ),
                     ),
                   ),
@@ -58,11 +63,11 @@ class _HomeScreenState extends State<HomeScreen> {
                     bottom: 200.h,
                     child: InkWell(
                       onTap: () {
-                        HomeScreenHelper.instance().navOnBoardingToRight(setState);
+                        HomeScreenHelper.instance()
+                            .navOnBoardingToRight(setState);
                       },
-                      child: SvgPicture.asset(
-                        HomeScreenHelper.instance().setOnBoardingNavImgRightBtn()
-                      ),
+                      child: SvgPicture.asset(HomeScreenHelper.instance()
+                          .setOnBoardingNavImgRightBtn()),
                     ),
                   ),
                   Positioned(
@@ -159,7 +164,12 @@ class _HomeScreenState extends State<HomeScreen> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           AppButtonWidget(
-                            onClick: () {},
+                            onClick: () {
+                              AppNavigationManager.navPush(
+                                context: context,
+                                screen: AppRoutes.personalInfoRouteName,
+                              );
+                            },
                             customChild: Text(
                               AppLocalizations.of(context)!.book_an_appointment,
                               style: AppStylesUtil.textBoldStyle(
@@ -178,7 +188,11 @@ class _HomeScreenState extends State<HomeScreen> {
                             height: 20.h,
                           ),
                           AppButtonWidget(
-                            onClick: () {},
+                            onClick: () {
+                              AppNavigationManager.navPush(
+                                  context: context,
+                                  screen: AppRoutes.biographyRouteName);
+                            },
                             customChild: Text(
                               AppLocalizations.of(context)!.biography,
                               style: AppStylesUtil.textBoldStyle(

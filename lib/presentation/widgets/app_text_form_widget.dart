@@ -18,27 +18,29 @@ class AppTextFormWidget extends StatelessWidget {
   final bool? isFiled;
   final TextEditingController? controller;
   final int? maxLines;
+  final double? textFormFieldWidth;
 
   const AppTextFormWidget(
       {this.label,
-      this.hint,
+      this.textFormFieldWidth,
+      required this.hint,
       required this.textType,
       this.prefIcon,
       required this.onChangeListener,
       required this.onValidateListener,
       this.initialValue,
-      this.fontType,
-      this.textSize,
-      this.hintSize,
+      required this.fontType,
+      required this.textSize,
+      required this.hintSize,
       this.labelSize,
-      this.radius,
+      required this.radius,
       required this.sideColor,
       this.sideWidth,
       this.fillColor,
       this.isFiled,
       this.maxLines,
-      Key? key,
-      this.controller})
+      this.controller,
+      Key? key})
       : super(key: key);
 
   static bool? passwordObscure = true;
@@ -50,8 +52,9 @@ class AppTextFormWidget extends StatelessWidget {
         return SizedBox(
           //color: Colors.lightBlue,
           height: 60.h,
+          width: textFormFieldWidth ?? double.maxFinite,
           child: TextFormField(
-            maxLines: maxLines,
+            maxLines: maxLines ?? 1,
             controller: controller,
             cursorColor: AppColorUtil.darkGreen,
             initialValue: initialValue,
@@ -80,7 +83,7 @@ class AppTextFormWidget extends StatelessWidget {
                   hintSize!, AppColorUtil.textLightGrey, FontWeight.w400),
               labelText: label ?? "",
               labelStyle: AppStylesUtil.textRegularStyle(
-                  hintSize!, AppColorUtil.textblackBold, FontWeight.w400),
+                  hintSize!, AppColorUtil.textLightGrey, FontWeight.w400),
               suffixIcon: hint!.toLowerCase().contains("password")
                   ? IconButton(
                       onPressed: () {

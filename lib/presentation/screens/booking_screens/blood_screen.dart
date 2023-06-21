@@ -3,15 +3,16 @@ import 'package:doctor/core/app_debug_prints.dart';
 import 'package:doctor/core/utils/app_colors_util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../../config/routes/app_navigation_manager.dart';
-import '../../config/routes/app_routes.dart';
-import '../../core/utils/app_assets_util.dart';
-import '../../core/utils/app_strings.dart';
-import '../../core/utils/app_styles_util.dart';
-import '../helpers/blood_screen_helper.dart';
-import '../widgets/app_button_widget.dart';
-import '../widgets/app_text_form_widget.dart';
-import '../widgets/background_widget.dart';
+import '../../../config/routes/app_navigation_manager.dart';
+import '../../../config/routes/app_routes.dart';
+import '../../../core/utils/app_assets_util.dart';
+import '../../../core/utils/app_strings.dart';
+import '../../../core/utils/app_styles_util.dart';
+import '../../helpers/blood_screen_helper.dart';
+import '../../helpers/booking_appointment_screen_helper.dart';
+import '../../widgets/app_button_widget.dart';
+import '../../widgets/app_text_form_widget.dart';
+import '../../widgets/background_widget.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class BloodScreen extends StatefulWidget {
@@ -276,10 +277,7 @@ class _BloodScreenState extends State<BloodScreen> {
                       bottom: 30.h,
                       child: AppButtonWidget(
                         onClick: () {
-                          AppNavigationManager.navPush(
-                              screen: AppRoutes.oldRouteName,
-                              context: context,
-                            );
+                         BookingAppointmentScreenHelper.instance().navToSecondPage(6);
                         },
                         customChild: Text(
                           AppLocalizations.of(context)!.continues,

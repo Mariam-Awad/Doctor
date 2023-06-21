@@ -25,11 +25,9 @@ class _MyAppState extends State<MyApp> {
     return ScreenUtilInit(
       designSize: const Size(375, 812),
       builder: (context, child) => MaterialApp(
-         theme: ThemeData(
-            primaryColor: AppColorUtil.backgroundDarkBabyBlue
-          ),
+        theme: ThemeData(primaryColor: AppColorUtil.backgroundDarkBabyBlue),
         debugShowCheckedModeBanner: false,
-        initialRoute: AppRoutes.chooseDateRouteName,
+        initialRoute: AppRoutes.splashScreenRouteName,
         onGenerateRoute: AppRouteManager.generateRoute,
         locale: const Locale('en'),
         localizationsDelegates: const [

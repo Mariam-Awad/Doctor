@@ -1,37 +1,45 @@
-import 'package:carousel_slider/carousel_slider.dart';
+import 'package:animated_weight_picker/animated_weight_picker.dart';
 import 'package:doctor/core/app_debug_prints.dart';
 import 'package:doctor/core/utils/app_colors_util.dart';
-import 'package:doctor/presentation/helpers/define_problem_helper.dart';
-import 'package:doctor/presentation/helpers/old_screen_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../../config/routes/app_navigation_manager.dart';
-import '../../config/routes/app_routes.dart';
-import '../../core/components/visit_type_card_component.dart';
-import '../../core/utils/app_assets_util.dart';
-import '../../core/utils/app_styles_util.dart';
-import '../widgets/app_button_widget.dart';
-import '../widgets/background_widget.dart';
+import '../../../config/routes/app_navigation_manager.dart';
+import '../../../config/routes/app_routes.dart';
+import '../../../core/utils/app_assets_util.dart';
+import '../../../core/utils/app_strings.dart';
+import '../../../core/utils/app_styles_util.dart';
+import '../../helpers/booking_appointment_screen_helper.dart';
+import '../../widgets/app_button_widget.dart';
+import '../../widgets/app_text_form_widget.dart';
+import '../../widgets/background_widget.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-class OldScreen extends StatefulWidget {
-  const OldScreen({super.key});
+class HeightScreen extends StatefulWidget {
+  const HeightScreen({super.key});
 
   @override
-  State<OldScreen> createState() => _OldScreenState();
+  State<HeightScreen> createState() => _HeightScreenState();
 }
 
-class _OldScreenState extends State<OldScreen> {
+class _HeightScreenState extends State<HeightScreen> {
+  final double min = 40;
+  final double max = 200;
+  String selectedValue = '';
+  TextEditingController? heightController = TextEditingController();
+
   @override
   void initState() {
     super.initState();
+    selectedValue = min.toString();
+    heightController = TextEditingController(text: selectedValue);
   }
 
   @override
   Widget build(BuildContext context) {
     return Background(
-        imageAsset: AppAssetsUtil.oldBackgroundImage,
+        imageAsset: AppAssetsUtil.heightBackgroundImage,
         child: Scaffold(
+            resizeToAvoidBottomInset: false,
             backgroundColor: Colors.transparent,
             body: SizedBox(
               width: MediaQuery.of(context).size.width,
@@ -65,7 +73,7 @@ class _OldScreenState extends State<OldScreen> {
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             Text(
-                              AppLocalizations.of(context)!.how_old_are_you,
+                              'What Is Your Height',
                               textAlign: TextAlign.center,
                               style: AppStylesUtil.textBoldStyle(
                                 20.sp,
@@ -92,75 +100,82 @@ class _OldScreenState extends State<OldScreen> {
                       ),
                     ),
                     Positioned(
-                      top: 170.h,
+                      top: 130.h,
                       child: SizedBox(
-                        height: 114.h,
+                        height: 100.h,
                         width: MediaQuery.of(context).size.width,
-                        child: ListView.builder(
-                            scrollDirection: Axis.horizontal,
-                            physics: const ScrollPhysics(),
-                            shrinkWrap: true,
-                            itemCount: 60,
-                            itemBuilder: (context, index) {
-                              return InkWell(
-                                  onTap: () {
-                                    setState(() {
-                                      OldScreenHelper.instance()
-                                          .onChangeAge(index);
-                                    });
-                                  },
-                                  child: Container(
-                                    height: OldScreenHelper.instance()
-                                                .selectedIndex ==
-                                            index
-                                        ? 114.h
-                                        : 95.h,
-                                    width: 70.w,
-                                    padding: const EdgeInsets.all(8.0),
-                                    margin: const EdgeInsets.all(4.0),
-                                    decoration: BoxDecoration(
-                                      color: OldScreenHelper.instance()
-                                                  .selectedIndex ==
-                                              index
-                                          ? AppColorUtil.backgroundDarkBabyBlue
-                                          : AppColorUtil.white,
-                                      border: Border.all(
-                                          color: OldScreenHelper.instance()
-                                                      .selectedIndex ==
-                                                  index
-                                              ? AppColorUtil.white
-                                              : AppColorUtil
-                                                  .backgroundDarkBabyBlue),
-                                      borderRadius: BorderRadius.circular(12.r),
-                                    ),
-                                    child: Center(
-                                      child: Text(
-                                        (22 + index).toString(),
-                                        style: AppStylesUtil.textRegularStyle(
-                                          30.sp,
-                                          OldScreenHelper.instance()
-                                                      .selectedIndex ==
-                                                  index
-                                              ? AppColorUtil.white
-                                              : AppColorUtil.textDarkGreen,
-                                          FontWeight.w500,
-                                        ),
-                                      ),
-                                    ),
-                                  ));
-                            }),
+                        child: AnimatedWeightPicker(
+                          min: min,
+                          max: max,
+                          majorIntervalThickness: 3,
+                          majorIntervalHeight: 20.0,
+                          selectedValueColor: AppColorUtil.textDarkGreen,
+                          dialColor: AppColorUtil.textDarkGreen,
+                          dialHeight: 45.h,
+                          dialThickness: 2.0,
+                          suffixText: 'cm',
+                          squeeze: 2.0,
+                          suffixTextColor: AppColorUtil.textDarkGreen,
+                          onChange: (newValue) {
+                            setState(() {
+                              selectedValue = newValue;
+                              heightController!.text = newValue;
+                              printDone(selectedValue);
+                            });
+                          },
+                        ),
                       ),
                     ),
                     Positioned(
-                        bottom: 100,
+                      top: 250.h,
+                      left: 10.w,
+                      child: Text(
+                        AppLocalizations.of(context)!.your_height,
+                        style: AppStylesUtil.textRegularStyle(
+                          14.sp,
+                          AppColorUtil.textDarkGrey,
+                          FontWeight.w500,
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      top: 270,
+                      left: 10.w,
+                      child: SizedBox(
+                        width: 320.w,
+                        height: 60.h,
+                        child: AppTextFormWidget(
+                          controller: heightController,
+                          hint: '150 cm',
+                          textType: TextInputType.number,
+                          onChangeListener: (value) {
+                            setState(() {
+                              selectedValue = value!;
+                            });
+                          },
+                          onValidateListener: (value) {},
+                          fontType: appFontBold,
+                          textSize: 12.sp,
+                          hintSize: 12.sp,
+                          radius: 12.sp,
+                          sideColor: AppColorUtil.textLightGrey,
+                          sideWidth: 1,
+                          fillColor: Colors.white,
+                          isFiled: true, 
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                        bottom: 90,
                         left: 10,
                         child: SizedBox(
-                          height: 153.h,
-                          width: 130.w,
+                          height: 200.h,
+                          width: 180.w,
                           child: Text(
                             AppLocalizations.of(context)!.lorem,
                             textAlign: TextAlign.start,
-                            overflow: TextOverflow.clip,
+                            overflow: TextOverflow.ellipsis,
+                            maxLines: 9,
                             style: AppStylesUtil.textBoldStyle(
                               20.sp,
                               AppColorUtil.white,
@@ -172,10 +187,7 @@ class _OldScreenState extends State<OldScreen> {
                       bottom: 30.h,
                       child: AppButtonWidget(
                         onClick: () {
-                          AppNavigationManager.navPush(
-                              screen: AppRoutes.defineProblemRouteName,
-                              context: context,
-                            );
+                          BookingAppointmentScreenHelper.instance().navToSecondPage(5);
                         },
                         customChild: Text(
                           AppLocalizations.of(context)!.continues,

@@ -1,42 +1,37 @@
-import 'package:doctor/core/components/identity_verification_done_card.dart';
-import 'package:doctor/core/components/identity_verification_selfie_card.dart';
+import 'package:carousel_slider/carousel_slider.dart';
+import 'package:doctor/core/app_debug_prints.dart';
 import 'package:doctor/core/utils/app_colors_util.dart';
+import 'package:doctor/presentation/helpers/define_problem_helper.dart';
+import 'package:doctor/presentation/helpers/old_screen_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../../config/routes/app_navigation_manager.dart';
-import '../../config/routes/app_routes.dart';
-import '../../core/utils/app_assets_util.dart';
-import '../../core/utils/app_styles_util.dart';
-import '../widgets/app_button_widget.dart';
-import '../widgets/background_widget.dart';
+import '../../../config/routes/app_navigation_manager.dart';
+import '../../../config/routes/app_routes.dart';
+import '../../../core/components/visit_type_card_component.dart';
+import '../../../core/utils/app_assets_util.dart';
+import '../../../core/utils/app_styles_util.dart';
+import '../../helpers/booking_appointment_screen_helper.dart';
+import '../../widgets/app_button_widget.dart';
+import '../../widgets/background_widget.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-class VerifyIdentityScreen extends StatefulWidget {
-  const VerifyIdentityScreen({super.key});
+class OldScreen extends StatefulWidget {
+  const OldScreen({super.key});
 
   @override
-  State<VerifyIdentityScreen> createState() => _VerifyIdentityScreenState();
+  State<OldScreen> createState() => _OldScreenState();
 }
 
-class _VerifyIdentityScreenState extends State<VerifyIdentityScreen> {
-  bool checkanimation = false;
-  bool selfieanimation = false;
-
+class _OldScreenState extends State<OldScreen> {
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-      setState(() {
-        checkanimation = true;
-        selfieanimation = true;
-      });
-    });
   }
 
   @override
   Widget build(BuildContext context) {
     return Background(
-        imageAsset: AppAssetsUtil.verifyIdentityBackgroundImage,
+        imageAsset: AppAssetsUtil.oldBackgroundImage,
         child: Scaffold(
             backgroundColor: Colors.transparent,
             body: SizedBox(
@@ -71,7 +66,7 @@ class _VerifyIdentityScreenState extends State<VerifyIdentityScreen> {
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             Text(
-                              AppLocalizations.of(context)!.verify_identity,
+                              AppLocalizations.of(context)!.how_old_are_you,
                               textAlign: TextAlign.center,
                               style: AppStylesUtil.textBoldStyle(
                                 20.sp,
@@ -84,7 +79,7 @@ class _VerifyIdentityScreenState extends State<VerifyIdentityScreen> {
                               width: 260.h,
                               child: Text(
                                 AppLocalizations.of(context)!
-                                    .your_information_will_be_shared,
+                                    .most_therapies_depend_on_it,
                                 textAlign: TextAlign.center,
                                 style: AppStylesUtil.textBoldStyle(
                                   12.sp,
@@ -98,54 +93,67 @@ class _VerifyIdentityScreenState extends State<VerifyIdentityScreen> {
                       ),
                     ),
                     Positioned(
-                      top: 150.h,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          AnimatedContainer(
-                            duration: const Duration(milliseconds: 1000),
-                            transform: Matrix4.translationValues(
-                                checkanimation
-                                    ? 0 // mwgoda
-                                    : -MediaQuery.of(context)
-                                        .size
-                                        .width, // msh mwgoda
-                                0,
-                                0),
-                            curve: Curves.easeInOut,
-                            child: IdentityVerificationDoneCard(
-                                widthContainer: 146.w,
-                                heightContainer: 175.h,
-                                iconAsset: AppAssetsUtil.checkCircleFillIcon,
-                                title: 'Identity Verification',
-                                descreption: 'Your data has been saved'),
-                          ),
-                          10.horizontalSpace,
-                          AnimatedContainer(
-                            duration: const Duration(milliseconds: 1000),
-                            transform: Matrix4.translationValues(
-                                selfieanimation
-                                    ? 0 // mwgoda
-                                    : MediaQuery.of(context)
-                                        .size
-                                        .width, // msh mwgoda
-                                0,
-                                0),
-                            curve: Curves.easeInOut,
-                            child: IdentityVerificationSelfieCard(
-                                widthContainer: 140.w,
-                                heightContainer: 170.h,
-                                iconAsset: AppAssetsUtil.selfieIcon,
-                                title: 'Selfie Photo',
-                                descreption:
-                                    'Its Required by our system to verify your identity'),
-                          )
-                        ],
+                      top: 170.h,
+                      child: SizedBox(
+                        height: 114.h,
+                        width: MediaQuery.of(context).size.width,
+                        child: ListView.builder(
+                            scrollDirection: Axis.horizontal,
+                            physics: const ScrollPhysics(),
+                            shrinkWrap: true,
+                            itemCount: 60,
+                            itemBuilder: (context, index) {
+                              return InkWell(
+                                  onTap: () {
+                                    setState(() {
+                                      OldScreenHelper.instance()
+                                          .onChangeAge(index);
+                                    });
+                                  },
+                                  child: Container(
+                                    height: OldScreenHelper.instance()
+                                                .selectedIndex ==
+                                            index
+                                        ? 114.h
+                                        : 95.h,
+                                    width: 70.w,
+                                    padding: const EdgeInsets.all(8.0),
+                                    margin: const EdgeInsets.all(4.0),
+                                    decoration: BoxDecoration(
+                                      color: OldScreenHelper.instance()
+                                                  .selectedIndex ==
+                                              index
+                                          ? AppColorUtil.backgroundDarkBabyBlue
+                                          : AppColorUtil.white,
+                                      border: Border.all(
+                                          color: OldScreenHelper.instance()
+                                                      .selectedIndex ==
+                                                  index
+                                              ? AppColorUtil.white
+                                              : AppColorUtil
+                                                  .backgroundDarkBabyBlue),
+                                      borderRadius: BorderRadius.circular(12.r),
+                                    ),
+                                    child: Center(
+                                      child: Text(
+                                        (22 + index).toString(),
+                                        style: AppStylesUtil.textRegularStyle(
+                                          30.sp,
+                                          OldScreenHelper.instance()
+                                                      .selectedIndex ==
+                                                  index
+                                              ? AppColorUtil.white
+                                              : AppColorUtil.textDarkGreen,
+                                          FontWeight.w500,
+                                        ),
+                                      ),
+                                    ),
+                                  ));
+                            }),
                       ),
                     ),
                     Positioned(
-                        bottom: 140,
+                        bottom: 100,
                         left: 10,
                         child: SizedBox(
                           height: 153.h,
@@ -165,10 +173,7 @@ class _VerifyIdentityScreenState extends State<VerifyIdentityScreen> {
                       bottom: 30.h,
                       child: AppButtonWidget(
                         onClick: () {
-                          AppNavigationManager.navPush(
-                              screen: AppRoutes.weightRouteName,
-                              context: context,
-                            );
+                          BookingAppointmentScreenHelper.instance().navToSecondPage(7);
                         },
                         customChild: Text(
                           AppLocalizations.of(context)!.continues,

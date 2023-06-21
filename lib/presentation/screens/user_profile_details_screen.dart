@@ -36,11 +36,18 @@ class UserProfileDetailsScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               AppBackBtnWidget(
+                titleStyle: AppStylesUtil.textBoldStyle(
+                  18.sp,
+                  AppColorUtil.textDarkGreen,
+                  FontWeight.bold,
+                ),
                 onClick: () {
                   AppNavigationManager.navPop(context);
                 },
                 titleIsVisible: true,
                 title: AppLocalizations.of(context)!.user_profile,
+                iconColor: AppColorUtil.darkGreen,
+                space: 70.horizontalSpace,
               ),
               30.verticalSpace,
               Form(
@@ -89,5 +96,3 @@ class UserProfileDetailsScreen extends StatelessWidget {
     );
   }
 }
-
-

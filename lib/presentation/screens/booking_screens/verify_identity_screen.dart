@@ -1,43 +1,44 @@
-import 'package:animated_weight_picker/animated_weight_picker.dart';
-import 'package:doctor/core/app_debug_prints.dart';
+import 'package:doctor/core/components/identity_verification_done_card.dart';
+import 'package:doctor/core/components/identity_verification_selfie_card.dart';
 import 'package:doctor/core/utils/app_colors_util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../../config/routes/app_navigation_manager.dart';
-import '../../config/routes/app_routes.dart';
-import '../../core/utils/app_assets_util.dart';
-import '../../core/utils/app_strings.dart';
-import '../../core/utils/app_styles_util.dart';
-import '../widgets/app_button_widget.dart';
-import '../widgets/app_text_form_widget.dart';
-import '../widgets/background_widget.dart';
+import '../../../config/routes/app_navigation_manager.dart';
+import '../../../config/routes/app_routes.dart';
+import '../../../core/utils/app_assets_util.dart';
+import '../../../core/utils/app_styles_util.dart';
+import '../../helpers/booking_appointment_screen_helper.dart';
+import '../../widgets/app_button_widget.dart';
+import '../../widgets/background_widget.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-class HeightScreen extends StatefulWidget {
-  const HeightScreen({super.key});
+class VerifyIdentityScreen extends StatefulWidget {
+  const VerifyIdentityScreen({super.key});
 
   @override
-  State<HeightScreen> createState() => _HeightScreenState();
+  State<VerifyIdentityScreen> createState() => _VerifyIdentityScreenState();
 }
 
-class _HeightScreenState extends State<HeightScreen> {
-  final double min = 40;
-  final double max = 200;
-  String selectedValue = '';
-  TextEditingController? heightController;
+class _VerifyIdentityScreenState extends State<VerifyIdentityScreen> {
+  bool checkanimation = false;
+  bool selfieanimation = false;
+
   @override
   void initState() {
     super.initState();
-    selectedValue = min.toString();
-    heightController = TextEditingController(text: selectedValue);
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      setState(() {
+        checkanimation = true;
+        selfieanimation = true;
+      });
+    });
   }
 
   @override
   Widget build(BuildContext context) {
     return Background(
-        imageAsset: AppAssetsUtil.heightBackgroundImage,
+        imageAsset: AppAssetsUtil.verifyIdentityBackgroundImage,
         child: Scaffold(
-            resizeToAvoidBottomInset: false,
             backgroundColor: Colors.transparent,
             body: SizedBox(
               width: MediaQuery.of(context).size.width,
@@ -71,7 +72,7 @@ class _HeightScreenState extends State<HeightScreen> {
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             Text(
-                              'What Is Your Height',
+                              AppLocalizations.of(context)!.verify_identity,
                               textAlign: TextAlign.center,
                               style: AppStylesUtil.textBoldStyle(
                                 20.sp,
@@ -84,7 +85,7 @@ class _HeightScreenState extends State<HeightScreen> {
                               width: 260.h,
                               child: Text(
                                 AppLocalizations.of(context)!
-                                    .most_therapies_depend_on_it,
+                                    .your_information_will_be_shared,
                                 textAlign: TextAlign.center,
                                 style: AppStylesUtil.textBoldStyle(
                                   12.sp,
@@ -98,82 +99,62 @@ class _HeightScreenState extends State<HeightScreen> {
                       ),
                     ),
                     Positioned(
-                      top: 130.h,
-                      child: SizedBox(
-                        height: 100.h,
-                        width: MediaQuery.of(context).size.width,
-                        child: AnimatedWeightPicker(
-                          min: min,
-                          max: max,
-                          majorIntervalThickness: 3,
-                          majorIntervalHeight: 20.0,
-                          selectedValueColor: AppColorUtil.textDarkGreen,
-                          dialColor: AppColorUtil.textDarkGreen,
-                          dialHeight: 45.h,
-                          dialThickness: 2.0,
-                          suffixText: 'cm',
-                          squeeze: 2.0,
-                          suffixTextColor: AppColorUtil.textDarkGreen,
-                          onChange: (newValue) {
-                            setState(() {
-                              selectedValue = newValue;
-                              heightController!.text = newValue;
-                              printDone(selectedValue);
-                            });
-                          },
-                        ),
+                      top: 150.h,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          AnimatedContainer(
+                            duration: const Duration(milliseconds: 1000),
+                            transform: Matrix4.translationValues(
+                                checkanimation
+                                    ? 0 // mwgoda
+                                    : -MediaQuery.of(context)
+                                        .size
+                                        .width, // msh mwgoda
+                                0,
+                                0),
+                            curve: Curves.easeInOut,
+                            child: IdentityVerificationDoneCard(
+                                widthContainer: 146.w,
+                                heightContainer: 175.h,
+                                iconAsset: AppAssetsUtil.checkCircleFillIcon,
+                                title: 'Identity Verification',
+                                descreption: 'Your data has been saved'),
+                          ),
+                          10.horizontalSpace,
+                          AnimatedContainer(
+                            duration: const Duration(milliseconds: 1000),
+                            transform: Matrix4.translationValues(
+                                selfieanimation
+                                    ? 0 // mwgoda
+                                    : MediaQuery.of(context)
+                                        .size
+                                        .width, // msh mwgoda
+                                0,
+                                0),
+                            curve: Curves.easeInOut,
+                            child: IdentityVerificationSelfieCard(
+                                widthContainer: 140.w,
+                                heightContainer: 170.h,
+                                iconAsset: AppAssetsUtil.selfieIcon,
+                                title: 'Selfie Photo',
+                                descreption:
+                                    'Its Required by our system to verify your identity'),
+                          )
+                        ],
                       ),
                     ),
                     Positioned(
-                      top: 250.h,
-                      left: 10.w,
-                      child: Text(
-                        AppLocalizations.of(context)!.your_height,
-                        style: AppStylesUtil.textRegularStyle(
-                          14.sp,
-                          AppColorUtil.textDarkGrey,
-                          FontWeight.w500,
-                        ),
-                      ),
-                    ),
-                    Positioned(
-                      top: 270,
-                      left: 10.w,
-                      child: SizedBox(
-                        width: 320.w,
-                        height: 60.h,
-                        child: AppTextFormWidget(
-                          controller: heightController,
-                          hint: '150 cm',
-                          textType: TextInputType.number,
-                          onChangeListener: (value) {
-                            setState(() {
-                              selectedValue = value!;
-                            });
-                          },
-                          onValidateListener: (value) {},
-                          fontType: appFontBold,
-                          textSize: 12.sp,
-                          hintSize: 12.sp,
-                          radius: 12.sp,
-                          sideColor: AppColorUtil.textLightGrey,
-                          sideWidth: 1,
-                          fillColor: Colors.white,
-                          isFiled: true,
-                        ),
-                      ),
-                    ),
-                    Positioned(
-                        bottom: 90,
+                        bottom: 140,
                         left: 10,
                         child: SizedBox(
-                          height: 200.h,
-                          width: 180.w,
+                          height: 153.h,
+                          width: 130.w,
                           child: Text(
                             AppLocalizations.of(context)!.lorem,
                             textAlign: TextAlign.start,
-                            overflow: TextOverflow.ellipsis,
-                            maxLines: 9,
+                            overflow: TextOverflow.clip,
                             style: AppStylesUtil.textBoldStyle(
                               20.sp,
                               AppColorUtil.white,
@@ -185,10 +166,7 @@ class _HeightScreenState extends State<HeightScreen> {
                       bottom: 30.h,
                       child: AppButtonWidget(
                         onClick: () {
-                          AppNavigationManager.navPush(
-                              screen: AppRoutes.bloodRouteName,
-                              context: context,
-                            );
+                          BookingAppointmentScreenHelper.instance().navToSecondPage(3);
                         },
                         customChild: Text(
                           AppLocalizations.of(context)!.continues,

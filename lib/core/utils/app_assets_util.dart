@@ -96,4 +96,5 @@ class AppAssetsUtil {
       "assets/images/onboardingrightbuttonimpossible.svg";
   static const String onboardingRightButtonpossible =
       "assets/images/onboardingrightbuttonpossible.svg";
+  static const String mapImage = "assets/images/map.jpg";
 }

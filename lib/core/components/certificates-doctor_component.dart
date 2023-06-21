@@ -26,42 +26,58 @@ class CertificateDoctorComponent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Material(
-        elevation: 8.0,
-        shadowColor: AppColorUtil.semiDarkWhite,
-        borderRadius: BorderRadius.circular(12.r),
-        child: Container(
-          padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 13.h),
-          width: widthContainer,
-          height: heightContainer,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 13.h),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(15.r),
+        color: Colors.grey[200]!.withOpacity(0.4),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          Text(
+            title,
+            style: AppStylesUtil.textRegularStyle(
+                16.sp, AppColorUtil.textDarkGreen, FontWeight.w500),
+          ),
+          15.verticalSpace,
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Text(
-                title,
-                style: AppStylesUtil.textRegularStyle(
-                    16.sp, AppColorUtil.textDarkGreen, FontWeight.w500),
+              SvgPicture.asset(
+                iconAssetCertificate1,
+                width: 65.w,
+                height: 65.h,
+                fit: BoxFit.contain,
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  SvgPicture.asset(iconAssetCertificate1,
-                      width: 65.w, height: 65.h, fit: BoxFit.contain),
-                  SvgPicture.asset(iconAssetCertificate2,
-                      width: 65.w, height: 65.h, fit: BoxFit.contain),
-                  SvgPicture.asset(iconAssetCertificate3,
-                      width: 65.w, height: 65.h, fit: BoxFit.contain),
-                ],
+              SvgPicture.asset(
+                iconAssetCertificate2,
+                width: 65.w,
+                height: 65.h,
+                fit: BoxFit.contain,
               ),
-              Text(
-                discreption,
-                style: AppStylesUtil.textRegularStyle(
-                    12.sp, AppColorUtil.textblackBold, FontWeight.w400),
+              SvgPicture.asset(
+                iconAssetCertificate3,
+                width: 65.w,
+                height: 65.h,
+                fit: BoxFit.contain,
               ),
             ],
           ),
-        ));
+          10.verticalSpace,
+          Text(
+            discreption,
+            style: AppStylesUtil.textRegularStyle(
+              12.sp,
+              AppColorUtil.textblackBold,
+              FontWeight.w400,
+            ),
+          ),
+          15.verticalSpace,
+        ],
+      ),
+    );
   }
 }

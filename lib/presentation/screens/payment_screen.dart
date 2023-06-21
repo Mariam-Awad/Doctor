@@ -34,11 +34,18 @@ class PaymentScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               AppBackBtnWidget(
+                titleStyle: AppStylesUtil.textBoldStyle(
+                  18.sp,
+                  AppColorUtil.textDarkGreen,
+                  FontWeight.bold,
+                ),
                 onClick: () {
                   AppNavigationManager.navPop(context);
                 },
                 titleIsVisible: true,
                 title: AppLocalizations.of(context)!.payment,
+                iconColor: AppColorUtil.darkGreen,
+                space: 70.horizontalSpace,
               ),
               Padding(
                 padding: EdgeInsets.symmetric(
