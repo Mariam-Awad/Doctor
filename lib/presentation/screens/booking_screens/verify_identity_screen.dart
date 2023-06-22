@@ -3,6 +3,7 @@ import 'package:doctor/core/components/identity_verification_selfie_card.dart';
 import 'package:doctor/core/utils/app_colors_util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 import '../../../core/utils/app_assets_util.dart';
 import '../../../core/utils/app_styles_util.dart';
 import '../../helpers/booking_appointment_screen_helper.dart';
@@ -148,12 +149,13 @@ class _VerifyIdentityScreenState extends State<VerifyIdentityScreen> {
                         bottom: 140,
                         left: 10,
                         child: SizedBox(
-                          height: 153.h,
+                          height: 165.h,
                           width: 130.w,
                           child: Text(
                             AppLocalizations.of(context)!.lorem,
                             textAlign: TextAlign.start,
-                            overflow: TextOverflow.clip,
+                            overflow: TextOverflow.ellipsis,
+                            maxLines: 6,
                             style: AppStylesUtil.textBoldStyle(
                               20.sp,
                               AppColorUtil.white,

@@ -48,7 +48,8 @@ class _OldScreenState extends State<OldScreen> {
                       left: 10.w,
                       child: InkWell(
                         onTap: () {
-                          BookingAppointmentScreenHelper.instance().navBackPage();
+                          BookingAppointmentScreenHelper.instance()
+                              .navBackPage();
                         },
                         child: Icon(
                           Icons.arrow_back,
@@ -156,12 +157,13 @@ class _OldScreenState extends State<OldScreen> {
                         bottom: 100,
                         left: 10,
                         child: SizedBox(
-                          height: 153.h,
+                          height: 165.h,
                           width: 130.w,
                           child: Text(
                             AppLocalizations.of(context)!.lorem,
                             textAlign: TextAlign.start,
-                            overflow: TextOverflow.clip,
+                            overflow: TextOverflow.ellipsis,
+                            maxLines: 6,
                             style: AppStylesUtil.textBoldStyle(
                               20.sp,
                               AppColorUtil.white,
@@ -173,7 +175,8 @@ class _OldScreenState extends State<OldScreen> {
                       bottom: 30.h,
                       child: AppButtonWidget(
                         onClick: () {
-                          BookingAppointmentScreenHelper.instance().navToSecondPage(7);
+                          BookingAppointmentScreenHelper.instance()
+                              .navToSecondPage(7);
                         },
                         customChild: Text(
                           AppLocalizations.of(context)!.continues,

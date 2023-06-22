@@ -50,7 +50,8 @@ class _ChooseDateScreenState extends State<ChooseDateScreen> {
                       left: 10.w,
                       child: InkWell(
                         onTap: () {
-                          BookingAppointmentScreenHelper.instance().navBackPage();
+                          BookingAppointmentScreenHelper.instance()
+                              .navBackPage();
                         },
                         child: Icon(
                           Icons.arrow_back,
@@ -97,7 +98,7 @@ class _ChooseDateScreenState extends State<ChooseDateScreen> {
                       ),
                     ),
                     Positioned(
-                      top: 250.h,
+                      top: 240.h,
                       left: 16.w,
                       child: Text(
                         AppLocalizations.of(context)!.select_time,
@@ -125,7 +126,7 @@ class _ChooseDateScreenState extends State<ChooseDateScreen> {
                           )),
                     ),
                     Positioned(
-                      top: 245.0,
+                      top: 250.0,
                       left: 16.w,
                       right: 16.w,
                       child: GridView.builder(
@@ -174,12 +175,13 @@ class _ChooseDateScreenState extends State<ChooseDateScreen> {
                         bottom: 140,
                         left: 10,
                         child: SizedBox(
-                          height: 153.h,
+                          height: 165.h,
                           width: 130.w,
                           child: Text(
                             AppLocalizations.of(context)!.lorem,
                             textAlign: TextAlign.start,
-                            overflow: TextOverflow.clip,
+                            overflow: TextOverflow.ellipsis,
+                            maxLines: 6,
                             style: AppStylesUtil.textBoldStyle(
                               20.sp,
                               AppColorUtil.white,
@@ -191,7 +193,8 @@ class _ChooseDateScreenState extends State<ChooseDateScreen> {
                       bottom: 30.h,
                       child: AppButtonWidget(
                         onClick: () {
-                          BookingAppointmentScreenHelper.instance().navToSecondPage(10);
+                          BookingAppointmentScreenHelper.instance()
+                              .navToSecondPage(10);
                         },
                         customChild: Text(
                           AppLocalizations.of(context)!.continues,
