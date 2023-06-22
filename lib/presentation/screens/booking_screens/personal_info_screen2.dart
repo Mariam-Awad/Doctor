@@ -230,13 +230,13 @@ class PersonalInfoScreen2 extends StatelessWidget {
                 bottom: 110,
                 left: 10,
                 child: SizedBox(
-                  height: 153.h,
+                  height: 165.h,
                   width: 130.w,
                   child: Text(
                     AppLocalizations.of(context)!.lorem,
                     textAlign: TextAlign.start,
                     overflow: TextOverflow.ellipsis,
-                    maxLines: 9,
+                    maxLines: 6,
                     style: AppStylesUtil.textBoldStyle(
                       20.sp,
                       AppColorUtil.white,
