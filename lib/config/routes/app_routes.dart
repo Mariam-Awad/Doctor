@@ -9,6 +9,14 @@ class AppRoutes {
   static const String paymentRouteName = "/paymentScreen";
   static const String settingsRouteName = "/settingsScreen";
   static const String verifyIdentityRouteName = "/verifyIdentityScreen";
+  static const String defineProblemRouteName = "/defineProblemScreen";
+  static const String defineProblemTwoRouteName = "/defineProblemScreenTwo";
+  static const String oldRouteName = "/oldScreen";
+  static const String weightRouteName = "/weightScreen";
+  static const String heightRouteName = "/heightScreen";
+  static const String bloodRouteName = "/bloodScreen";
+  static const String branchRouteName = "/branchScreen";
+  static const String chooseDateRouteName = "/chooseDateScreen";
   static const String biographyRouteName = "/biographyScreen";
   static const String personalInfoRouteName = "/personalInfoScreen";
   static const String reviewInfoRouteName = "/ReviewBookingInfoScreen";

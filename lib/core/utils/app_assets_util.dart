@@ -38,15 +38,15 @@ class AppAssetsUtil {
   static const String wifiIcon = "assets/icons/wifi.svg";
 
   /// images section with png or jpg or jpeg extension >>>>>>>>>>>>>>>>>>>>>>>>>>>>>.
-  static const String patientBackgroundSama3aImage =
+  static const String personalInfoBackgroundImage =
       "assets/images/Add Patient Details -Personal Information 1 – 2.jpg";
-  static const String patientBackgroundSheretImage =
+  static const String heightBackgroundImage =
       "assets/images/Add Patient Details – 8.jpg";
-  static const String patientBackgroundPlusImage =
+  static const String oldBackgroundImage =
       "assets/images/Add Patient Details – 9.jpg";
   static const String patientBackgroundEmptyImage =
       "assets/images/Add Patient Details – 9 copy.jpg";
-  static const String patientBackgroundAnabebImage =
+  static const String bloodBackgroundImage =
       "assets/images/Add Patient Details – 10.jpg";
   static const String testimonialsImage1 = "assets/images/Artboa.png";
   static const String testimonialsImage2 = "assets/images/Artboard – 1.png";
@@ -54,13 +54,13 @@ class AppAssetsUtil {
       "assets/images/Attachments.jpg";
   static const String patientBackgroundCheckOutImage =
       "assets/images/Checkout.jpg";
-  static const String patientBackgroundAppointmentImage =
+  static const String chooseDateBackgroundImage =
       "assets/images/Choose appointment date and time.jpg";
-  static const String patientBackgroundLocationImage =
+  static const String chooseBranchBackgroundImage =
       "assets/images/Choose Branch.jpg";
   static const String anabebImage =
       "assets/images/Coronavirus Blood Samples Mixed.G03.2k.png";
-  static const String patientBackgroundTermometerImage =
+  static const String defineProblemBackgroundImage =
       "assets/images/Define Problem- Treatment – 1.jpg";
   static const String termometerImage =
       "assets/images/Digital Thermometer.B04.2k.png";

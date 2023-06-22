@@ -182,7 +182,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             btnSize: Size(200.w, 45.h),
                             btnRadius: 30.sp,
                             width: 200.w,
-                            height: 45.h,
+                            height: 40.h,
                           ),
                           SizedBox(
                             height: 20.h,

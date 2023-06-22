@@ -1,14 +1,22 @@
 import 'package:doctor/config/routes/app_routes.dart';
+import 'package:doctor/presentation/screens/booking_screens/choose_date_screen.dart';
+import 'package:doctor/presentation/screens/booking_screens/define_problem_screen.dart';
 import 'package:doctor/presentation/screens/biography_screen.dart';
 import 'package:doctor/presentation/screens/booking_screens/review_booking_info_screen.dart';
 import 'package:doctor/presentation/screens/forget_password_screen.dart';
 import 'package:doctor/presentation/screens/main_screen.dart';
 import 'package:doctor/presentation/screens/my_visits_screen.dart';
+import 'package:doctor/presentation/screens/booking_screens/old_screen.dart';
 import 'package:doctor/presentation/screens/otp_screen.dart';
 import 'package:doctor/presentation/screens/booking_an_appointment_screen.dart';
 import 'package:doctor/presentation/screens/splash_screen.dart';
-import 'package:doctor/presentation/screens/verify_identity_screen.dart';
+import 'package:doctor/presentation/screens/booking_screens/verify_identity_screen.dart';
+import 'package:doctor/presentation/screens/booking_screens/weight_screen.dart';
 import 'package:flutter/material.dart';
+import '../../presentation/screens/booking_screens/blood_screen.dart';
+import '../../presentation/screens/booking_screens/branch_screen.dart';
+import '../../presentation/screens/booking_screens/define_problem_screen_two.dart';
+import '../../presentation/screens/booking_screens/height_screen.dart';
 import '../../presentation/screens/login_screen.dart';
 
 class AppRouteManager {
@@ -41,6 +49,38 @@ class AppRouteManager {
       case AppRoutes.verifyIdentityRouteName:
         return MaterialPageRoute(
           builder: (context) => const VerifyIdentityScreen(),
+        );
+      case AppRoutes.defineProblemRouteName:
+        return MaterialPageRoute(
+          builder: (context) => const DefineProblemScreen(),
+        );
+      case AppRoutes.defineProblemTwoRouteName:
+        return MaterialPageRoute(
+          builder: (context) => const DefineProblemScreenTwo(),
+        );
+      case AppRoutes.oldRouteName:
+        return MaterialPageRoute(
+          builder: (context) => const OldScreen(),
+        );
+      case AppRoutes.weightRouteName:
+        return MaterialPageRoute(
+          builder: (context) => const WeightScreen(),
+        );
+      case AppRoutes.heightRouteName:
+        return MaterialPageRoute(
+          builder: (context) => const HeightScreen(),
+        );
+      case AppRoutes.bloodRouteName:
+        return MaterialPageRoute(
+          builder: (context) => const BloodScreen(),
+        );
+      case AppRoutes.branchRouteName:
+        return MaterialPageRoute(
+          builder: (context) => const BranchScreen(),
+        );
+      case AppRoutes.chooseDateRouteName:
+        return MaterialPageRoute(
+          builder: (context) => const ChooseDateScreen(),
         );
       case AppRoutes.biographyRouteName:
         return MaterialPageRoute(

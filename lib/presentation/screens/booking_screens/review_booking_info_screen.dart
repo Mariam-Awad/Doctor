@@ -4,7 +4,6 @@ import 'package:doctor/core/utils/app_colors_util.dart';
 import 'package:doctor/core/utils/app_styles_util.dart';
 import 'package:doctor/presentation/helpers/booking_appointment_screen_helper.dart';
 import 'package:doctor/presentation/helpers/review_booking_info_screen_helper.dart';
-import 'package:doctor/presentation/widgets/app_back_btn_widget.dart';
 import 'package:doctor/presentation/widgets/app_button_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -16,12 +15,15 @@ class ReviewBookingInfoScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
+      backgroundColor: Colors.transparent,
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Container(
           height: ScreenResizer.getScreenHeight(context),
           width: ScreenResizer.getScreenWidth(context),
-          padding: EdgeInsets.symmetric(horizontal: 15.w),
+          padding:
+              EdgeInsets.only(top: 30.h, bottom: 20.h, left: 10.w, right: 10.w),
           decoration: const BoxDecoration(
             image: DecorationImage(
               image: AssetImage(
@@ -30,47 +32,62 @@ class ReviewBookingInfoScreen extends StatelessWidget {
               fit: BoxFit.fill,
             ),
           ),
-          child: Column(
+          child: Stack(
+            alignment: AlignmentDirectional.topCenter,
             children: [
-              70.verticalSpace,
-              AppBackBtnWidget(
-                onClick: () {
-                  BookingAppointmentScreenHelper.instance()
-                      .navBackPage();
-                },
-                titleIsVisible: true,
-                titleStyle: AppStylesUtil.textBoldStyle(
-                  20.sp,
-                  AppColorUtil.darkGreen,
-                  FontWeight.bold,
-                ),
-                iconColor: AppColorUtil.darkGreen,
-                space: 100.horizontalSpace,
-                title: AppLocalizations.of(context)!.review,
-              ),
-              10.verticalSpace,
-              SizedBox(
-                height: ScreenResizer.getScreenHeight(context) / 2.1,
-                child: PageView.builder(
-                  physics: const NeverScrollableScrollPhysics(),
-                  controller: ReviewBookingInfoScreenHelper.instance()
-                      .pageVIewController,
-                  itemCount: ReviewBookingInfoScreenHelper.instance()
-                      .reviewScreenSections
-                      .length,
-                  itemBuilder: (context, index) {
-                    return ReviewBookingInfoScreenHelper.instance()
-                        .reviewScreenSections[index];
+              Positioned(
+                top: 30.h,
+                left: 10.w,
+                child: InkWell(
+                  onTap: () {
+                    BookingAppointmentScreenHelper.instance().navBackPage();
                   },
+                  child: Icon(
+                    Icons.arrow_back,
+                    size: 23.0,
+                    weight: 20.0,
+                    color: AppColorUtil.textDarkGreen,
+                  ),
                 ),
               ),
-              5.verticalSpace,
-              StatefulBuilder(
-                builder: (context, setState) {
-                  return Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 20.w),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              Positioned(
+                  top: 50.h,
+                  child: Center(
+                    child: Text(
+                      AppLocalizations.of(context)!.review,
+                      textAlign: TextAlign.center,
+                      style: AppStylesUtil.textBoldStyle(
+                        20.sp,
+                        AppColorUtil.textDarkGreen,
+                        FontWeight.bold,
+                      ),
+                    ),
+                  )),
+              Positioned(
+                top: 100.h,
+                child: SizedBox(
+                  height: ScreenResizer.getScreenHeight(context) / 2.25,
+                  width: 337.w,
+                  child: PageView.builder(
+                    physics: const NeverScrollableScrollPhysics(),
+                    controller: ReviewBookingInfoScreenHelper.instance()
+                        .pageVIewController,
+                    itemCount: ReviewBookingInfoScreenHelper.instance()
+                        .reviewScreenSections
+                        .length,
+                    itemBuilder: (context, index) {
+                      return ReviewBookingInfoScreenHelper.instance()
+                          .reviewScreenSections[index];
+                    },
+                  ),
+                ),
+              ),
+              Positioned(
+                top: 470.h,
+                child: StatefulBuilder(
+                  builder: (context, setState) {
+                    return Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                         InkWell(
                           onTap: () {
@@ -92,8 +109,11 @@ class ReviewBookingInfoScreen extends StatelessWidget {
                                         .index ==
                                     1
                                 ? AppColorUtil.iconsDarkGreen
-                                : Colors.grey[300],
+                                : AppColorUtil.shadowGrey,
                           ),
+                        ),
+                        SizedBox(
+                          width: 250.w,
                         ),
                         InkWell(
                           onTap: () {
@@ -116,20 +136,19 @@ class ReviewBookingInfoScreen extends StatelessWidget {
                                         .index ==
                                     0
                                 ? AppColorUtil.iconsDarkGreen
-                                : Colors.grey[300],
+                                : AppColorUtil.shadowGrey,
                           ),
                         ),
                       ],
-                    ),
-                  );
-                },
+                    );
+                  },
+                ),
               ),
-              70.verticalSpace,
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 20.w),
+              Positioned(
+                bottom: 130.h,
                 child: AppButtonWidget(
                   onClick: () {
-                    BookingAppointmentScreenHelper.instance().navToPage(3);
+                    // BookingAppointmentScreenHelper.instance().navToPage(3);
                   },
                   customChild: Text(
                     AppLocalizations.of(context)!.upload_attachments,
@@ -140,15 +159,15 @@ class ReviewBookingInfoScreen extends StatelessWidget {
                     ),
                   ),
                   btnBackgroundColor: AppColorUtil.white,
-                  btnSize: Size(double.maxFinite,45.h),
-                  btnRadius: 10.sp,
-                  width: double.maxFinite,
-                  height: 45.h,
+                  btnPadding: EdgeInsets.all(5.sp),
+                  btnSize: Size(302.w, 40.h),
+                  btnRadius: 12.sp,
+                  height: 40.h,
+                  width: 302.w,
                 ),
               ),
-              10.verticalSpace,
-              Padding(
-                padding:EdgeInsets.symmetric(horizontal: 20.w),
+              Positioned(
+                bottom: 80.h,
                 child: AppButtonWidget(
                   onClick: () {},
                   customChild: Text(
@@ -160,15 +179,15 @@ class ReviewBookingInfoScreen extends StatelessWidget {
                     ),
                   ),
                   btnBackgroundColor: AppColorUtil.white,
-                  btnSize: Size(double.maxFinite,45.h),
-                  btnRadius: 10.sp,
-                  width: double.maxFinite,
-                  height: 45.h,
+                  btnPadding: EdgeInsets.all(5.sp),
+                  btnSize: Size(302.w, 40.h),
+                  btnRadius: 12.sp,
+                  height: 40.h,
+                  width: 302.w,
                 ),
               ),
-              10.verticalSpace,
-              Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 20.w),
+              Positioned(
+                bottom: 30.h,
                 child: AppButtonWidget(
                   onClick: () {},
                   customChild: Text(
@@ -180,10 +199,11 @@ class ReviewBookingInfoScreen extends StatelessWidget {
                     ),
                   ),
                   btnBackgroundColor: AppColorUtil.white,
-                  btnSize: Size(double.maxFinite,45.h),
-                  btnRadius: 10.sp,
-                  width: double.maxFinite,
-                  height: 45.h,
+                  btnPadding: EdgeInsets.all(5.sp),
+                  btnSize: Size(302.w, 40.h),
+                  btnRadius: 12.sp,
+                  height: 40.h,
+                  width: 302.w,
                 ),
               ),
             ],

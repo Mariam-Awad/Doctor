@@ -1,3 +1,4 @@
+import 'package:doctor/core/utils/app_colors_util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -24,6 +25,7 @@ class _MyAppState extends State<MyApp> {
     return ScreenUtilInit(
       designSize: const Size(375, 812),
       builder: (context, child) => MaterialApp(
+        theme: ThemeData(primaryColor: AppColorUtil.backgroundDarkBabyBlue),
         debugShowCheckedModeBanner: false,
         initialRoute: AppRoutes.splashScreenRouteName,
         onGenerateRoute: AppRouteManager.generateRoute,

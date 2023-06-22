@@ -17,213 +17,256 @@ class PersonalInfoScreen2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
+      backgroundColor: Colors.transparent,
       body: SingleChildScrollView(
-        scrollDirection: Axis.vertical,
         child: Container(
           height: ScreenResizer.getScreenHeight(context),
           width: ScreenResizer.getScreenWidth(context),
-          padding: EdgeInsets.symmetric(vertical: 70.h, horizontal: 15.w),
+          padding:
+              EdgeInsets.only(top: 30.h, bottom: 20.h, left: 10.w, right: 10.w),
           decoration: const BoxDecoration(
             image: DecorationImage(
               image: AssetImage(
-                AppAssetsUtil.patientBackgroundSama3aImage,
+                AppAssetsUtil.personalInfoBackgroundImage,
               ),
               fit: BoxFit.cover,
             ),
           ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
+          child: Stack(
+            alignment: AlignmentDirectional.topCenter,
             children: [
-              AppBackBtnWidget(
-                onClick: () {
-                  BookingAppointmentScreenHelper.instance()
-                      .navBackPage();
-                },
-                titleIsVisible: true,
-                title: AppLocalizations.of(context)!.personal_information,
-                titleStyle: AppStylesUtil.textBoldStyle(
-                  18.sp,
-                  AppColorUtil.iconsDarkGreen,
-                  FontWeight.bold,
-                ),
-                iconColor: AppColorUtil.iconsDarkGreen,
-                space: 70.horizontalSpace,
-              ),
-              10.verticalSpace,
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 40.w),
-                child: Text(
-                  AppLocalizations.of(context)!.your_information_will_be_shared,
-                  style: AppStylesUtil.textBoldStyle(
-                    11.sp,
-                    AppColorUtil.textDarkGreen,
-                    FontWeight.w400,
+              Positioned(
+                top: 30.h,
+                left: 10.w,
+                child: InkWell(
+                  onTap: () {
+                    BookingAppointmentScreenHelper.instance().navBackPage();
+                  },
+                  child: Icon(
+                    Icons.arrow_back,
+                    size: 23.0,
+                    weight: 20.0,
+                    color: AppColorUtil.textDarkGreen,
                   ),
                 ),
               ),
-              50.verticalSpace,
-              Text(
-                AppLocalizations.of(context)!.gender,
-                style: AppStylesUtil.textBoldStyle(
-                  15.sp,
-                  Colors.black,
-                  FontWeight.w400,
-                ),
-              ),
-              10.verticalSpace,
-              Container(
-                height: 40.h,
-                width: double.maxFinite,
-                margin: EdgeInsets.symmetric(horizontal: 20.w),
-                child: StatefulBuilder(builder: (context, setState) {
-                  return Row(
+              Padding(
+                padding: EdgeInsets.only(top: 30.h),
+                child: Center(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      Expanded(
-                        child: Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            border: Border.all(
-                              color: Colors.grey[200]!,
-                              width: 0.5,
-                            ),
-                          ),
-                          child: GenderComponent(
-                            title: AppLocalizations.of(context)!.male,
-                            heightContainer: 40.h,
-                            widthContainer: double.maxFinite,
-                            iconAsset: AppAssetsUtil.maleIcon,
-                            pressedIconColor: Colors.black,
-                            pressedTitleColor: Colors.black,
-                            containerColor:
-                                BookingAppointmentScreenHelper.instance()
-                                    .maleContainerColor,
-                            onTap: () {
-                              setState(() {
-                                BookingAppointmentScreenHelper.instance()
-                                    .chooseGender("male");
-                              });
-                            },
-                            iconColor: BookingAppointmentScreenHelper.instance()
-                                .setMaleColor(),
-                            textColor: BookingAppointmentScreenHelper.instance()
-                                .setMaleColor(),
-                          ),
+                      Text(
+                        AppLocalizations.of(context)!.personal_information,
+                        textAlign: TextAlign.center,
+                        style: AppStylesUtil.textBoldStyle(
+                          20.sp,
+                          AppColorUtil.textDarkGreen,
+                          FontWeight.bold,
                         ),
                       ),
-                      10.horizontalSpace,
-                      Expanded(
-                        child: Container(
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              border: Border.all(
-                                  color: Colors.grey[200]!, width: 0.5)),
-                          child: GenderComponent(
-                            title: AppLocalizations.of(context)!.female,
-                            heightContainer: 40.h,
-                            widthContainer: double.maxFinite,
-                            iconAsset: AppAssetsUtil.femaleIcon,
-                            pressedIconColor: Colors.black,
-                            pressedTitleColor: Colors.black,
-                            containerColor:
-                                BookingAppointmentScreenHelper.instance()
-                                    .femaleContainerColor,
-                            onTap: () {
-                              setState(() {
-                                BookingAppointmentScreenHelper.instance()
-                                    .chooseGender("female");
-                              });
-                            },
-                            iconColor: BookingAppointmentScreenHelper.instance()
-                                .setFemaleColor(),
-                            textColor: BookingAppointmentScreenHelper.instance()
-                                .setFemaleColor(),
+                      5.verticalSpace,
+                      SizedBox(
+                        width: 260.h,
+                        child: Text(
+                          AppLocalizations.of(context)!
+                              .your_information_will_be_shared,
+                          textAlign: TextAlign.center,
+                          style: AppStylesUtil.textBoldStyle(
+                            12.sp,
+                            AppColorUtil.textDarkGreen.withOpacity(0.60),
+                            FontWeight.bold,
                           ),
                         ),
                       ),
                     ],
-                  );
-                }),
-              ),
-              20.verticalSpace,
-              Text(
-                AppLocalizations.of(context)!.date_of_birth,
-                style: AppStylesUtil.textBoldStyle(
-                  15.sp,
-                  Colors.black,
-                  FontWeight.w400,
-                ),
-              ),
-              10.verticalSpace,
-              Container(
-                width: double.maxFinite,
-                height: 40.h,
-                margin: EdgeInsets.only(right: 35.w),
-                padding: EdgeInsets.symmetric(horizontal: 5.w),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10.sp),
-                  border: Border.all(
-                    color: Colors.grey[200]!,
-                    width: 0.5,
                   ),
                 ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      "MM/YY",
-                      style: AppStylesUtil.textBoldStyle(
-                        13.sp,
-                        Colors.black,
-                        FontWeight.w600,
-                      ),
-                    ),
-                    InkWell(
-                      onTap: () {},
-                      child: Icon(
-                        Icons.date_range,
-                        color: AppColorUtil.backgroundLightGreen,
-                        size: 20.sp,
-                      ),
-                    ),
-                  ],
-                ),
               ),
-              150.verticalSpace,
-              SizedBox(
-                width: ScreenResizer.getScreenWidth(context) / 2,
+              Positioned(
+                top: 140.h,
+                left: 30.w,
                 child: Text(
-                  loremText,
-                  maxLines: 6,
-                  overflow: TextOverflow.ellipsis,
-                  style: AppStylesUtil.textBoldStyle(
-                    18.sp,
-                    AppColorUtil.white,
-                    FontWeight.bold,
-                  ),
-                ),
-              ),
-              40.verticalSpace,
-              AppButtonWidget(
-                onClick: () {
-                  BookingAppointmentScreenHelper.instance().navToThirdPage(2);
-                },
-                customChild: Text(
-                  AppLocalizations.of(context)!.continues,
+                  AppLocalizations.of(context)!.gender,
                   style: AppStylesUtil.textBoldStyle(
                     16.sp,
-                    AppColorUtil.iconsDarkGreen,
-                    FontWeight.bold,
+                    AppColorUtil.visaDarkBlack,
+                    FontWeight.w500,
                   ),
                 ),
-                btnBackgroundColor: AppColorUtil.white,
-                btnSize: Size(
-                  double.maxFinite,
-                  45.h,
+              ),
+              Positioned(
+                top: 180.h,
+                left: 30.w,
+                child: SizedBox(
+                  height: 40.h,
+                  width: 302.w,
+                  child: StatefulBuilder(builder: (context, setState) {
+                    return Row(
+                      children: [
+                        Expanded(
+                          child: Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              border: Border.all(
+                                color: Colors.grey[200]!,
+                                width: 0.5,
+                              ),
+                            ),
+                            child: GenderComponent(
+                              title: AppLocalizations.of(context)!.male,
+                              heightContainer: 40.h,
+                              widthContainer: double.maxFinite,
+                              iconAsset: AppAssetsUtil.maleIcon,
+                              pressedIconColor: Colors.black,
+                              pressedTitleColor: Colors.black,
+                              containerColor:
+                                  BookingAppointmentScreenHelper.instance()
+                                      .maleContainerColor,
+                              onTap: () {
+                                setState(() {
+                                  BookingAppointmentScreenHelper.instance()
+                                      .chooseGender("male");
+                                });
+                              },
+                              iconColor:
+                                  BookingAppointmentScreenHelper.instance()
+                                      .setMaleColor(),
+                              textColor:
+                                  BookingAppointmentScreenHelper.instance()
+                                      .setMaleColor(),
+                            ),
+                          ),
+                        ),
+                        10.horizontalSpace,
+                        Expanded(
+                          child: Container(
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10),
+                                border: Border.all(
+                                    color: Colors.grey[200]!, width: 0.5)),
+                            child: GenderComponent(
+                              title: AppLocalizations.of(context)!.female,
+                              heightContainer: 40.h,
+                              widthContainer: double.maxFinite,
+                              iconAsset: AppAssetsUtil.femaleIcon,
+                              pressedIconColor: Colors.black,
+                              pressedTitleColor: Colors.black,
+                              containerColor:
+                                  BookingAppointmentScreenHelper.instance()
+                                      .femaleContainerColor,
+                              onTap: () {
+                                setState(() {
+                                  BookingAppointmentScreenHelper.instance()
+                                      .chooseGender("female");
+                                });
+                              },
+                              iconColor:
+                                  BookingAppointmentScreenHelper.instance()
+                                      .setFemaleColor(),
+                              textColor:
+                                  BookingAppointmentScreenHelper.instance()
+                                      .setFemaleColor(),
+                            ),
+                          ),
+                        ),
+                      ],
+                    );
+                  }),
                 ),
-                btnRadius: 10.sp,
-                width: double.maxFinite,
-                height: 45.h,
+              ),
+              Positioned(
+                top: 240.h,
+                left: 30.w,
+                child: Text(
+                  AppLocalizations.of(context)!.date_of_birth,
+                  style: AppStylesUtil.textBoldStyle(
+                    16.sp,
+                    AppColorUtil.visaDarkBlack,
+                    FontWeight.w500,
+                  ),
+                ),
+              ),
+              Positioned(
+                top: 270.h,
+                left: 30.w,
+                child: Container(
+                  width: 302.w,
+                  height: 40.h,
+                  padding: EdgeInsets.symmetric(horizontal: 5.w),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10.sp),
+                    border: Border.all(
+                      color: AppColorUtil.shadowGrey,
+                      width: 1.0,
+                    ),
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        "MM/YY",
+                        style: AppStylesUtil.textBoldStyle(
+                          13.sp,
+                          Colors.black,
+                          FontWeight.w600,
+                        ),
+                      ),
+                      InkWell(
+                        onTap: () {},
+                        child: Icon(
+                          Icons.date_range,
+                          color: AppColorUtil.backgroundLightGreen,
+                          size: 20.sp,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              Positioned(
+                bottom: 110,
+                left: 10,
+                child: SizedBox(
+                  height: 165.h,
+                  width: 130.w,
+                  child: Text(
+                    AppLocalizations.of(context)!.lorem,
+                    textAlign: TextAlign.start,
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 6,
+                    style: AppStylesUtil.textBoldStyle(
+                      20.sp,
+                      AppColorUtil.white,
+                      FontWeight.bold,
+                    ),
+                  ),
+                ),
+              ),
+              Positioned(
+                bottom: 30.h,
+                child: AppButtonWidget(
+                  onClick: () {
+                    BookingAppointmentScreenHelper.instance()
+                        .navToSecondPage(2);
+                  },
+                  customChild: Text(
+                    AppLocalizations.of(context)!.continues,
+                    style: AppStylesUtil.textRegularStyle(
+                      16.sp,
+                      AppColorUtil.textDarkGreen,
+                      FontWeight.bold,
+                    ),
+                  ),
+                  btnBackgroundColor: AppColorUtil.white,
+                  btnPadding: EdgeInsets.all(5.sp),
+                  btnSize: Size(302.w, 40.h),
+                  btnRadius: 12,
+                  height: 40.h,
+                  width: 302.w,
+                ),
               ),
             ],
           ),

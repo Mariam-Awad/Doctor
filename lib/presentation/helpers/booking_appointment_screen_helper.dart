@@ -1,8 +1,17 @@
 import 'package:doctor/core/app_debug_prints.dart';
 import 'package:doctor/core/utils/app_colors_util.dart';
+import 'package:doctor/presentation/screens/booking_screens/blood_screen.dart';
 import 'package:doctor/presentation/screens/booking_screens/personal_info_screen1.dart';
 import 'package:doctor/presentation/screens/booking_screens/personal_info_screen2.dart';
 import 'package:doctor/presentation/screens/booking_screens/review_booking_info_screen.dart';
+import 'package:doctor/presentation/screens/booking_screens/branch_screen.dart';
+import 'package:doctor/presentation/screens/booking_screens/choose_date_screen.dart';
+import 'package:doctor/presentation/screens/booking_screens/define_problem_screen.dart';
+import 'package:doctor/presentation/screens/booking_screens/define_problem_screen_two.dart';
+import 'package:doctor/presentation/screens/booking_screens/height_screen.dart';
+import 'package:doctor/presentation/screens/booking_screens/old_screen.dart';
+import 'package:doctor/presentation/screens/booking_screens/verify_identity_screen.dart';
+import 'package:doctor/presentation/screens/booking_screens/weight_screen.dart';
 import 'package:doctor/presentation/screens/booking_screens/payment_otp_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -18,24 +27,35 @@ class BookingAppointmentScreenHelper {
   }
 
   String fullNameValue = "Ahmed Talal";
+  bool personalformanimation = false;
+
   PageController bookingController = PageController(initialPage: 0);
   GlobalKey<FormState> formKeyScreen1 = GlobalKey<FormState>();
   GlobalKey<FormState> formKeyScreen2 = GlobalKey<FormState>();
   List<Widget> bookingScreens = const [
     PersonalInfoScreen1(),
     PersonalInfoScreen2(),
-    ReviewBookingInfoScreen(),
+    VerifyIdentityScreen(),
+    WeightScreen(),
+    HeightScreen(),
+    BloodScreen(),
+    OldScreen(),
+    DefineProblemScreen(),
+    DefineProblemScreenTwo(),
+    ChooseDateScreen(),
+    BranchScreen(),
     PaymentOtpScreen(),
+    ReviewBookingInfoScreen(),
   ];
 
   navToSecondPage(int pageIndex) {
-    if (formKeyScreen1.currentState!.validate()) {
-      bookingController.animateToPage(
-        pageIndex,
-        duration: const Duration(seconds: 1),
-        curve: Curves.easeInOut,
-      );
-    }
+    // if (formKeyScreen1.currentState!.validate()) {
+    bookingController.animateToPage(
+      pageIndex,
+      duration: const Duration(milliseconds: 1),
+      curve: Curves.easeInOut,
+    );
+    // }
   }
 
   navToThirdPage(int pageIndex) {

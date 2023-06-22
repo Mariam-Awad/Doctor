@@ -16,28 +16,33 @@ class AppTextFormWidget extends StatelessWidget {
   final double? radius, sideWidth;
   final Color? sideColor, fillColor;
   final bool? isFiled;
+  final TextEditingController? controller;
+  final int? maxLines;
   final double? textFormFieldWidth;
 
   const AppTextFormWidget(
       {this.label,
-        this.textFormFieldWidth,
+      this.textFormFieldWidth,
       required this.hint,
       required this.textType,
       this.prefIcon,
       required this.onChangeListener,
       required this.onValidateListener,
-      required this.initialValue,
+      this.initialValue,
       required this.fontType,
       required this.textSize,
       required this.hintSize,
       this.labelSize,
       required this.radius,
       required this.sideColor,
-      required this.sideWidth,
-      required this.fillColor,
-      required this.isFiled,
+      this.sideWidth,
+      this.fillColor,
+      this.isFiled,
+      this.maxLines,
+      this.controller,
       Key? key})
       : super(key: key);
+
   static bool? passwordObscure = true;
   static bool? passwordVisibilty = false;
   @override
@@ -47,8 +52,10 @@ class AppTextFormWidget extends StatelessWidget {
         return SizedBox(
           //color: Colors.lightBlue,
           height: 60.h,
-          width: textFormFieldWidth?? double.maxFinite,
+          width: textFormFieldWidth ?? double.maxFinite,
           child: TextFormField(
+            maxLines: maxLines ?? 1,
+            controller: controller,
             cursorColor: AppColorUtil.darkGreen,
             initialValue: initialValue,
             onChanged: onChangeListener,

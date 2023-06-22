@@ -14,65 +14,49 @@ class NotificationScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: Padding(
           padding:
-              EdgeInsets.only(top: 40.h, bottom: 20.h, left: 20.w, right: 20.w),
-           child: Center(
-             child: Text("Notification screen"),
-           ),
-           //Column(
-          //   mainAxisAlignment: MainAxisAlignment.start,
-          //   crossAxisAlignment: CrossAxisAlignment.center,
-          //   children: [
-          //     // Align(
-          //     //   alignment: Alignment.topLeft,
-          //     //   child: IconButton(
-          //     //       onPressed: () {
-          //     //         AppNavigationManager.navPop(context);
-          //     //       },
-          //     //       icon: Icon(
-          //     //         Icons.close,
-          //     //         color: AppColorUtil.textDarkGreen,
-          //     //         size: 25,
-          //     //         weight: 20.0,
-          //     //       )),
-          //     // ),
-          //     Padding(
-          //       padding: const EdgeInsets.symmetric(horizontal: 8.0),
-          //       child: Row(
-          //         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          //         children: [
-          //           Text(
-          //             'Notifications',
-          //             textAlign: TextAlign.center,
-          //             style: AppStylesUtil.textBoldStyle(
-          //                 20.sp, AppColorUtil.textDarkGreen, FontWeight.bold),
-          //           ),
-          //           Text(
-          //             'Clear All',
-          //             textAlign: TextAlign.center,
-          //             style: AppStylesUtil.textBoldStyle(
-          //                 12.sp,
-          //                 AppColorUtil.textDarkGreen.withOpacity(0.75),
-          //                 FontWeight.bold),
-          //           ),
-          //         ],
-          //       ),
-          //     ),
-          //     10.verticalSpace,
-          //     ListView.builder(
-          //         primary: false,
-          //         shrinkWrap: true,
-          //         padding: const EdgeInsets.all(0.0),
-          //         itemCount: 8,
-          //         itemBuilder: (context, index) {
-          //           return NotificationComponent(
-          //             title: 'Appointment Confirmed',
-          //             discreption:
-          //                 'Appointment Confirmed with DR.Karim will be held on Saturday, 11th of January 10:30 AM',
-          //             onTap: () {},
-          //           );
-          //         }),
-          //   ],
-          // ),
+              EdgeInsets.only(top: 60.h, bottom: 20.h, left: 20.w, right: 20.w),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      'Notifications',
+                      textAlign: TextAlign.center,
+                      style: AppStylesUtil.textBoldStyle(
+                          20.sp, AppColorUtil.textDarkGreen, FontWeight.bold),
+                    ),
+                    Text(
+                      'Clear All',
+                      textAlign: TextAlign.center,
+                      style: AppStylesUtil.textBoldStyle(
+                          12.sp,
+                          AppColorUtil.textDarkGreen.withOpacity(0.75),
+                          FontWeight.bold),
+                    ),
+                  ],
+                ),
+              ),
+              10.verticalSpace,
+              ListView.builder(
+                  primary: false,
+                  shrinkWrap: true,
+                  padding: const EdgeInsets.all(0.0),
+                  itemCount: 8,
+                  itemBuilder: (context, index) {
+                    return NotificationComponent(
+                      title: 'Appointment Confirmed',
+                      discreption:
+                          'Appointment Confirmed with DR.Karim will be held on Saturday, 11th of January 10:30 AM',
+                      onTap: () {},
+                    );
+                  }),
+            ],
+          ),
         ),
       ),
     );

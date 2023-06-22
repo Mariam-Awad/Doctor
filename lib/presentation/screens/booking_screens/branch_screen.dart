@@ -1,42 +1,36 @@
-import 'package:doctor/core/components/identity_verification_done_card.dart';
-import 'package:doctor/core/components/identity_verification_selfie_card.dart';
+import 'package:doctor/core/components/branch_location_component.dart';
 import 'package:doctor/core/utils/app_colors_util.dart';
+import 'package:doctor/presentation/helpers/branch_screen_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../../config/routes/app_navigation_manager.dart';
-import '../../core/utils/app_assets_util.dart';
-import '../../core/utils/app_styles_util.dart';
-import '../widgets/app_button_widget.dart';
-import '../widgets/background_widget.dart';
+import '../../../config/routes/app_navigation_manager.dart';
+import '../../../config/routes/app_routes.dart';
+import '../../../core/utils/app_assets_util.dart';
+import '../../../core/utils/app_styles_util.dart';
+import '../../helpers/booking_appointment_screen_helper.dart';
+import '../../widgets/app_button_widget.dart';
+import '../../widgets/background_widget.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-class VerifyIdentityScreen extends StatefulWidget {
-  const VerifyIdentityScreen({super.key});
+class BranchScreen extends StatefulWidget {
+  const BranchScreen({super.key});
 
   @override
-  State<VerifyIdentityScreen> createState() => _VerifyIdentityScreenState();
+  State<BranchScreen> createState() => _BranchScreenState();
 }
 
-class _VerifyIdentityScreenState extends State<VerifyIdentityScreen> {
-  bool checkanimation = false;
-  bool selfieanimation = false;
-
+class _BranchScreenState extends State<BranchScreen> {
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-      setState(() {
-        checkanimation = true;
-        selfieanimation = true;
-      });
-    });
   }
 
   @override
   Widget build(BuildContext context) {
     return Background(
-        imageAsset: AppAssetsUtil.verifyIdentityBackgroundImage,
+        imageAsset: AppAssetsUtil.chooseBranchBackgroundImage,
         child: Scaffold(
+            resizeToAvoidBottomInset: false,
             backgroundColor: Colors.transparent,
             body: SizedBox(
               width: MediaQuery.of(context).size.width,
@@ -52,7 +46,7 @@ class _VerifyIdentityScreenState extends State<VerifyIdentityScreen> {
                       left: 10.w,
                       child: InkWell(
                         onTap: () {
-                          AppNavigationManager.navPop(context);
+                          BookingAppointmentScreenHelper.instance().navBackPage();
                         },
                         child: Icon(
                           Icons.arrow_back,
@@ -70,7 +64,7 @@ class _VerifyIdentityScreenState extends State<VerifyIdentityScreen> {
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             Text(
-                              AppLocalizations.of(context)!.verify_identity,
+                              AppLocalizations.of(context)!.choose_branch,
                               textAlign: TextAlign.center,
                               style: AppStylesUtil.textBoldStyle(
                                 20.sp,
@@ -97,62 +91,66 @@ class _VerifyIdentityScreenState extends State<VerifyIdentityScreen> {
                       ),
                     ),
                     Positioned(
-                      top: 150.h,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          AnimatedContainer(
-                            duration: const Duration(milliseconds: 1000),
-                            transform: Matrix4.translationValues(
-                                checkanimation
-                                    ? 0 // mwgoda
-                                    : -MediaQuery.of(context)
-                                        .size
-                                        .width, // msh mwgoda
-                                0,
-                                0),
-                            curve: Curves.easeInOut,
-                            child: IdentityVerificationDoneCard(
-                                widthContainer: 146.w,
-                                heightContainer: 175.h,
-                                iconAsset: AppAssetsUtil.checkCircleFillIcon,
-                                title: 'Identity Verification',
-                                descreption: 'Your data has been saved'),
-                          ),
-                          10.horizontalSpace,
-                          AnimatedContainer(
-                            duration: const Duration(milliseconds: 1000),
-                            transform: Matrix4.translationValues(
-                                selfieanimation
-                                    ? 0 // mwgoda
-                                    : MediaQuery.of(context)
-                                        .size
-                                        .width, // msh mwgoda
-                                0,
-                                0),
-                            curve: Curves.easeInOut,
-                            child: IdentityVerificationSelfieCard(
-                                widthContainer: 140.w,
-                                heightContainer: 170.h,
-                                iconAsset: AppAssetsUtil.selfieIcon,
-                                title: 'Selfie Photo',
-                                descreption:
-                                    'Its Required by our system to verify your identity'),
-                          )
-                        ],
+                      top: 130.h,
+                      left: 10.w,
+                      child: Text(
+                        AppLocalizations.of(context)!.select_branch,
+                        style: AppStylesUtil.textRegularStyle(
+                          16.sp,
+                          AppColorUtil.visaDarkBlack,
+                          FontWeight.w500,
+                        ),
                       ),
                     ),
                     Positioned(
-                        bottom: 140,
+                        top: 170.h,
+                        left: 10.w,
+                        child: Column(
+                          children: [
+                            BranchLocationComponent(
+                              widthContainer: 234.w,
+                              heightContainer: 64.h,
+                              iconAsset: AppAssetsUtil.locationIcon,
+                              textlocation:
+                                  '16-El-fath Street ,Mohandsien Mit Okba ,Giza Governorate',
+                              fillContainerColor:
+                                  BranchScreenHelper.instance().fillColor0,
+                              onTap: () {
+                                setState(() {
+                                  BranchScreenHelper.instance()
+                                      .changeCurrentColor(0);
+                                });
+                              },
+                            ),
+                            12.verticalSpace,
+                            BranchLocationComponent(
+                              widthContainer: 234.w,
+                              heightContainer: 64.h,
+                              iconAsset: AppAssetsUtil.locationIcon,
+                              textlocation:
+                                  '16-El-fath Street ,Mohandsien Mit Okba ,Giza Governorate',
+                              fillContainerColor:
+                                  BranchScreenHelper.instance().fillColor1,
+                              onTap: () {
+                                setState(() {
+                                  BranchScreenHelper.instance()
+                                      .changeCurrentColor(1);
+                                });
+                              },
+                            ),
+                          ],
+                        )),
+                    Positioned(
+                        bottom: 90,
                         left: 10,
                         child: SizedBox(
-                          height: 153.h,
-                          width: 130.w,
+                          height: 200.h,
+                          width: 180.w,
                           child: Text(
                             AppLocalizations.of(context)!.lorem,
                             textAlign: TextAlign.start,
-                            overflow: TextOverflow.clip,
+                            overflow: TextOverflow.ellipsis,
+                            maxLines: 6,
                             style: AppStylesUtil.textBoldStyle(
                               20.sp,
                               AppColorUtil.white,
@@ -164,7 +162,8 @@ class _VerifyIdentityScreenState extends State<VerifyIdentityScreen> {
                       bottom: 30.h,
                       child: AppButtonWidget(
                         onClick: () {
-                          // todo
+                          BookingAppointmentScreenHelper.instance()
+                              .navToSecondPage(11);
                         },
                         customChild: Text(
                           AppLocalizations.of(context)!.continues,

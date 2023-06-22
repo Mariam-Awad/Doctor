@@ -27,9 +27,6 @@ class BiographyScreen extends StatelessWidget {
           vertical: 5.h,
           horizontal: 30.w,
         ),
-        margin: EdgeInsets.symmetric(
-          vertical: 70.h,
-        ),
         child: SingleChildScrollView(
           scrollDirection: Axis.vertical,
           child: Column(
@@ -190,7 +187,6 @@ class BiographyScreen extends StatelessWidget {
                 width: double.maxFinite,
                 height: 50.h,
               ),
-              10.verticalSpace,
             ],
           ),
         ),
