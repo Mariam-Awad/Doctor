@@ -9,34 +9,34 @@ class ReviewBookingSection2Widget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: double.maxFinite,
+      width: 337.w,
       child: Column(
         children: [
           ReviewBookingViewWidget(
             title: AppLocalizations.of(context)!.age,
             value: "30",
           ),
-          5.verticalSpace,
+          8.verticalSpace,
           ReviewBookingViewWidget(
             title: AppLocalizations.of(context)!.visit_type,
             value: "Medical Consultation",
           ),
-          5.verticalSpace,
+          8.verticalSpace,
           ReviewBookingViewWidget(
             title: AppLocalizations.of(context)!.your_problem,
             value: "Stomach Pain",
           ),
-          5.verticalSpace,
+          8.verticalSpace,
           ReviewBookingViewWidget(
             title: AppLocalizations.of(context)!.appointment_date,
             value: "11:04 am",
           ),
-          5.verticalSpace,
+          8.verticalSpace,
           ReviewBookingViewWidget(
             title: AppLocalizations.of(context)!.branch,
             value: "16-El-fath Street ,Mohandsien Mit Okba , Giza Government",
           ),
-          5.verticalSpace,
+          8.verticalSpace,
         ],
       ),
     );

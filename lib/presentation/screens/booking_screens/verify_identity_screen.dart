@@ -3,8 +3,6 @@ import 'package:doctor/core/components/identity_verification_selfie_card.dart';
 import 'package:doctor/core/utils/app_colors_util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../../../config/routes/app_navigation_manager.dart';
-import '../../../config/routes/app_routes.dart';
 import '../../../core/utils/app_assets_util.dart';
 import '../../../core/utils/app_styles_util.dart';
 import '../../helpers/booking_appointment_screen_helper.dart';
@@ -55,11 +53,7 @@ class _VerifyIdentityScreenState extends State<VerifyIdentityScreen> {
                       child: InkWell(
                         onTap: () {
                           BookingAppointmentScreenHelper.instance()
-                              .bookingController
-                              .previousPage(
-                                duration: const Duration(seconds: 0),
-                                curve: Curves.easeInOut,
-                              );
+                      .navBackPage();
                         },
                         child: Icon(
                           Icons.arrow_back,

@@ -16,11 +16,11 @@ class ReviewBookingViewWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: Container(
-        width: ScreenResizer.getScreenWidth(context)/1.2,
+        width: ScreenResizer.getScreenWidth(context) / 1.2,
         padding: EdgeInsets.symmetric(horizontal: 30.w),
         decoration: BoxDecoration(
           color: AppColorUtil.lightBabyBlue,
-          borderRadius: BorderRadius.circular(10.sp),
+          borderRadius: BorderRadius.circular(12.sp),
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -31,7 +31,7 @@ class ReviewBookingViewWidget extends StatelessWidget {
                 title,
                 style: AppStylesUtil.textBoldStyle(
                   12.sp,
-                  Colors.black,
+                  AppColorUtil.visaDarkBlack,
                   FontWeight.w400,
                 ),
               ),
@@ -41,7 +41,7 @@ class ReviewBookingViewWidget extends StatelessWidget {
                 value.toString(),
                 style: AppStylesUtil.textBoldStyle(
                   12.sp,
-                  Colors.black,
+                  AppColorUtil.visaDarkBlack,
                   FontWeight.w400,
                 ),
               ),

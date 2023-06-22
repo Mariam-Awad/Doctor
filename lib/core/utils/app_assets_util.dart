@@ -38,7 +38,7 @@ class AppAssetsUtil {
   static const String wifiIcon = "assets/icons/wifi.svg";
 
   /// images section with png or jpg or jpeg extension >>>>>>>>>>>>>>>>>>>>>>>>>>>>>.
-  static const String patientBackgroundSama3aImage =
+  static const String personalInfoBackgroundImage =
       "assets/images/Add Patient Details -Personal Information 1 – 2.jpg";
   static const String heightBackgroundImage =
       "assets/images/Add Patient Details – 8.jpg";

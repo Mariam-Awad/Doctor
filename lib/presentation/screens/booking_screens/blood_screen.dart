@@ -1,17 +1,11 @@
-import 'package:animated_weight_picker/animated_weight_picker.dart';
-import 'package:doctor/core/app_debug_prints.dart';
 import 'package:doctor/core/utils/app_colors_util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../../../config/routes/app_navigation_manager.dart';
-import '../../../config/routes/app_routes.dart';
 import '../../../core/utils/app_assets_util.dart';
-import '../../../core/utils/app_strings.dart';
 import '../../../core/utils/app_styles_util.dart';
 import '../../helpers/blood_screen_helper.dart';
 import '../../helpers/booking_appointment_screen_helper.dart';
 import '../../widgets/app_button_widget.dart';
-import '../../widgets/app_text_form_widget.dart';
 import '../../widgets/background_widget.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -41,6 +35,15 @@ class _BloodScreenState extends State<BloodScreen> {
   }
 
   @override
+  void didChangeDependencies() {
+    setState(() {
+      BloodScreenHelper.instance().bloodWidget1animation = false;
+      BloodScreenHelper.instance().bloodWidget2animation = false;
+    });
+    super.didChangeDependencies();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Background(
         imageAsset: AppAssetsUtil.bloodBackgroundImage,
@@ -62,11 +65,7 @@ class _BloodScreenState extends State<BloodScreen> {
                       child: InkWell(
                         onTap: () {
                           BookingAppointmentScreenHelper.instance()
-                              .bookingController
-                              .previousPage(
-                                duration: const Duration(seconds: 1),
-                                curve: Curves.easeInOut,
-                              );
+                              .navBackPage();
                         },
                         child: Icon(
                           Icons.arrow_back,
@@ -282,7 +281,8 @@ class _BloodScreenState extends State<BloodScreen> {
                       bottom: 30.h,
                       child: AppButtonWidget(
                         onClick: () {
-                         BookingAppointmentScreenHelper.instance().navToSecondPage(6);
+                          BookingAppointmentScreenHelper.instance()
+                              .navToSecondPage(6);
                         },
                         customChild: Text(
                           AppLocalizations.of(context)!.continues,

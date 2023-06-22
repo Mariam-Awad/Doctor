@@ -46,12 +46,7 @@ class _BranchScreenState extends State<BranchScreen> {
                       left: 10.w,
                       child: InkWell(
                         onTap: () {
-                          BookingAppointmentScreenHelper.instance()
-                              .bookingController
-                              .previousPage(
-                                duration: const Duration(seconds: 1),
-                                curve: Curves.easeInOut,
-                              );
+                          BookingAppointmentScreenHelper.instance().navBackPage();
                         },
                         child: Icon(
                           Icons.arrow_back,
