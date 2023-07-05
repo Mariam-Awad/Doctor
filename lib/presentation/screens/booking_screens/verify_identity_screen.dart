@@ -54,7 +54,7 @@ class _VerifyIdentityScreenState extends State<VerifyIdentityScreen> {
                       child: InkWell(
                         onTap: () {
                           BookingAppointmentScreenHelper.instance()
-                      .navBackPage();
+                              .navBackPage();
                         },
                         child: Icon(
                           Icons.arrow_back,
@@ -100,6 +100,7 @@ class _VerifyIdentityScreenState extends State<VerifyIdentityScreen> {
                     ),
                     Positioned(
                       top: 150.h,
+                      left: 30.w,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         crossAxisAlignment: CrossAxisAlignment.center,
@@ -147,7 +148,7 @@ class _VerifyIdentityScreenState extends State<VerifyIdentityScreen> {
                     ),
                     Positioned(
                         bottom: 140,
-                        left: 10,
+                        left: 30.w,
                         child: SizedBox(
                           height: 165.h,
                           width: 130.w,

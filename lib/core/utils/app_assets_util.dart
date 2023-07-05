@@ -65,8 +65,7 @@ class AppAssetsUtil {
   static const String termometerImage =
       "assets/images/Digital Thermometer.B04.2k.png";
   static const String doctorImage = "assets/images/doctor.jpg";
-  static const String loginBackgroundSVG =
-      "assets/images/login svg background.png";
+  static const String loginBk = "assets/images/Login.png";
   static const String homeBackground1Image = "assets/images/Home -1.jpg";
   static const String homeBackground2Image = "assets/images/Home – 2.jpg";
   static const String homeBackground3Image = "assets/images/Home – 3.jpg";
