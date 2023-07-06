@@ -12,6 +12,7 @@ import 'package:doctor/presentation/screens/booking_an_appointment_screen.dart';
 import 'package:doctor/presentation/screens/splash_screen.dart';
 import 'package:doctor/presentation/screens/booking_screens/verify_identity_screen.dart';
 import 'package:doctor/presentation/screens/booking_screens/weight_screen.dart';
+import 'package:doctor/presentation/screens/user_profile_details_screen.dart';
 import 'package:flutter/material.dart';
 import '../../presentation/screens/booking_screens/blood_screen.dart';
 import '../../presentation/screens/booking_screens/branch_screen.dart';
@@ -93,6 +94,10 @@ class AppRouteManager {
       case AppRoutes.reviewInfoRouteName:
         return MaterialPageRoute(
           builder: (context) => const ReviewBookingInfoScreen(),
+        );
+         case AppRoutes.userProfileDetailsRouteName:
+        return MaterialPageRoute(
+          builder: (context) => const UserProfileDetailsScreen(),
         );
       default:
         return _undefinedRoute();
