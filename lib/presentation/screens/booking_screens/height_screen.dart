@@ -145,7 +145,7 @@ class _HeightScreenState extends State<HeightScreen> {
                 ),
                 Positioned(
                   top: 285,
-                  left: 10.w,
+                  left: 20.w,
                   child: SizedBox(
                     width: 320.w,
                     height: 60.h,
@@ -171,16 +171,16 @@ class _HeightScreenState extends State<HeightScreen> {
                   ),
                 ),
                 Positioned(
-                    bottom: 90,
-                    left: 10,
+                    bottom: 100,
+                    left: 30,
                     child: SizedBox(
                       height: 200.h,
-                      width: 180.w,
+                      width: 160.w,
                       child: Text(
                         AppLocalizations.of(context)!.lorem,
                         textAlign: TextAlign.start,
                         overflow: TextOverflow.ellipsis,
-                        maxLines: 9,
+                        maxLines: 8,
                         style: AppStylesUtil.textBoldStyle(
                           20.sp,
                           AppColorUtil.white,

@@ -154,16 +154,16 @@ class _OldScreenState extends State<OldScreen> {
                       ),
                     ),
                     Positioned(
-                        bottom: 100,
-                        left: 10,
+                        bottom: 100.h,
+                        left: 30.w,
                         child: SizedBox(
-                          height: 165.h,
+                          height: 180.h,
                           width: 130.w,
                           child: Text(
                             AppLocalizations.of(context)!.lorem,
                             textAlign: TextAlign.start,
                             overflow: TextOverflow.ellipsis,
-                            maxLines: 6,
+                            maxLines: 8,
                             style: AppStylesUtil.textBoldStyle(
                               20.sp,
                               AppColorUtil.white,

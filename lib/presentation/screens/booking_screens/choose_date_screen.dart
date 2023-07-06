@@ -172,16 +172,16 @@ class _ChooseDateScreenState extends State<ChooseDateScreen> {
                       ),
                     ),
                     Positioned(
-                        bottom: 140,
-                        left: 10,
+                        bottom: 100,
+                        left: 30.w,
                         child: SizedBox(
-                          height: 165.h,
+                          height: 180.h,
                           width: 130.w,
                           child: Text(
                             AppLocalizations.of(context)!.lorem,
                             textAlign: TextAlign.start,
                             overflow: TextOverflow.ellipsis,
-                            maxLines: 6,
+                            maxLines: 7,
                             style: AppStylesUtil.textBoldStyle(
                               20.sp,
                               AppColorUtil.white,

@@ -112,6 +112,7 @@ class _PersonalInfoScreen1State extends State<PersonalInfoScreen1> {
               ),
               Positioned(
                 top: 140.h,
+                left: 30.w,
                 child: AnimatedContainer(
                   duration: const Duration(milliseconds: 1000),
                   transform: Matrix4.translationValues(
@@ -197,7 +198,7 @@ class _PersonalInfoScreen1State extends State<PersonalInfoScreen1> {
               ),
               Positioned(
                   bottom: 110,
-                  left: 10,
+                  left: 30.w,
                   child: SizedBox(
                     height: 165.h,
                     width: 130.w,
@@ -215,6 +216,7 @@ class _PersonalInfoScreen1State extends State<PersonalInfoScreen1> {
                   )),
               Positioned(
                 bottom: 30.h,
+                left: 30.w,
                 child: AppButtonWidget(
                   onClick: () {
                     BookingAppointmentScreenHelper.instance()

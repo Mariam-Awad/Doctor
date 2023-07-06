@@ -228,7 +228,7 @@ class PersonalInfoScreen2 extends StatelessWidget {
               ),
               Positioned(
                 bottom: 110,
-                left: 10,
+                left: 30.w,
                 child: SizedBox(
                   height: 165.h,
                   width: 130.w,

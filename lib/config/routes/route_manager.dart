@@ -3,15 +3,16 @@ import 'package:doctor/presentation/screens/booking_screens/choose_date_screen.d
 import 'package:doctor/presentation/screens/booking_screens/define_problem_screen.dart';
 import 'package:doctor/presentation/screens/biography_screen.dart';
 import 'package:doctor/presentation/screens/booking_screens/review_booking_info_screen.dart';
+import 'package:doctor/presentation/screens/bottom_nav_screens/visits_screen.dart';
 import 'package:doctor/presentation/screens/forget_password_screen.dart';
 import 'package:doctor/presentation/screens/main_screen.dart';
-import 'package:doctor/presentation/screens/my_visits_screen.dart';
 import 'package:doctor/presentation/screens/booking_screens/old_screen.dart';
 import 'package:doctor/presentation/screens/otp_screen.dart';
 import 'package:doctor/presentation/screens/booking_an_appointment_screen.dart';
 import 'package:doctor/presentation/screens/splash_screen.dart';
 import 'package:doctor/presentation/screens/booking_screens/verify_identity_screen.dart';
 import 'package:doctor/presentation/screens/booking_screens/weight_screen.dart';
+import 'package:doctor/presentation/screens/user_profile_details_screen.dart';
 import 'package:flutter/material.dart';
 import '../../presentation/screens/booking_screens/blood_screen.dart';
 import '../../presentation/screens/booking_screens/branch_screen.dart';
@@ -42,9 +43,9 @@ class AppRouteManager {
         return MaterialPageRoute(
           builder: (context) => const MainScreen(),
         );
-      case AppRoutes.myVisitsName:
+      case AppRoutes.visitsRouteName:
         return MaterialPageRoute(
-          builder: (context) => const MyVisitsScreen(),
+          builder: (context) => const VisitsScreen(),
         );
       case AppRoutes.verifyIdentityRouteName:
         return MaterialPageRoute(
@@ -93,6 +94,10 @@ class AppRouteManager {
       case AppRoutes.reviewInfoRouteName:
         return MaterialPageRoute(
           builder: (context) => const ReviewBookingInfoScreen(),
+        );
+         case AppRoutes.userProfileDetailsRouteName:
+        return MaterialPageRoute(
+          builder: (context) => const UserProfileDetailsScreen(),
         );
       default:
         return _undefinedRoute();

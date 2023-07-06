@@ -148,14 +148,14 @@ class _SplashScreenState extends State<SplashScreen> {
                 duration: const Duration(milliseconds: 2500),
                 transform: Matrix4.translationValues(
                     SplahScreenHelper.instance().animationbackground
-                        ? 0 // mwgoda
+                        ? 55 // mwgoda
                         : MediaQuery.of(context).size.width, // msh mwgoda,
                     0,
                     0),
                 curve: Curves.easeInOut,
                 color: Colors.transparent,
                 child: Image.asset(
-                  AppAssetsUtil.loginBackgroundSVG,
+                  AppAssetsUtil.loginBk,
                   height: MediaQuery.of(context).size.height,
                   width: MediaQuery.of(context).size.width,
                   fit: BoxFit.cover,
