@@ -20,7 +20,7 @@ class UserProfileFormItemsView extends StatelessWidget {
         width: double.maxFinite,
         alignment: Alignment.centerLeft,
         padding: EdgeInsets.symmetric(
-          horizontal: 20.w,
+          horizontal: 10.w,
         ),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10.sp),

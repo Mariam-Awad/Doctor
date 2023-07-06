@@ -5,83 +5,87 @@ import 'package:doctor/presentation/widgets/app_text_form_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 class UserProfileItem2Widget extends StatelessWidget {
   const UserProfileItem2Widget({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return   Row(
+    return Row(
       children: [
         Expanded(
-          flex: 2,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              Text(
-                AppLocalizations.of(context)!.date_of_birth,
-                style: AppStylesUtil.textBoldStyle(
-                  13.sp,
-                  Colors.black,
-                  FontWeight.bold,
+              10.verticalSpace,
+              Expanded(
+                child: Text(
+                  AppLocalizations.of(context)!.date_of_birth,
+                  style: AppStylesUtil.textBoldStyle(
+                    13.sp,
+                    Colors.black,
+                    FontWeight.w500,
+                  ),
                 ),
               ),
-              Text(
-                AppLocalizations.of(context)!.age,
-                style: AppStylesUtil.textBoldStyle(
-                  13.sp,
-                  Colors.black,
-                  FontWeight.bold,
+              Expanded(
+                child: Text(
+                  AppLocalizations.of(context)!.age,
+                  style: AppStylesUtil.textBoldStyle(
+                    13.sp,
+                    Colors.black,
+                    FontWeight.w400,
+                  ),
                 ),
               ),
             ],
           ),
         ),
         Expanded(
-          flex: 4,
+          flex: 2,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
+              10.verticalSpace,
               Expanded(
-                flex:3,
                 child: AppTextFormWidget(
                   hint: "Enter your name",
                   textType: TextInputType.text,
                   onChangeListener: (value) {},
                   onValidateListener: (value) {},
-                  initialValue: "Salam Maged",
+                  initialValue: "20 February 1994",
                   fontType: appFontBold,
                   textSize: 10.sp,
                   hintSize: 10.sp,
                   labelSize: 10.sp,
                   radius: 0.sp,
-                  sideColor: AppColorUtil.backgroundLightGreen
-                      .withOpacity(0.001),
+                  sideColor:
+                      AppColorUtil.backgroundLightGreen.withOpacity(0.001),
                   sideWidth: 1,
-                  fillColor: AppColorUtil.backgroundLightGreen
-                      .withOpacity(0.001),
+                  fillColor:
+                      AppColorUtil.backgroundLightGreen.withOpacity(0.001),
                   isFiled: true,
                 ),
               ),
               Expanded(
-                flex: 1,
                 child: AppTextFormWidget(
                   hint: "Enter your age",
                   textType: TextInputType.number,
                   onChangeListener: (value) {},
                   onValidateListener: (value) {},
-                  initialValue: "Salam Maged",
+                  initialValue: "30",
                   fontType: appFontBold,
-                  textSize: 10.sp,
+                  textSize: 8.sp,
                   hintSize: 10.sp,
                   labelSize: 10.sp,
                   radius: 0.sp,
-                  sideColor: AppColorUtil.backgroundLightGreen
-                      .withOpacity(0.001),
+                  sideColor:
+                      AppColorUtil.backgroundLightGreen.withOpacity(0.001),
                   sideWidth: 1,
-                  fillColor: AppColorUtil.backgroundLightGreen
-                      .withOpacity(0.001),
+                  fillColor:
+                      AppColorUtil.backgroundLightGreen.withOpacity(0.001),
                   isFiled: true,
                 ),
               ),

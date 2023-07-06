@@ -1,6 +1,6 @@
 {
       "editor.fontFamily": "'Ubuntu Mono', 'monospace', monospace",
-      "editor.fontSize": 16.5,
+      "editor.fontSize": 18.5,
       "errorLens.fontWeight": "bold",
       "debug.console.fontSize": 14,
       "terminal.integrated.fontSize": 15
