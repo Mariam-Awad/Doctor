@@ -18,6 +18,7 @@ class AppBottomNavigationComponent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CurvedNavigationBar(
+      height: 60.0,
       index: currentIndex,
       backgroundColor: bottomColor,
       color: selectedColor,

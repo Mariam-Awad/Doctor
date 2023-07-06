@@ -260,16 +260,16 @@ class _BloodScreenState extends State<BloodScreen> {
                       ),
                     ),
                     Positioned(
-                        bottom: 80.h,
-                        left: 10.w,
+                        bottom: 90.h,
+                        left: 30.w,
                         child: SizedBox(
-                          height: 200.h,
-                          width: 180.w,
+                          height: 210.h,
+                          width: 160.w,
                           child: Text(
                             AppLocalizations.of(context)!.lorem,
                             textAlign: TextAlign.start,
                             overflow: TextOverflow.ellipsis,
-                            maxLines: 6,
+                            maxLines: 9,
                             style: AppStylesUtil.textBoldStyle(
                               20.sp,
                               AppColorUtil.white,

@@ -47,7 +47,8 @@ class _DefineProblemScreenState extends State<DefineProblemScreen> {
                       left: 10.w,
                       child: InkWell(
                         onTap: () {
-                          BookingAppointmentScreenHelper.instance().navBackPage();
+                          BookingAppointmentScreenHelper.instance()
+                              .navBackPage();
                         },
                         child: Icon(
                           Icons.arrow_back,
@@ -144,15 +145,15 @@ class _DefineProblemScreenState extends State<DefineProblemScreen> {
                     ),
                     Positioned(
                         bottom: 140,
-                        left: 10,
+                        left: 30.w,
                         child: SizedBox(
-                          height: 165.h,
+                          height: 180.h,
                           width: 130.w,
                           child: Text(
                             AppLocalizations.of(context)!.lorem,
                             textAlign: TextAlign.start,
                             overflow: TextOverflow.ellipsis,
-                            maxLines: 5,
+                            maxLines: 7,
                             style: AppStylesUtil.textBoldStyle(
                               20.sp,
                               AppColorUtil.white,
@@ -162,7 +163,7 @@ class _DefineProblemScreenState extends State<DefineProblemScreen> {
                         )),
                     Positioned(
                       bottom: 90.h,
-                      left: 10.w,
+                      left: 30.w,
                       child: SizedBox(
                         width: 302.w,
                         child: Text(
@@ -182,7 +183,8 @@ class _DefineProblemScreenState extends State<DefineProblemScreen> {
                       bottom: 30.h,
                       child: AppButtonWidget(
                         onClick: () {
-                          BookingAppointmentScreenHelper.instance().navToSecondPage(8);
+                          BookingAppointmentScreenHelper.instance()
+                              .navToSecondPage(8);
                         },
                         customChild: Text(
                           AppLocalizations.of(context)!.continues,

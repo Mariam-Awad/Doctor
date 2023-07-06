@@ -46,7 +46,8 @@ class _BranchScreenState extends State<BranchScreen> {
                       left: 10.w,
                       child: InkWell(
                         onTap: () {
-                          BookingAppointmentScreenHelper.instance().navBackPage();
+                          BookingAppointmentScreenHelper.instance()
+                              .navBackPage();
                         },
                         child: Icon(
                           Icons.arrow_back,
@@ -141,16 +142,16 @@ class _BranchScreenState extends State<BranchScreen> {
                           ],
                         )),
                     Positioned(
-                        bottom: 90,
-                        left: 10,
+                        bottom: 80.h,
+                        left: 30.w,
                         child: SizedBox(
                           height: 200.h,
-                          width: 180.w,
+                          width: 170.w,
                           child: Text(
                             AppLocalizations.of(context)!.lorem,
                             textAlign: TextAlign.start,
                             overflow: TextOverflow.ellipsis,
-                            maxLines: 6,
+                            maxLines: 7,
                             style: AppStylesUtil.textBoldStyle(
                               20.sp,
                               AppColorUtil.white,

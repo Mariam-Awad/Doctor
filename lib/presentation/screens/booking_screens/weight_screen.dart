@@ -51,8 +51,8 @@ class _WeightScreenState extends State<WeightScreen> {
                       left: 10.w,
                       child: InkWell(
                         onTap: () {
-                           BookingAppointmentScreenHelper.instance()
-                      .navBackPage();
+                          BookingAppointmentScreenHelper.instance()
+                              .navBackPage();
                         },
                         child: Icon(
                           Icons.arrow_back,
@@ -162,7 +162,7 @@ class _WeightScreenState extends State<WeightScreen> {
                     ),
                     Positioned(
                         bottom: 100,
-                        left: 10,
+                        left: 30.w,
                         child: SizedBox(
                           height: 165.h,
                           width: 130.w,

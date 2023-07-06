@@ -115,7 +115,9 @@ Future<dynamic> cancelDialog(BuildContext context) {
             ),
             25.verticalSpace,
             AppButtonWidget(
-              onClick: () {},
+              onClick: () {
+                AppNavigationManager.navPop(context);
+              },
               customChild: Text(
                 'Continue',
                 style: AppStylesUtil.textBoldStyle(
