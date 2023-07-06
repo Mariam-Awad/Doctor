@@ -3,7 +3,6 @@ import 'package:doctor/presentation/screens/booking_screens/choose_date_screen.d
 import 'package:doctor/presentation/screens/booking_screens/define_problem_screen.dart';
 import 'package:doctor/presentation/screens/biography_screen.dart';
 import 'package:doctor/presentation/screens/booking_screens/review_booking_info_screen.dart';
-import 'package:doctor/presentation/screens/bottom_nav_screens/visits_screen.dart';
 import 'package:doctor/presentation/screens/forget_password_screen.dart';
 import 'package:doctor/presentation/screens/main_screen.dart';
 import 'package:doctor/presentation/screens/booking_screens/old_screen.dart';
@@ -18,6 +17,7 @@ import '../../presentation/screens/booking_screens/blood_screen.dart';
 import '../../presentation/screens/booking_screens/branch_screen.dart';
 import '../../presentation/screens/booking_screens/define_problem_screen_two.dart';
 import '../../presentation/screens/booking_screens/height_screen.dart';
+import '../../presentation/screens/bottom_nav_screens/visits_screen.dart';
 import '../../presentation/screens/login_screen.dart';
 
 class AppRouteManager {
@@ -95,7 +95,7 @@ class AppRouteManager {
         return MaterialPageRoute(
           builder: (context) => const ReviewBookingInfoScreen(),
         );
-         case AppRoutes.userProfileDetailsRouteName:
+      case AppRoutes.userProfileDetailsRouteName:
         return MaterialPageRoute(
           builder: (context) => const UserProfileDetailsScreen(),
         );

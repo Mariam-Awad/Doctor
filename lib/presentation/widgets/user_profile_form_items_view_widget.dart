@@ -14,7 +14,7 @@ class UserProfileFormItemsView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(top: 5.h),
+      padding: EdgeInsets.only(top: 15.h),
       child: Container(
         height: containerHeight,
         width: double.maxFinite,

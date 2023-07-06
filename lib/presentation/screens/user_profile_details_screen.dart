@@ -35,7 +35,7 @@ class UserProfileDetailsScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              70.verticalSpace,
+              30.verticalSpace,
               Expanded(
                 flex: 1,
                 child: AppBackBtnWidget(
@@ -50,7 +50,7 @@ class UserProfileDetailsScreen extends StatelessWidget {
                   titleIsVisible: true,
                   title: AppLocalizations.of(context)!.user_profile,
                   iconColor: AppColorUtil.darkGreen,
-                  space: 70.horizontalSpace,
+                  space: 90.horizontalSpace,
                 ),
               ),
               Expanded(
@@ -79,7 +79,7 @@ class UserProfileDetailsScreen extends StatelessWidget {
                 child: Padding(
                   padding: EdgeInsets.symmetric(
                     horizontal: 15.w,
-                    vertical: 5.h,
+                    vertical: 12.h,
                   ),
                   child: AppButtonWidget(
                     onClick: () {},
@@ -93,7 +93,7 @@ class UserProfileDetailsScreen extends StatelessWidget {
                     ),
                     btnBackgroundColor: AppColorUtil.white,
                     btnSize: Size(double.maxFinite, 40.h),
-                    btnRadius: 10.sp,
+                    btnRadius: 12.sp,
                     width: double.maxFinite,
                     height: 40.h,
                   ),
