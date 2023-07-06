@@ -1,63 +1,91 @@
-import 'package:doctor/core/utils/app_assets_util.dart';
 import 'package:doctor/core/utils/app_colors_util.dart';
 import 'package:doctor/core/utils/app_strings.dart';
-import 'package:doctor/presentation/widgets/app_profile_image_widget.dart';
+import 'package:doctor/core/utils/app_styles_util.dart';
 import 'package:doctor/presentation/widgets/app_text_form_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 class UserProfileItem3Widget extends StatelessWidget {
   const UserProfileItem3Widget({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return  Row(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      mainAxisAlignment: MainAxisAlignment.center,
+    return Row(
       children: [
-        AppProfileImageWidget(
-          image: AppAssetsUtil.profileImage,
-          radius: 28.sp,
-        ),
-        10.horizontalSpace,
         Expanded(
-          flex: 1,
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              25.verticalSpace,
+              10.verticalSpace,
+              Expanded(
+                child: Text(
+                  AppLocalizations.of(context)!.telephone,
+                  style: AppStylesUtil.textBoldStyle(
+                    13.sp,
+                    Colors.black,
+                    FontWeight.w500,
+                  ),
+                ),
+              ),
+              Expanded(
+                child: Text(
+                  AppLocalizations.of(context)!.password,
+                  style: AppStylesUtil.textBoldStyle(
+                    13.sp,
+                    Colors.black,
+                    FontWeight.w400,
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+        Expanded(
+          flex: 2,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              10.verticalSpace,
               Expanded(
                 child: AppTextFormWidget(
-                  hint: "Enter your name",
-                  textType: TextInputType.text,
+                  hint: "Enter your phone",
+                  textType: TextInputType.number,
                   onChangeListener: (value) {},
                   onValidateListener: (value) {},
-                  initialValue: "Salam Maged",
+                  initialValue: "01122846382",
                   fontType: appFontBold,
                   textSize: 10.sp,
                   hintSize: 10.sp,
                   labelSize: 10.sp,
                   radius: 0.sp,
-                  sideColor: AppColorUtil.white,
+                  sideColor:
+                      AppColorUtil.backgroundLightGreen.withOpacity(0.001),
                   sideWidth: 1,
-                  fillColor: AppColorUtil.white,
+                  fillColor:
+                      AppColorUtil.backgroundLightGreen.withOpacity(0.001),
                   isFiled: true,
                 ),
               ),
               Expanded(
                 child: AppTextFormWidget(
-                  hint: "Enter your gender",
-                  textType: TextInputType.text,
+                  hint: "Enter your password",
+                  textType: TextInputType.visiblePassword,
                   onChangeListener: (value) {},
                   onValidateListener: (value) {},
-                  initialValue: "Male",
+                  initialValue: "**********",
                   fontType: appFontBold,
-                  textSize: 10.sp,
+                  textSize: 8.sp,
                   hintSize: 10.sp,
                   labelSize: 10.sp,
                   radius: 0.sp,
-                  sideColor: AppColorUtil.white,
+                  sideColor:
+                      AppColorUtil.backgroundLightGreen.withOpacity(0.001),
                   sideWidth: 1,
-                  fillColor: AppColorUtil.white,
+                  fillColor:
+                      AppColorUtil.backgroundLightGreen.withOpacity(0.001),
                   isFiled: true,
                 ),
               ),
