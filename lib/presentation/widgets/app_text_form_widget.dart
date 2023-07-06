@@ -84,23 +84,23 @@ class AppTextFormWidget extends StatelessWidget {
               labelText: label ?? "",
               labelStyle: AppStylesUtil.textRegularStyle(
                   hintSize!, AppColorUtil.textLightGrey, FontWeight.w400),
-              suffixIcon: hint!.toLowerCase().contains("password")
-                  ? IconButton(
-                      onPressed: () {
-                        setState(() {
-                          passwordObscure = !passwordObscure!;
-                          passwordVisibilty = !passwordVisibilty!;
-                        });
-                      },
-                      icon: Icon(
-                        passwordVisibilty!
-                            ? Icons.visibility
-                            : Icons.visibility_off,
-                        size: 20,
-                        color: AppColorUtil.darkGreen,
-                      ),
-                    )
-                  : null,
+              // suffixIcon: hint!.toLowerCase().contains("password")
+              //     ? IconButton(
+              //         onPressed: () {
+              //           setState(() {
+              //             passwordObscure = !passwordObscure!;
+              //             passwordVisibilty = !passwordVisibilty!;
+              //           });
+              //         },
+              //         icon: Icon(
+              //           passwordVisibilty!
+              //               ? Icons.visibility
+              //               : Icons.visibility_off,
+              //           size: 20,
+              //           color: AppColorUtil.darkGreen,
+              //         ),
+              //       )
+              //     : null,
             ),
             obscureText: hint!.toLowerCase().contains("password")
                 ? passwordObscure!
