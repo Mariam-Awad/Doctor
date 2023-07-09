@@ -1,32 +1,46 @@
-import 'package:doctor/core/components/branch_location_component.dart';
-import 'package:doctor/core/utils/app_colors_util.dart';
-import 'package:doctor/presentation/helpers/branch_screen_helper.dart';
+import 'package:doctor/presentation/helpers/checkout_screen_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../../../core/utils/app_assets_util.dart';
-import '../../../core/utils/app_styles_util.dart';
-import '../../helpers/booking_appointment_screen_helper.dart';
-import '../../widgets/app_button_widget.dart';
-import '../../widgets/background_widget.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import '../../config/routes/app_navigation_manager.dart';
+import '../../config/routes/app_routes.dart';
+import '../../core/components/checkout_total_amount.dart';
+import '../../core/utils/app_assets_util.dart';
+import '../../core/utils/app_colors_util.dart';
+import '../../core/utils/app_styles_util.dart';
+import '../widgets/app_button_widget.dart';
+import '../widgets/background_widget.dart';
 
-class BranchScreen extends StatefulWidget {
-  const BranchScreen({super.key});
+class CheckoutScreen extends StatefulWidget {
+  const CheckoutScreen({super.key});
 
   @override
-  State<BranchScreen> createState() => _BranchScreenState();
+  State<CheckoutScreen> createState() => _CheckoutScreenState();
 }
 
-class _BranchScreenState extends State<BranchScreen> {
+class _CheckoutScreenState extends State<CheckoutScreen> {
   @override
   void initState() {
     super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      setState(() {
+        CheckoutScreenHelper.instance().checkoutanimation = true;
+      });
+    });
+  }
+
+  @override
+  void didChangeDependencies() {
+    setState(() {
+      CheckoutScreenHelper.instance().checkoutanimation = false;
+    });
+    super.didChangeDependencies();
   }
 
   @override
   Widget build(BuildContext context) {
     return Background(
-        imageAsset: AppAssetsUtil.chooseBranchBackgroundImage,
+        imageAsset: AppAssetsUtil.patientBackgroundCheckOutImage,
         child: Scaffold(
             resizeToAvoidBottomInset: false,
             backgroundColor: Colors.transparent,
@@ -44,8 +58,7 @@ class _BranchScreenState extends State<BranchScreen> {
                       left: 10.w,
                       child: InkWell(
                         onTap: () {
-                          BookingAppointmentScreenHelper.instance()
-                              .navBackPage();
+                          AppNavigationManager.navPop(context);
                         },
                         child: Icon(
                           Icons.arrow_back,
@@ -63,7 +76,7 @@ class _BranchScreenState extends State<BranchScreen> {
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             Text(
-                              AppLocalizations.of(context)!.choose_branch,
+                              AppLocalizations.of(context)!.checkout,
                               textAlign: TextAlign.center,
                               style: AppStylesUtil.textBoldStyle(
                                 20.sp,
@@ -90,61 +103,36 @@ class _BranchScreenState extends State<BranchScreen> {
                       ),
                     ),
                     Positioned(
-                      top: 130.h,
-                      left: 10.w,
-                      child: Text(
-                        AppLocalizations.of(context)!.select_branch,
-                        style: AppStylesUtil.textRegularStyle(
-                          16.sp,
-                          AppColorUtil.visaDarkBlack,
-                          FontWeight.w500,
+                      top: 150.h,
+                      left: 30.w,
+                      child: AnimatedContainer(
+                        duration: const Duration(milliseconds: 1000),
+                        transform: Matrix4.translationValues(
+                            CheckoutScreenHelper.instance().checkoutanimation
+                                ? 0 // mwgoda
+                                : -MediaQuery.of(context)
+                                    .size
+                                    .width, // msh mwgoda
+                            0,
+                            0),
+                        curve: Curves.easeInOut,
+                        child: CheckoutTotalAmount(
+                          widthContainer: 303.w,
+                          heightContainer: 163.h,
+                          colorContainer: AppColorUtil.textDarkGreen,
+                          feeAmount: 2000.0,
+                          chargesAmount: 500.0,
+                          discountAmount: 200.0,
+                          totalAmount: 2300.0,
                         ),
                       ),
                     ),
-                    Positioned(
-                        top: 170.h,
-                        left: 10.w,
-                        child: Column(
-                          children: [
-                            BranchLocationComponent(
-                              widthContainer: 234.w,
-                              heightContainer: 64.h,
-                              iconAsset: AppAssetsUtil.locationIcon,
-                              textlocation:
-                                  '16-El-fath Street ,Mohandsien Mit Okba ,Giza Governorate',
-                              fillContainerColor:
-                                  BranchScreenHelper.instance().fillColor0,
-                              onTap: () {
-                                setState(() {
-                                  BranchScreenHelper.instance()
-                                      .changeCurrentColor(0);
-                                });
-                              },
-                            ),
-                            12.verticalSpace,
-                            BranchLocationComponent(
-                              widthContainer: 234.w,
-                              heightContainer: 64.h,
-                              iconAsset: AppAssetsUtil.locationIcon,
-                              textlocation:
-                                  '16-El-fath Street ,Mohandsien Mit Okba ,Giza Governorate',
-                              fillContainerColor:
-                                  BranchScreenHelper.instance().fillColor1,
-                              onTap: () {
-                                setState(() {
-                                  BranchScreenHelper.instance()
-                                      .changeCurrentColor(1);
-                                });
-                              },
-                            ),
-                          ],
-                        )),
                     Positioned(
                         bottom: 80.h,
                         left: 30.w,
                         child: SizedBox(
                           height: 200.h,
-                          width: 170.w,
+                          width: 140.w,
                           child: Text(
                             AppLocalizations.of(context)!.lorem,
                             textAlign: TextAlign.start,
@@ -161,8 +149,10 @@ class _BranchScreenState extends State<BranchScreen> {
                       bottom: 30.h,
                       child: AppButtonWidget(
                         onClick: () {
-                          BookingAppointmentScreenHelper.instance()
-                              .navToSecondPage(11);
+                          AppNavigationManager.navPush(
+                            screen: AppRoutes.reviewInfoRouteName,
+                            context: context,
+                          );
                         },
                         customChild: Text(
                           AppLocalizations.of(context)!.continues,

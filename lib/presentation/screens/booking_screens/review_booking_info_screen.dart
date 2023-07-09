@@ -9,6 +9,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
+import '../../../config/routes/app_navigation_manager.dart';
+import '../../../config/routes/app_routes.dart';
+
 class ReviewBookingInfoScreen extends StatelessWidget {
   const ReviewBookingInfoScreen({super.key});
 
@@ -148,7 +151,10 @@ class ReviewBookingInfoScreen extends StatelessWidget {
                 bottom: 130.h,
                 child: AppButtonWidget(
                   onClick: () {
-                    // BookingAppointmentScreenHelper.instance().navToPage(3);
+                    AppNavigationManager.navPush(
+                      screen: AppRoutes.attachmentsRouteName,
+                      context: context,
+                    );
                   },
                   customChild: Text(
                     AppLocalizations.of(context)!.upload_attachments,
@@ -169,7 +175,12 @@ class ReviewBookingInfoScreen extends StatelessWidget {
               Positioned(
                 bottom: 80.h,
                 child: AppButtonWidget(
-                  onClick: () {},
+                  onClick: () {
+                    AppNavigationManager.navPush(
+                      screen: AppRoutes.onlinePaymentRouteName,
+                      context: context,
+                    );
+                  },
                   customChild: Text(
                     AppLocalizations.of(context)!.online_payment,
                     style: AppStylesUtil.textBoldStyle(
@@ -189,7 +200,12 @@ class ReviewBookingInfoScreen extends StatelessWidget {
               Positioned(
                 bottom: 30.h,
                 child: AppButtonWidget(
-                  onClick: () {},
+                  onClick: () {
+                    AppNavigationManager.navPush(
+                      screen: AppRoutes.bookingConfirmRouteName,
+                      context: context,
+                    );
+                  },
                   customChild: Text(
                     AppLocalizations.of(context)!.book_an_appointment,
                     style: AppStylesUtil.textBoldStyle(

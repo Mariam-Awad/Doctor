@@ -20,4 +20,8 @@ class AppRoutes {
   static const String biographyRouteName = "/biographyScreen";
   static const String personalInfoRouteName = "/personalInfoScreen";
   static const String reviewInfoRouteName = "/ReviewBookingInfoScreen";
+  static const String checkoutRouteName = "/CheckoutScreen";
+  static const String bookingConfirmRouteName = "/BookingConfirmScreen";
+  static const String onlinePaymentRouteName = "/OnlinePaymentScreen";
+  static const String attachmentsRouteName = "/AttachmentsScreen";
 }

@@ -5,19 +5,22 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../core/utils/app_assets_util.dart';
 import '../../../core/utils/app_styles_util.dart';
-import '../../helpers/booking_appointment_screen_helper.dart';
-import '../../widgets/app_button_widget.dart';
-import '../../widgets/background_widget.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-class BranchScreen extends StatefulWidget {
-  const BranchScreen({super.key});
+import '../../config/routes/app_navigation_manager.dart';
+import '../../config/routes/app_routes.dart';
+import '../widgets/app_button_widget.dart';
+import '../widgets/background_widget.dart';
+
+class AttachmentsScreen extends StatefulWidget {
+  const AttachmentsScreen({super.key});
 
   @override
-  State<BranchScreen> createState() => _BranchScreenState();
+  State<AttachmentsScreen> createState() => _AttachmentsScreenState();
 }
 
-class _BranchScreenState extends State<BranchScreen> {
+class _AttachmentsScreenState extends State<AttachmentsScreen> {
+  bool selected = false;
   @override
   void initState() {
     super.initState();
@@ -26,7 +29,7 @@ class _BranchScreenState extends State<BranchScreen> {
   @override
   Widget build(BuildContext context) {
     return Background(
-        imageAsset: AppAssetsUtil.chooseBranchBackgroundImage,
+        imageAsset: AppAssetsUtil.patientBackgroundAttachmentImage,
         child: Scaffold(
             resizeToAvoidBottomInset: false,
             backgroundColor: Colors.transparent,
@@ -44,8 +47,7 @@ class _BranchScreenState extends State<BranchScreen> {
                       left: 10.w,
                       child: InkWell(
                         onTap: () {
-                          BookingAppointmentScreenHelper.instance()
-                              .navBackPage();
+                          AppNavigationManager.navPop(context);
                         },
                         child: Icon(
                           Icons.arrow_back,
@@ -63,7 +65,7 @@ class _BranchScreenState extends State<BranchScreen> {
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             Text(
-                              AppLocalizations.of(context)!.choose_branch,
+                              AppLocalizations.of(context)!.attachments,
                               textAlign: TextAlign.center,
                               style: AppStylesUtil.textBoldStyle(
                                 20.sp,
@@ -90,61 +92,106 @@ class _BranchScreenState extends State<BranchScreen> {
                       ),
                     ),
                     Positioned(
-                      top: 130.h,
-                      left: 10.w,
-                      child: Text(
-                        AppLocalizations.of(context)!.select_branch,
-                        style: AppStylesUtil.textRegularStyle(
-                          16.sp,
-                          AppColorUtil.visaDarkBlack,
-                          FontWeight.w500,
-                        ),
-                      ),
-                    ),
+                        top: 170.h,
+                        right: 25.w,
+                        left: 25.w,
+                        child: InkWell(
+                          onTap: () {
+                            setState(() {
+                              selected = !selected;
+                            });
+                          },
+                          child: Container(
+                            width: 302.w,
+                            height: 40.h,
+                            padding: const EdgeInsets.all(12.0),
+                            decoration: BoxDecoration(
+                                borderRadius:
+                                    BorderRadiusDirectional.circular(12.r),
+                                color: selected
+                                    ? AppColorUtil.textDarkGreen
+                                    : AppColorUtil.white),
+                            child: Text(
+                              'CBC',
+                              textAlign: TextAlign.left,
+                              style: AppStylesUtil.textBoldStyle(
+                                12.sp,
+                                selected
+                                    ? AppColorUtil.white
+                                    : AppColorUtil.visaDarkBlack,
+                                FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                        )),
                     Positioned(
                         top: 170.h,
-                        left: 10.w,
-                        child: Column(
+                        right: 25.w,
+                        child: InkWell(
+                          onTap: () {
+                            setState(() {
+                              selected = !selected;
+                            });
+                          },
+                          child: Container(
+                              width: 45.w,
+                              height: 40.h,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadiusDirectional.only(
+                                      topEnd: Radius.circular(12.r),
+                                      bottomEnd: Radius.circular(12.r)),
+                                  color: selected
+                                      ? AppColorUtil.white
+                                      : AppColorUtil.textDarkGreen),
+                              child: selected
+                                  ? Icon(
+                                      Icons.delete,
+                                      color: AppColorUtil.textDarkGreen,
+                                      size: 25,
+                                    )
+                                  : Icon(
+                                      Icons.attach_file,
+                                      color: AppColorUtil.white,
+                                      size: 25,
+                                    )),
+                        )),
+                    Positioned(
+                      top: 250.h,
+                      child: AppButtonWidget(
+                        onClick: () {},
+                        customChild: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            BranchLocationComponent(
-                              widthContainer: 234.w,
-                              heightContainer: 64.h,
-                              iconAsset: AppAssetsUtil.locationIcon,
-                              textlocation:
-                                  '16-El-fath Street ,Mohandsien Mit Okba ,Giza Governorate',
-                              fillContainerColor:
-                                  BranchScreenHelper.instance().fillColor0,
-                              onTap: () {
-                                setState(() {
-                                  BranchScreenHelper.instance()
-                                      .changeCurrentColor(0);
-                                });
-                              },
+                            Icon(
+                              Icons.add_circle_outline_outlined,
+                              color: AppColorUtil.white,
+                              size: 25,
                             ),
-                            12.verticalSpace,
-                            BranchLocationComponent(
-                              widthContainer: 234.w,
-                              heightContainer: 64.h,
-                              iconAsset: AppAssetsUtil.locationIcon,
-                              textlocation:
-                                  '16-El-fath Street ,Mohandsien Mit Okba ,Giza Governorate',
-                              fillContainerColor:
-                                  BranchScreenHelper.instance().fillColor1,
-                              onTap: () {
-                                setState(() {
-                                  BranchScreenHelper.instance()
-                                      .changeCurrentColor(1);
-                                });
-                              },
+                            10.horizontalSpace,
+                            Text(
+                              AppLocalizations.of(context)!.add_new_attachment,
+                              style: AppStylesUtil.textRegularStyle(
+                                16.sp,
+                                AppColorUtil.white,
+                                FontWeight.bold,
+                              ),
                             ),
                           ],
-                        )),
+                        ),
+                        btnBackgroundColor: AppColorUtil.textDarkGreen,
+                        btnPadding: EdgeInsets.all(5.sp),
+                        btnSize: Size(302.w, 40.h),
+                        btnRadius: 12,
+                        height: 40.h,
+                        width: 302.w,
+                      ),
+                    ),
                     Positioned(
                         bottom: 80.h,
                         left: 30.w,
                         child: SizedBox(
                           height: 200.h,
-                          width: 170.w,
+                          width: 150.w,
                           child: Text(
                             AppLocalizations.of(context)!.lorem,
                             textAlign: TextAlign.start,
@@ -161,8 +208,10 @@ class _BranchScreenState extends State<BranchScreen> {
                       bottom: 30.h,
                       child: AppButtonWidget(
                         onClick: () {
-                          BookingAppointmentScreenHelper.instance()
-                              .navToSecondPage(11);
+                          AppNavigationManager.navPush(
+                            screen: AppRoutes.reviewInfoRouteName,
+                            context: context,
+                          );
                         },
                         customChild: Text(
                           AppLocalizations.of(context)!.continues,
