@@ -1,4 +1,5 @@
 import 'package:doctor/config/routes/app_routes.dart';
+import 'package:doctor/presentation/screens/add_new_card_screen.dart';
 import 'package:doctor/presentation/screens/booking_confirm_screen.dart';
 import 'package:doctor/presentation/screens/booking_screens/choose_date_screen.dart';
 import 'package:doctor/presentation/screens/booking_screens/define_problem_screen.dart';
@@ -118,6 +119,10 @@ class AppRouteManager {
       case AppRoutes.attachmentsRouteName:
         return MaterialPageRoute(
           builder: (context) => const AttachmentsScreen(),
+        );
+      case AppRoutes.addNewCardRouteName:
+        return MaterialPageRoute(
+          builder: (context) => const AddNewCardScreen(),
         );
       default:
         return _undefinedRoute();

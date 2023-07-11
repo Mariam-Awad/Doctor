@@ -20,7 +20,7 @@ class _BookingConfirmState extends State<BookingConfirm> {
   @override
   void initState() {
     Timer(const Duration(milliseconds: 3500), () {
-      AppNavigationManager.navPush(
+      AppNavigationManager.navPushAnRemoveUntil(
           screen: AppRoutes.mainRouteName, context: context);
     });
 

@@ -3,6 +3,7 @@ import 'package:doctor/core/utils/app_assets_util.dart';
 import 'package:doctor/core/utils/app_colors_util.dart';
 import 'package:doctor/core/utils/app_styles_util.dart';
 import 'package:doctor/presentation/helpers/booking_appointment_screen_helper.dart';
+import 'package:doctor/presentation/helpers/payment_screen_helper.dart';
 import 'package:doctor/presentation/helpers/review_booking_info_screen_helper.dart';
 import 'package:doctor/presentation/widgets/app_button_widget.dart';
 import 'package:flutter/material.dart';
@@ -180,6 +181,7 @@ class ReviewBookingInfoScreen extends StatelessWidget {
                       screen: AppRoutes.onlinePaymentRouteName,
                       context: context,
                     );
+                    PaymentScreenHelper.instance().showBtn = true;
                   },
                   customChild: Text(
                     AppLocalizations.of(context)!.online_payment,
