@@ -166,72 +166,73 @@ class _OnlinePaymentScreenState extends State<OnlinePaymentScreen> {
                             ),
                           ),
                         )),
+                    Positioned(
+                      bottom:
+                          !PaymentScreenHelper.instance().showBtn ? 20.h : 70.h,
+                      child: AppButtonWidget(
+                        onClick: () {
+                          AppNavigationManager.navPush(
+                              screen: AppRoutes.addNewCardRouteName,
+                              context: context);
+                        },
+                        customChild: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(
+                              Icons.add_circle_outline_outlined,
+                              color: AppColorUtil.white,
+                              size: 25,
+                            ),
+                            10.horizontalSpace,
+                            Text(
+                              AppLocalizations.of(context)!.add_new_card,
+                              style: AppStylesUtil.textRegularStyle(
+                                16.sp,
+                                AppColorUtil.white,
+                                FontWeight.bold,
+                              ),
+                            ),
+                          ],
+                        ),
+                        btnBackgroundColor: AppColorUtil.textDarkGreen,
+                        border: BorderSide(
+                          color: AppColorUtil.white,
+                          width: 1.5,
+                        ),
+                        btnPadding: EdgeInsets.all(5.sp),
+                        btnSize: Size(302.w, 40.h),
+                        btnRadius: 12,
+                        height: 40.h,
+                        width: 302.w,
+                      ),
+                    ),
                     Visibility(
                       visible:
                           PaymentScreenHelper.instance().showBtn ? true : false,
                       child: Positioned(
-                        bottom: 80.h,
+                        bottom: 20.h,
                         child: AppButtonWidget(
                           onClick: () {
                             AppNavigationManager.navPush(
-                                screen: AppRoutes.addNewCardRouteName,
-                                context: context);
+                              context: context,
+                              screen: AppRoutes.checkoutRouteName,
+                            );
                           },
-                          customChild: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Icon(
-                                Icons.add_circle_outline_outlined,
-                                color: AppColorUtil.white,
-                                size: 25,
-                              ),
-                              10.horizontalSpace,
-                              Text(
-                                AppLocalizations.of(context)!.add_new_card,
-                                style: AppStylesUtil.textRegularStyle(
-                                  16.sp,
-                                  AppColorUtil.white,
-                                  FontWeight.bold,
-                                ),
-                              ),
-                            ],
+                          customChild: Text(
+                            AppLocalizations.of(context)!.pay_now,
+                            style: AppStylesUtil.textRegularStyle(
+                              16.sp,
+                              AppColorUtil.textDarkGreen,
+                              FontWeight.bold,
+                            ),
                           ),
-                          btnBackgroundColor: AppColorUtil.textDarkGreen,
-                          border: BorderSide(
-                            color: AppColorUtil.white,
-                            width: 1.5,
-                          ),
+                          btnBackgroundColor: AppColorUtil.white,
                           btnPadding: EdgeInsets.all(5.sp),
                           btnSize: Size(302.w, 40.h),
                           btnRadius: 12,
                           height: 40.h,
                           width: 302.w,
                         ),
-                      ),
-                    ),
-                    Positioned(
-                      bottom: 30.h,
-                      child: AppButtonWidget(
-                        onClick: () {
-                          AppNavigationManager.navPush(
-                            context: context,
-                            screen: AppRoutes.checkoutRouteName,
-                          );
-                        },
-                        customChild: Text(
-                          AppLocalizations.of(context)!.pay_now,
-                          style: AppStylesUtil.textRegularStyle(
-                            16.sp,
-                            AppColorUtil.textDarkGreen,
-                            FontWeight.bold,
-                          ),
-                        ),
-                        btnBackgroundColor: AppColorUtil.white,
-                        btnPadding: EdgeInsets.all(5.sp),
-                        btnSize: Size(302.w, 40.h),
-                        btnRadius: 12,
-                        height: 40.h,
-                        width: 302.w,
                       ),
                     ),
                   ],
