@@ -6,7 +6,7 @@ class AppRoutes {
   static const String visitsRouteName = "/VisitsScreen";
   static const String mainRouteName = "/mainScreen";
   static const String userProfileDetailsRouteName = "/UserProfileDetailsScreen";
-  static const String paymentRouteName = "/paymentScreen";
+  static const String paymentRouteName = "/OnlinePaymentScreen";
   static const String settingsRouteName = "/settingsScreen";
   static const String verifyIdentityRouteName = "/verifyIdentityScreen";
   static const String defineProblemRouteName = "/defineProblemScreen";
@@ -20,4 +20,9 @@ class AppRoutes {
   static const String biographyRouteName = "/biographyScreen";
   static const String personalInfoRouteName = "/personalInfoScreen";
   static const String reviewInfoRouteName = "/ReviewBookingInfoScreen";
+  static const String checkoutRouteName = "/CheckoutScreen";
+  static const String bookingConfirmRouteName = "/BookingConfirmScreen";
+  static const String onlinePaymentRouteName = "/OnlinePaymentScreen";
+  static const String attachmentsRouteName = "/AttachmentsScreen";
+  static const String addNewCardRouteName = "/AddNewCardScreen";
 }

@@ -28,6 +28,7 @@ class BookingAppointmentScreenHelper {
 
   String fullNameValue = "Ahmed Talal";
   bool personalformanimation = false;
+  bool agreeSaveCard = false;
 
   PageController bookingController = PageController(initialPage: 0);
   GlobalKey<FormState> formKeyScreen1 = GlobalKey<FormState>();

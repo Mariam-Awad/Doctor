@@ -70,7 +70,7 @@ class VisaComponent extends StatelessWidget {
                     textAlign: TextAlign.center,
                     style: AppStylesUtil.textRegularStyle(
                       8.sp,
-                      AppColorUtil.textgrey,
+                      AppColorUtil.shadowGrey,
                       FontWeight.bold,
                     ),
                   ),

@@ -1,11 +1,15 @@
 import 'package:doctor/config/routes/app_routes.dart';
+import 'package:doctor/presentation/screens/add_new_card_screen.dart';
+import 'package:doctor/presentation/screens/booking_confirm_screen.dart';
 import 'package:doctor/presentation/screens/booking_screens/choose_date_screen.dart';
 import 'package:doctor/presentation/screens/booking_screens/define_problem_screen.dart';
 import 'package:doctor/presentation/screens/biography_screen.dart';
 import 'package:doctor/presentation/screens/booking_screens/review_booking_info_screen.dart';
+import 'package:doctor/presentation/screens/checkout_screen.dart';
 import 'package:doctor/presentation/screens/forget_password_screen.dart';
 import 'package:doctor/presentation/screens/main_screen.dart';
 import 'package:doctor/presentation/screens/booking_screens/old_screen.dart';
+import 'package:doctor/presentation/screens/online_payment_screen.dart';
 import 'package:doctor/presentation/screens/otp_screen.dart';
 import 'package:doctor/presentation/screens/booking_an_appointment_screen.dart';
 import 'package:doctor/presentation/screens/splash_screen.dart';
@@ -13,6 +17,7 @@ import 'package:doctor/presentation/screens/booking_screens/verify_identity_scre
 import 'package:doctor/presentation/screens/booking_screens/weight_screen.dart';
 import 'package:doctor/presentation/screens/user_profile_details_screen.dart';
 import 'package:flutter/material.dart';
+import '../../presentation/screens/attachments_screen.dart';
 import '../../presentation/screens/booking_screens/blood_screen.dart';
 import '../../presentation/screens/booking_screens/branch_screen.dart';
 import '../../presentation/screens/booking_screens/define_problem_screen_two.dart';
@@ -98,6 +103,26 @@ class AppRouteManager {
       case AppRoutes.userProfileDetailsRouteName:
         return MaterialPageRoute(
           builder: (context) => const UserProfileDetailsScreen(),
+        );
+      case AppRoutes.checkoutRouteName:
+        return MaterialPageRoute(
+          builder: (context) => const CheckoutScreen(),
+        );
+      case AppRoutes.bookingConfirmRouteName:
+        return MaterialPageRoute(
+          builder: (context) => const BookingConfirm(),
+        );
+      case AppRoutes.onlinePaymentRouteName:
+        return MaterialPageRoute(
+          builder: (context) => const OnlinePaymentScreen(),
+        );
+      case AppRoutes.attachmentsRouteName:
+        return MaterialPageRoute(
+          builder: (context) => const AttachmentsScreen(),
+        );
+      case AppRoutes.addNewCardRouteName:
+        return MaterialPageRoute(
+          builder: (context) => const AddNewCardScreen(),
         );
       default:
         return _undefinedRoute();

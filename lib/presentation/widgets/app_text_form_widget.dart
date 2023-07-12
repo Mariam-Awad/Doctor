@@ -84,6 +84,7 @@ class AppTextFormWidget extends StatelessWidget {
               labelText: label ?? "",
               labelStyle: AppStylesUtil.textRegularStyle(
                   hintSize!, AppColorUtil.textLightGrey, FontWeight.w400),
+              suffixIcon: Icon(prefIcon),
               // suffixIcon: hint!.toLowerCase().contains("password")
               //     ? IconButton(
               //         onPressed: () {
