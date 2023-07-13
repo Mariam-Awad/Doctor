@@ -7,7 +7,7 @@ class AppTextFormWidget extends StatelessWidget {
   final String? label, hint, initialValue;
   final dynamic Function(String?) onChangeListener;
   final String? Function(String?) onValidateListener;
-  final IconData? prefIcon;
+  final Widget? prefIcon;
   final TextInputType textType;
   final String? fontType;
   final double? textSize;
@@ -84,7 +84,7 @@ class AppTextFormWidget extends StatelessWidget {
               labelText: label ?? "",
               labelStyle: AppStylesUtil.textRegularStyle(
                   hintSize!, AppColorUtil.textLightGrey, FontWeight.w400),
-              suffixIcon: Icon(prefIcon),
+              suffixIcon: prefIcon,
               // suffixIcon: hint!.toLowerCase().contains("password")
               //     ? IconButton(
               //         onPressed: () {
