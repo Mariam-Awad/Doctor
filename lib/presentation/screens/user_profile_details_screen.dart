@@ -11,6 +11,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
+import '../widgets/user_profile_screen_items_widget/user_profile_item4_widget.dart';
+
 class UserProfileDetailsScreen extends StatelessWidget {
   const UserProfileDetailsScreen({super.key});
   static final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
@@ -54,37 +56,45 @@ class UserProfileDetailsScreen extends StatelessWidget {
                 ),
               ),
               Expanded(
-                flex: 8,
+                flex: 9,
                 child: Form(
                   key: _formKey,
                   child: Column(
-                    children: List.generate(
-                      4,
-                      (index) {
-                        return UserProfileFormItemsView(
-                          containerHeight: 100.h,
-                          containerBorderWidth: index == 0 ? 1.2 : 0.01,
-                          containerChild:
-                              UserProfileDetailsScreenHelper.instance()
-                                  .setContainerChildes()[index],
-                        );
-                      },
-                    ),
+                    children: [
+                      Column(
+                        children: List.generate(
+                          3,
+                          (index) {
+                            return UserProfileFormItemsView(
+                              containerHeight: 100.h,
+                              containerBorderWidth: index == 0 ? 1.2 : 0.01,
+                              containerChild:
+                                  UserProfileDetailsScreenHelper.instance()
+                                      .setContainerChildes()[index],
+                            );
+                          },
+                        ),
+                      ),
+                      UserProfileFormItemsView(
+                        containerHeight: 130.h,
+                        containerBorderWidth: 0.01,
+                        containerChild: const UserProfileItem4Widget(),
+                      )
+                    ],
                   ),
                 ),
               ),
-              const Spacer(),
               Expanded(
                 flex: 1,
                 child: Padding(
                   padding: EdgeInsets.symmetric(
                     horizontal: 15.w,
-                    vertical: 12.h,
+                    vertical: 11.h,
                   ),
                   child: AppButtonWidget(
                     onClick: () {},
                     customChild: Text(
-                      AppLocalizations.of(context)!.edit,
+                      AppLocalizations.of(context)!.save,
                       style: AppStylesUtil.textBoldStyle(
                         16.sp,
                         AppColorUtil.textDarkGreen,
@@ -99,7 +109,7 @@ class UserProfileDetailsScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              30.verticalSpace,
+              20.verticalSpace,
             ],
           ),
         ),
