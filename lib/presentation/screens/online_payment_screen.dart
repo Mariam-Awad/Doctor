@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:doctor/core/utils/app_colors_util.dart';
+import 'package:doctor/presentation/helpers/online_payment_helper.dart';
 import 'package:doctor/presentation/helpers/payment_screen_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -8,7 +9,6 @@ import '../../../core/utils/app_styles_util.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import '../../config/routes/app_navigation_manager.dart';
 import '../../config/routes/app_routes.dart';
-import '../../core/components/visa_component.dart';
 import '../widgets/app_button_widget.dart';
 import '../widgets/background_widget.dart';
 
@@ -20,36 +20,6 @@ class OnlinePaymentScreen extends StatefulWidget {
 }
 
 class _OnlinePaymentScreenState extends State<OnlinePaymentScreen> {
-  int pageIndex = 0;
-  List<Widget> demo = [
-    VisaComponent(
-      widthContainer: 277.w,
-      heightContainer: 133.h,
-      backgroundcolorone: AppColorUtil.visaDarkBlack,
-      backgroundcolortwo: AppColorUtil.visaLightBlack,
-      name: 'Samar Maged',
-      cardnumber: '3455 5363 2732 3727',
-      duedate: '02/25',
-    ),
-    VisaComponent(
-      widthContainer: 277.w,
-      heightContainer: 133.h,
-      backgroundcolorone: AppColorUtil.visaDarkBlue,
-      backgroundcolortwo: AppColorUtil.visaLightBlue,
-      name: 'Samar Maged',
-      cardnumber: '3455 5363 2732 3727',
-      duedate: '02/25',
-    ),
-    VisaComponent(
-      widthContainer: 277.w,
-      heightContainer: 133.h,
-      backgroundcolorone: AppColorUtil.visaDarkgrey,
-      backgroundcolortwo: AppColorUtil.shadowGrey,
-      name: 'Samar Maged',
-      cardnumber: '3455 5363 2732 3727',
-      duedate: '02/25',
-    ),
-  ];
   @override
   void initState() {
     super.initState();
@@ -126,7 +96,8 @@ class _OnlinePaymentScreenState extends State<OnlinePaymentScreen> {
                           width: 330.w,
                           height: 150.h,
                           child: CarouselSlider.builder(
-                              itemCount: demo.length,
+                              itemCount:
+                                  OnlinePaymentHelper.instance().demo.length,
                               options: CarouselOptions(
                                 height: 150,
                                 aspectRatio: 16 / 9,
@@ -145,7 +116,8 @@ class _OnlinePaymentScreenState extends State<OnlinePaymentScreen> {
                               ),
                               itemBuilder: (BuildContext context, int itemIndex,
                                   int pageViewIndex) {
-                                return demo[itemIndex];
+                                return OnlinePaymentHelper.instance()
+                                    .demo[itemIndex];
                               }),
                         )),
                     Positioned(

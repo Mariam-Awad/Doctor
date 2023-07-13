@@ -2,18 +2,22 @@ import 'package:doctor/config/screen_resizer.dart';
 import 'package:doctor/core/components/gender_component.dart';
 import 'package:doctor/core/utils/app_assets_util.dart';
 import 'package:doctor/core/utils/app_colors_util.dart';
-import 'package:doctor/core/utils/app_strings.dart';
 import 'package:doctor/core/utils/app_styles_util.dart';
 import 'package:doctor/presentation/helpers/booking_appointment_screen_helper.dart';
-import 'package:doctor/presentation/widgets/app_back_btn_widget.dart';
 import 'package:doctor/presentation/widgets/app_button_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../../widgets/app_date_picker_widget.dart';
 
-class PersonalInfoScreen2 extends StatelessWidget {
+class PersonalInfoScreen2 extends StatefulWidget {
   const PersonalInfoScreen2({super.key});
 
+  @override
+  State<PersonalInfoScreen2> createState() => _PersonalInfoScreen2State();
+}
+
+class _PersonalInfoScreen2State extends State<PersonalInfoScreen2> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -207,15 +211,24 @@ class PersonalInfoScreen2 extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        "MM/YY",
+                        BookingAppointmentScreenHelper.instance()
+                                    .selectedResult !=
+                                null
+                            ? '${BookingAppointmentScreenHelper.instance().selectedResult!.day}/ ${BookingAppointmentScreenHelper.instance().selectedResult!.month}/ ${BookingAppointmentScreenHelper.instance().selectedResult!.year}'
+                            : 'MM/YY',
                         style: AppStylesUtil.textBoldStyle(
-                          13.sp,
+                          16.sp,
                           Colors.black,
-                          FontWeight.w600,
+                          FontWeight.w400,
                         ),
                       ),
                       InkWell(
-                        onTap: () {},
+                        onTap: () async {
+                          BookingAppointmentScreenHelper.instance()
+                                  .selectedResult =
+                              await customShowDatePicker(context);
+                          setState(() {});
+                        },
                         child: Icon(
                           Icons.date_range,
                           color: AppColorUtil.backgroundLightGreen,

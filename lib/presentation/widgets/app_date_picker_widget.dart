@@ -1,20 +1,28 @@
+import 'package:date_picker_plus/date_picker_plus.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_rounded_date_picker/flutter_rounded_date_picker.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../../core/utils/app_colors_util.dart';
+import '../../core/utils/app_styles_util.dart';
 
-Future<DateTime?> showDatePicker(BuildContext context) async =>
-    await showRoundedDatePicker(
+Future<DateTime?> customShowDatePicker(BuildContext context) async =>
+    await showDatePickerDialog(
       context: context,
       initialDate: DateTime.now(),
-      firstDate: DateTime(DateTime.now().year - 1),
-      lastDate: DateTime(DateTime.now().year + 1),
-      borderRadius: 16,
-      theme: ThemeData(
-        primaryColor: Colors.red[400],
-        dialogBackgroundColor: Colors.purple[50],
-        textTheme: const TextTheme(
-          bodyLarge: TextStyle(color: Colors.red),
-          bodySmall: TextStyle(color: Colors.blue),
-        ),
-        disabledColor: Colors.orange,
-      ),
+      minDate: DateTime(1980),
+      maxDate: DateTime(2030),
+      contentPadding: const EdgeInsets.all(6.0),
+      padding: EdgeInsets.symmetric(horizontal: 40.w, vertical: 120.h),
+      daysNameTextStyle: AppStylesUtil.textRegularStyle(
+          14.0, AppColorUtil.visaDarkBlack, FontWeight.w400),
+      leadingDateTextStyle: AppStylesUtil.textBoldStyle(
+          20.0, AppColorUtil.textDarkGreen, FontWeight.bold),
+      enabledCellTextStyle: AppStylesUtil.textRegularStyle(
+          16.0, AppColorUtil.visaDarkBlack, FontWeight.w400),
+      selectedCellTextStyle: AppStylesUtil.textBoldStyle(
+          16.0, AppColorUtil.white, FontWeight.w400),
+      currentDateTextStyle: AppStylesUtil.textRegularStyle(
+          16.0, AppColorUtil.textDarkGreen, FontWeight.w500),
+      slidersColor: AppColorUtil.textDarkGreen,
+      barrierColor: Colors.transparent,
+      splashRadius: 8.r,
     );
