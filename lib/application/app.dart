@@ -25,7 +25,21 @@ class _MyAppState extends State<MyApp> {
     return ScreenUtilInit(
       designSize: const Size(375, 812),
       builder: (context, child) => MaterialApp(
-        theme: ThemeData(primaryColor: AppColorUtil.backgroundDarkBabyBlue),
+        theme: ThemeData(
+          colorScheme: ColorScheme(
+            brightness: Brightness.light,
+            primary: AppColorUtil.textDarkGreen,
+            onPrimary: AppColorUtil.textDarkGreen,
+            secondary: AppColorUtil.backgroundDarkBabyBlue,
+            onSecondary: AppColorUtil.backgroundDarkBabyBlue,
+            error: AppColorUtil.red,
+            onError: AppColorUtil.red,
+            background: AppColorUtil.white,
+            onBackground: AppColorUtil.white,
+            surface: AppColorUtil.white,
+            onSurface: AppColorUtil.white,
+          ),
+        ),
         debugShowCheckedModeBanner: false,
         initialRoute: AppRoutes.splashScreenRouteName,
         onGenerateRoute: AppRouteManager.generateRoute,

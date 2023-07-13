@@ -10,6 +10,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
+import '../../config/routes/app_routes.dart';
+
 class AddNewCardScreen extends StatelessWidget {
   const AddNewCardScreen({super.key});
 
@@ -270,6 +272,7 @@ class AddNewCardScreen extends StatelessWidget {
                               ],
                             ),
                           ),
+
                         ],
                       ),
                     ),

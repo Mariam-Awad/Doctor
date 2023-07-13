@@ -25,5 +25,4 @@ class MainScreenHelper {
 
   int currentIndex = 2;
   changeCurrentIndex(int index) => currentIndex = index;
-
 }

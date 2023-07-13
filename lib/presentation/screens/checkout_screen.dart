@@ -1,4 +1,4 @@
-import 'package:doctor/presentation/helpers/checkout_screen_helper.dart';
+import 'package:doctor/presentation/helpers/online_payment_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -24,7 +24,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
       setState(() {
-        CheckoutScreenHelper.instance().checkoutanimation = true;
+        OnlinePaymentHelper.instance().checkoutanimation = true;
       });
     });
   }
@@ -32,7 +32,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
   @override
   void didChangeDependencies() {
     setState(() {
-      CheckoutScreenHelper.instance().checkoutanimation = false;
+      OnlinePaymentHelper.instance().checkoutanimation = false;
     });
     super.didChangeDependencies();
   }
@@ -108,7 +108,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                       child: AnimatedContainer(
                         duration: const Duration(milliseconds: 1000),
                         transform: Matrix4.translationValues(
-                            CheckoutScreenHelper.instance().checkoutanimation
+                            OnlinePaymentHelper.instance().checkoutanimation
                                 ? 0 // mwgoda
                                 : -MediaQuery.of(context)
                                     .size
