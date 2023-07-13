@@ -3,9 +3,9 @@ import 'package:doctor/core/utils/app_assets_util.dart';
 import 'package:doctor/core/utils/app_colors_util.dart';
 import 'package:doctor/core/utils/app_strings.dart';
 import 'package:doctor/core/utils/app_styles_util.dart';
+import 'package:doctor/presentation/helpers/booking_appointment_screen_helper.dart';
 import 'package:doctor/presentation/widgets/app_button_widget.dart';
 import 'package:doctor/presentation/widgets/app_text_form_widget.dart';
-import 'package:doctor/presentation/widgets/background_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -17,24 +17,30 @@ class AddNewCardScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Background(
-        imageAsset: AppAssetsUtil.paymentBackgroundImage,
-        child: Scaffold(
-            resizeToAvoidBottomInset: false,
-            backgroundColor: Colors.transparent,
-            body: SizedBox(
-              width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height,
-              child: Padding(
-                padding: EdgeInsets.only(
-                    top: 40.h, bottom: 20.h, left: 10.w, right: 10.w),
-                child: Stack(
-                  alignment: AlignmentDirectional.topCenter,
-                  children: [
-                    Positioned(
-                      top: 40.h,
-                      left: 10.w,
-                      child: InkWell(
+    return Scaffold(
+      body: Container(
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height,
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage(AppAssetsUtil.paymentBackgroundImage),
+            fit: BoxFit.fill,
+          ),
+        ),
+        child: Padding(
+          padding:
+              EdgeInsets.only(top: 40.h, bottom: 20.h, left: 20.w, right: 10.w),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Expanded(
+                flex: 2,
+                child: Container(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      InkWell(
                         onTap: () {
                           AppNavigationManager.navPop(context);
                         },
@@ -45,216 +51,290 @@ class AddNewCardScreen extends StatelessWidget {
                           color: AppColorUtil.textDarkGreen,
                         ),
                       ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(top: 30.h),
-                      child: Center(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            Text(
-                              AppLocalizations.of(context)!.add_new_card,
-                              textAlign: TextAlign.center,
-                              style: AppStylesUtil.textBoldStyle(
-                                20.sp,
-                                AppColorUtil.textDarkGreen,
-                                FontWeight.bold,
-                              ),
-                            ),
-                            5.verticalSpace,
-                            SizedBox(
-                              width: 260.h,
-                              child: Text(
-                                AppLocalizations.of(context)!
-                                    .your_information_will_be_shared,
-                                textAlign: TextAlign.center,
-                                style: AppStylesUtil.textBoldStyle(
-                                  12.sp,
-                                  AppColorUtil.textDarkGreen.withOpacity(0.60),
-                                  FontWeight.bold,
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    Positioned(
-                        top: 120.h,
-                        child: SizedBox(
-                          width: 330.w,
-                          child: Form(
+                      Expanded(
+                        flex: 2,
+                        child: Padding(
+                          padding: EdgeInsets.only(top: 30.h),
+                          child: Center(
                             child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.center,
                               mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  AppLocalizations.of(context)!.name_on_card,
+                                  AppLocalizations.of(context)!.add_new_card,
+                                  textAlign: TextAlign.center,
                                   style: AppStylesUtil.textBoldStyle(
-                                    13.sp,
-                                    Colors.black,
-                                    FontWeight.w500,
+                                    20.sp,
+                                    AppColorUtil.textDarkGreen,
+                                    FontWeight.bold,
                                   ),
                                 ),
                                 5.verticalSpace,
-                                AppTextFormWidget(
-                                  hint: AppLocalizations.of(context)!.payment,
-                                  textType: TextInputType.text,
-                                  onChangeListener: (value) {},
-                                  onValidateListener: (value) {},
-                                  initialValue: "Samar Maged",
-                                  fontType: appFontRegular,
-                                  textSize: 12.sp,
-                                  hintSize: 12.sp,
-                                  radius: 12.r,
-                                  sideColor: AppColorUtil.white,
-                                  sideWidth: 1,
-                                  fillColor: AppColorUtil.white,
-                                  isFiled: true,
-                                ),
-                                Text(
-                                  AppLocalizations.of(context)!.number_on_card,
-                                  style: AppStylesUtil.textBoldStyle(
-                                    13.sp,
-                                    Colors.black,
-                                    FontWeight.w500,
-                                  ),
-                                ),
-                                5.verticalSpace,
-                                AppTextFormWidget(
-                                  hint: AppLocalizations.of(context)!
-                                      .number_on_card,
-                                  textType: TextInputType.number,
-                                  onChangeListener: (value) {},
-                                  onValidateListener: (value) {},
-                                  initialValue: "xxx xxx xxx xx34",
-                                  fontType: appFontRegular,
-                                  textSize: 10.sp,
-                                  hintSize: 10.sp,
-                                  radius: 12.r,
-                                  sideColor: AppColorUtil.white,
-                                  sideWidth: 1,
-                                  fillColor: AppColorUtil.white,
-                                  isFiled: true,
-                                  prefIcon: Icons.all_inclusive_sharp,
-                                ),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text(
-                                      AppLocalizations.of(context)!.cvv,
-                                      style: AppStylesUtil.textBoldStyle(
-                                        13.sp,
-                                        Colors.black,
-                                        FontWeight.w500,
-                                      ),
+                                SizedBox(
+                                  width: 260.h,
+                                  child: Text(
+                                    AppLocalizations.of(context)!
+                                        .your_information_will_be_shared,
+                                    textAlign: TextAlign.center,
+                                    style: AppStylesUtil.textBoldStyle(
+                                      12.sp,
+                                      AppColorUtil.textDarkGreen
+                                          .withOpacity(0.60),
+                                      FontWeight.bold,
                                     ),
-                                    Text(
-                                      AppLocalizations.of(context)!.expiry_date,
-                                      style: AppStylesUtil.textBoldStyle(
-                                        13.sp,
-                                        Colors.black,
-                                        FontWeight.w500,
-                                      ),
-                                    )
-                                  ],
-                                ),
-                                Padding(
-                                  padding: EdgeInsets.only(right: 15.w),
-                                  child: Row(
-                                    children: [
-                                      Expanded(
-                                        child: AppTextFormWidget(
-                                          hint: AppLocalizations.of(context)!
-                                              .number_on_card,
-                                          textType: TextInputType.number,
-                                          onChangeListener: (value) {},
-                                          onValidateListener: (value) {},
-                                          initialValue: "",
-                                          fontType: appFontRegular,
-                                          textSize: 10.sp,
-                                          hintSize: 10.sp,
-                                          radius: 12.r,
-                                          sideColor: AppColorUtil.white,
-                                          sideWidth: 1,
-                                          fillColor: AppColorUtil.white,
-                                          isFiled: true,
-                                        ),
-                                      ),
-                                      10.horizontalSpace,
-                                      Expanded(
-                                        child: AppTextFormWidget(
-                                          hint: AppLocalizations.of(context)!
-                                              .number_on_card,
-                                          textType: TextInputType.number,
-                                          onChangeListener: (value) {},
-                                          onValidateListener: (value) {},
-                                          initialValue: "",
-                                          fontType: appFontRegular,
-                                          textSize: 10.sp,
-                                          hintSize: 10.sp,
-                                          radius: 12.r,
-                                          sideColor: AppColorUtil.white,
-                                          sideWidth: 1,
-                                          fillColor: AppColorUtil.white,
-                                          isFiled: true,
-                                        ),
-                                      ),
-                                    ],
                                   ),
                                 ),
                               ],
                             ),
                           ),
-                        )),
-                    Positioned(
-                        bottom: 170.h,
-                        left: 30.w,
-                        child: SizedBox(
-                          height: 100.h,
-                          width: 170.w,
-                          child: Text(
-                            AppLocalizations.of(context)!.lorem,
-                            textAlign: TextAlign.start,
-                            overflow: TextOverflow.ellipsis,
-                            maxLines: 7,
-                            style: AppStylesUtil.textBoldStyle(
-                              20.sp,
-                              AppColorUtil.white,
-                              FontWeight.bold,
-                            ),
-                          ),
-                        )),
-                    Positioned(
-                      bottom: 30.h,
-                      child: AppButtonWidget(
-                        onClick: () {
-                          AppNavigationManager.navPush(
-                            screen: AppRoutes.onlinePaymentRouteName,
-                            context: context,
-                          );
-                        },
-                        customChild: Text(
-                          AppLocalizations.of(context)!.add,
-                          style: AppStylesUtil.textRegularStyle(
-                            16.sp,
-                            AppColorUtil.textDarkGreen,
-                            FontWeight.bold,
-                          ),
                         ),
-                        btnBackgroundColor: AppColorUtil.white,
-                        btnPadding: EdgeInsets.all(5.sp),
-                        btnSize: Size(302.w, 40.h),
-                        btnRadius: 12,
-                        height: 40.h,
-                        width: 302.w,
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
-            )));
+              15.verticalSpace,
+              Expanded(
+                flex: 2,
+                child: SingleChildScrollView(
+                  primary: true,
+                  scrollDirection: Axis.vertical,
+                  child: Container(
+                    child: Form(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            AppLocalizations.of(context)!.name_on_card,
+                            style: AppStylesUtil.textBoldStyle(
+                              13.sp,
+                              Colors.black,
+                              FontWeight.w500,
+                            ),
+                          ),
+                          5.verticalSpace,
+                          AppTextFormWidget(
+                            hint: AppLocalizations.of(context)!.payment,
+                            textType: TextInputType.text,
+                            onChangeListener: (value) {},
+                            onValidateListener: (value) {},
+                            initialValue: "Samar Maged",
+                            fontType: appFontRegular,
+                            textSize: 12.sp,
+                            hintSize: 12.sp,
+                            radius: 12.r,
+                            sideColor: AppColorUtil.shadowLocationColor,
+                            sideWidth: 1,
+                            fillColor: AppColorUtil.white,
+                            isFiled: true,
+                          ),
+                          Text(
+                            AppLocalizations.of(context)!.number_on_card,
+                            style: AppStylesUtil.textBoldStyle(
+                              13.sp,
+                              Colors.black,
+                              FontWeight.w500,
+                            ),
+                          ),
+                          5.verticalSpace,
+                          AppTextFormWidget(
+                            hint: AppLocalizations.of(context)!.number_on_card,
+                            textType: TextInputType.number,
+                            onChangeListener: (value) {},
+                            onValidateListener: (value) {},
+                            initialValue: "xxx xxx xxx xx34",
+                            fontType: appFontRegular,
+                            textSize: 10.sp,
+                            hintSize: 10.sp,
+                            radius: 12.r,
+                            sideColor: AppColorUtil.shadowLocationColor,
+                            sideWidth: 1,
+                            fillColor: AppColorUtil.white,
+                            isFiled: true,
+                            prefIcon: Icons.all_inclusive_sharp,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Expanded(
+                                child: Text(
+                                  AppLocalizations.of(context)!.cvv,
+                                  style: AppStylesUtil.textBoldStyle(
+                                    13.sp,
+                                    Colors.black,
+                                    FontWeight.w500,
+                                  ),
+                                ),
+                              ),
+                              Expanded(
+                                child: Text(
+                                  AppLocalizations.of(context)!.expiry_date,
+                                  style: AppStylesUtil.textBoldStyle(
+                                    13.sp,
+                                    Colors.black,
+                                    FontWeight.w500,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          Padding(
+                            padding: EdgeInsets.only(right: 15.w),
+                            child: Row(
+                              children: [
+                                Expanded(
+                                  child: AppTextFormWidget(
+                                    hint: AppLocalizations.of(context)!
+                                        .number_on_card,
+                                    textType: TextInputType.number,
+                                    onChangeListener: (value) {},
+                                    onValidateListener: (value) {},
+                                    initialValue: "...",
+                                    fontType: appFontRegular,
+                                    textSize: 10.sp,
+                                    hintSize: 10.sp,
+                                    radius: 12.r,
+                                    sideColor: AppColorUtil.shadowLocationColor,
+                                    sideWidth: 1,
+                                    fillColor: AppColorUtil.white,
+                                    isFiled: true,
+                                  ),
+                                ),
+                                10.horizontalSpace,
+                                Expanded(
+                                  child: AppTextFormWidget(
+                                    hint: AppLocalizations.of(context)!
+                                        .number_on_card,
+                                    textType: TextInputType.number,
+                                    onChangeListener: (value) {},
+                                    onValidateListener: (value) {},
+                                    initialValue: "MM/YY",
+                                    fontType: appFontRegular,
+                                    textSize: 10.sp,
+                                    hintSize: 10.sp,
+                                    radius: 12.r,
+                                    sideColor: AppColorUtil.shadowLocationColor,
+                                    sideWidth: 1,
+                                    fillColor: AppColorUtil.white,
+                                    isFiled: true,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Padding(
+                            padding: EdgeInsets.only(right: 15.w),
+                            child: Row(
+                              children: [
+                                StatefulBuilder(
+                                  builder: (context, setCheckBoxState) {
+                                    return Transform.scale(
+                                      scale: 1.7,
+                                      child: Checkbox(
+                                        side: BorderSide(
+                                          color: Colors.black,
+                                          width: 1.1.sp,
+                                        ),
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(2.sp),
+                                        ),
+                                        checkColor: AppColorUtil.darkGreen,
+                                        fillColor: MaterialStateProperty.all(
+                                          Colors.white,
+                                        ),
+                                        value: BookingAppointmentScreenHelper
+                                                .instance()
+                                            .agreeSaveCard,
+                                        onChanged: (value) {
+                                          setCheckBoxState(
+                                            () {
+                                              BookingAppointmentScreenHelper
+                                                      .instance()
+                                                  .agreeSaveCard = value!;
+                                            },
+                                          );
+                                        },
+                                      ),
+                                    );
+                                  },
+                                ),
+                                10.horizontalSpace,
+                                Text(
+                                  AppLocalizations.of(context)!.agree_save_card,
+                                  style: AppStylesUtil.textBoldStyle(
+                                    15.sp,
+                                    AppColorUtil.darkGreen,
+                                    FontWeight.w700,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              20.verticalSpace,
+              Expanded(
+                flex: 4,
+                child: Container(
+                  width: 200,
+                  padding: EdgeInsets.only(left: 20.w, top: 50.h),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        AppLocalizations.of(context)!.lorem,
+                        textAlign: TextAlign.start,
+                        overflow: TextOverflow.ellipsis,
+                        maxLines: 7,
+                        style: AppStylesUtil.textBoldStyle(
+                          20.sp,
+                          AppColorUtil.white,
+                          FontWeight.bold,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              20.verticalSpace,
+              Expanded(
+                child: Container(
+                  width: double.maxFinite,
+                  padding: EdgeInsets.symmetric(vertical: 10.h),
+                  alignment: Alignment.center,
+                  child: AppButtonWidget(
+                    onClick: () {
+                      AppNavigationManager.navPop(context);
+                    },
+                    customChild: Text(
+                      AppLocalizations.of(context)!.add,
+                      style: AppStylesUtil.textRegularStyle(
+                        16.sp,
+                        AppColorUtil.textDarkGreen,
+                        FontWeight.bold,
+                      ),
+                    ),
+                    btnBackgroundColor: AppColorUtil.white,
+                    btnPadding: EdgeInsets.all(5.sp),
+                    btnSize: Size(302.w, 45.h),
+                    btnRadius: 12,
+                    height: 45.h,
+                    width: 302.w,
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
   }
 }
