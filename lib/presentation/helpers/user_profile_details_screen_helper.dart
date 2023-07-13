@@ -1,7 +1,6 @@
 import 'package:doctor/presentation/widgets/user_profile_screen_items_widget/user_profile_item1_widget.dart';
 import 'package:doctor/presentation/widgets/user_profile_screen_items_widget/user_profile_item2_widget.dart';
 import 'package:doctor/presentation/widgets/user_profile_screen_items_widget/user_profile_item3_widget.dart';
-import 'package:doctor/presentation/widgets/user_profile_screen_items_widget/user_profile_item4_widget.dart';
 import 'package:flutter/material.dart';
 
 class UserProfileDetailsScreenHelper {
@@ -20,7 +19,6 @@ class UserProfileDetailsScreenHelper {
       UserProfileItem1Widget(),
       UserProfileItem2Widget(),
       UserProfileItem3Widget(),
-      UserProfileItem4Widget(),
     ];
   }
 }

@@ -12,12 +12,15 @@ class UserProfileItem4Widget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Expanded(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
+              12.verticalSpace,
               Expanded(
                 child: Text(
                   AppLocalizations.of(context)!.weight,
