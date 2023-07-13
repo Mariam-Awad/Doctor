@@ -84,6 +84,7 @@ class BookingAppointmentScreenHelper {
   }
 
   String gender = '';
+  DateTime? selectedResult ;
   Color maleContainerColor = AppColorUtil.white;
   Color femaleContainerColor = AppColorUtil.white;
   GlobalKey<FormState> paymentOtpFormKey = GlobalKey<FormState>();

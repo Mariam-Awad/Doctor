@@ -158,7 +158,12 @@ class _AttachmentsScreenState extends State<AttachmentsScreen> {
                     Positioned(
                       top: 250.h,
                       child: AppButtonWidget(
-                        onClick: () {},
+                        onClick: () {
+                          AppNavigationManager.navPush(
+                            screen: AppRoutes.addNewCardRouteName,
+                            context: context,
+                          );
+                        },
                         customChild: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
