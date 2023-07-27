@@ -9,4 +9,5 @@ class PaymentScreenHelper {
   }
 
   bool showBtn = false;
+  bool isCommingFromProfileRoute = false;
 }

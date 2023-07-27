@@ -1,6 +1,7 @@
 import 'package:doctor/core/utils/app_colors_util.dart';
 import 'package:doctor/core/utils/app_strings.dart';
 import 'package:doctor/core/utils/app_styles_util.dart';
+import 'package:doctor/presentation/helpers/user_profile_details_screen_helper.dart';
 import 'package:doctor/presentation/widgets/app_text_form_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -51,10 +52,14 @@ class UserProfileItem2Widget extends StatelessWidget {
               10.verticalSpace,
               Expanded(
                 child: AppTextFormWidget(
-                  hint: "Enter your name",
+                  focusNode:
+                      UserProfileDetailsScreenHelper.instance().focusNode,
+                  hint: "Enter your date",
                   textType: TextInputType.text,
                   onChangeListener: (value) {},
-                  onValidateListener: (value) {},
+                  onValidateListener: (value) {
+                    return null;
+                  },
                   initialValue: "20 February 1994",
                   fontType: appFontBold,
                   textSize: 10.sp,
@@ -74,7 +79,9 @@ class UserProfileItem2Widget extends StatelessWidget {
                   hint: "Enter your age",
                   textType: TextInputType.number,
                   onChangeListener: (value) {},
-                  onValidateListener: (value) {},
+                  onValidateListener: (value) {
+                    return null;
+                  },
                   initialValue: "30",
                   fontType: appFontBold,
                   textSize: 8.sp,

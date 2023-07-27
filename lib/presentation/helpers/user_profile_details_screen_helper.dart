@@ -14,6 +14,8 @@ class UserProfileDetailsScreenHelper {
     return _userProfileDetailsScreenHelper!;
   }
 
+  FocusNode focusNode = FocusNode();
+
   List<Widget> setContainerChildes() {
     return const [
       UserProfileItem1Widget(),

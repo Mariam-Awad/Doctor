@@ -40,19 +40,38 @@ class UserProfileDetailsScreen extends StatelessWidget {
               30.verticalSpace,
               Expanded(
                 flex: 1,
-                child: AppBackBtnWidget(
-                  titleStyle: AppStylesUtil.textBoldStyle(
-                    18.sp,
-                    AppColorUtil.textDarkGreen,
-                    FontWeight.bold,
-                  ),
-                  onClick: () {
-                    AppNavigationManager.navPop(context);
-                  },
-                  titleIsVisible: true,
-                  title: AppLocalizations.of(context)!.user_profile,
-                  iconColor: AppColorUtil.darkGreen,
-                  space: 90.horizontalSpace,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Expanded(
+                      child: AppBackBtnWidget(
+                        titleStyle: AppStylesUtil.textBoldStyle(
+                          18.sp,
+                          AppColorUtil.textDarkGreen,
+                          FontWeight.bold,
+                        ),
+                        onClick: () {
+                          AppNavigationManager.navPop(context);
+                        },
+                        titleIsVisible: true,
+                        title: AppLocalizations.of(context)!.user_profile,
+                        iconColor: AppColorUtil.darkGreen,
+                        space: 90.horizontalSpace,
+                      ),
+                    ),
+                    InkWell(
+                      onTap: () {
+                        FocusScope.of(context).requestFocus(
+                          UserProfileDetailsScreenHelper.instance().focusNode,
+                        );
+                      },
+                      child: Icon(
+                        Icons.edit_calendar_rounded,
+                        size: 20.sp,
+                        color: AppColorUtil.darkGreen,
+                      ),
+                    ),
+                  ],
                 ),
               ),
               Expanded(

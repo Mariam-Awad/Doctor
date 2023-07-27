@@ -143,7 +143,7 @@ class _OnlinePaymentScreenState extends State<OnlinePaymentScreen> {
                           !PaymentScreenHelper.instance().showBtn ? 20.h : 70.h,
                       child: AppButtonWidget(
                         onClick: () {
-                          AppNavigationManager.navPush(
+                          AppNavigationManager.navPushReplacement(
                               screen: AppRoutes.addNewCardRouteName,
                               context: context);
                         },

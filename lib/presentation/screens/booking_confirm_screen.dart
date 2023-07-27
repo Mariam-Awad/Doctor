@@ -1,13 +1,13 @@
 import 'dart:async';
 
 import 'package:doctor/core/utils/app_colors_util.dart';
+import 'package:doctor/presentation/helpers/payment_screen_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lottie/lottie.dart';
 
 import '../../config/routes/app_navigation_manager.dart';
 import '../../config/routes/app_routes.dart';
-import 'main_screen.dart';
 
 class BookingConfirm extends StatefulWidget {
   const BookingConfirm({super.key});
@@ -20,8 +20,13 @@ class _BookingConfirmState extends State<BookingConfirm> {
   @override
   void initState() {
     Timer(const Duration(milliseconds: 3500), () {
-      AppNavigationManager.navPushAnRemoveUntil(
-          screen: AppRoutes.mainRouteName, context: context);
+      if (PaymentScreenHelper.instance().isCommingFromProfileRoute) {
+        AppNavigationManager.navPushReplacement(
+            screen: AppRoutes.paymentRouteName, context: context);
+      } else {
+        AppNavigationManager.navPushAnRemoveUntil(
+            screen: AppRoutes.mainRouteName, context: context);
+      }
     });
 
     super.initState();
