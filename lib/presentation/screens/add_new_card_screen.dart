@@ -1,5 +1,4 @@
 import 'package:doctor/config/routes/app_navigation_manager.dart';
-import 'package:doctor/config/routes/app_routes.dart';
 import 'package:doctor/core/utils/app_assets_util.dart';
 import 'package:doctor/core/utils/app_colors_util.dart';
 import 'package:doctor/core/utils/app_strings.dart';
@@ -323,8 +322,9 @@ class AddNewCardScreen extends StatelessWidget {
                     alignment: Alignment.center,
                     child: AppButtonWidget(
                       onClick: () {
-                        AppNavigationManager.navPop(
-                          context,
+                        AppNavigationManager.navPush(
+                          context: context,
+                          screen: AppRoutes.onlinePaymentRouteName,
                         );
                       },
                       customChild: Text(
