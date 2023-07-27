@@ -1,6 +1,7 @@
 import 'package:doctor/config/routes/app_navigation_manager.dart';
 import 'package:doctor/config/routes/app_routes.dart';
 import 'package:doctor/core/app_debug_prints.dart';
+import 'package:doctor/presentation/helpers/payment_screen_helper.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -29,9 +30,12 @@ class AccountScreenHelper {
 
   navBetweenScreens(BuildContext context, index) {
     if (index == 3) {
-     printInfo("logout");
-     // TODO:call logout fun here
-     return;
+      printInfo("logout");
+      // TODO:call logout fun here
+      return;
+    }
+    if (index == 1) {
+      PaymentScreenHelper.instance().isCommingFromProfileRoute = true;
     }
     AppNavigationManager.navPush(
         screen: _accountScreens[index], context: context);

@@ -4,6 +4,7 @@ import 'package:doctor/core/utils/app_colors_util.dart';
 import 'package:doctor/core/utils/app_strings.dart';
 import 'package:doctor/core/utils/app_styles_util.dart';
 import 'package:doctor/presentation/helpers/booking_appointment_screen_helper.dart';
+import 'package:doctor/presentation/helpers/payment_screen_helper.dart';
 import 'package:doctor/presentation/widgets/app_button_widget.dart';
 import 'package:doctor/presentation/widgets/app_text_form_widget.dart';
 import 'package:flutter/material.dart';
@@ -120,7 +121,9 @@ class AddNewCardScreen extends StatelessWidget {
                               hint: AppLocalizations.of(context)!.payment,
                               textType: TextInputType.text,
                               onChangeListener: (value) {},
-                              onValidateListener: (value) {},
+                              onValidateListener: (value) {
+                                return null;
+                              },
                               initialValue: "Samar Maged",
                               fontType: appFontRegular,
                               textSize: 12.sp,
@@ -145,7 +148,9 @@ class AddNewCardScreen extends StatelessWidget {
                                   AppLocalizations.of(context)!.number_on_card,
                               textType: TextInputType.number,
                               onChangeListener: (value) {},
-                              onValidateListener: (value) {},
+                              onValidateListener: (value) {
+                                return null;
+                              },
                               initialValue: "xxx xxx xxx xx34",
                               fontType: appFontRegular,
                               textSize: 10.sp,
@@ -197,7 +202,9 @@ class AddNewCardScreen extends StatelessWidget {
                                           .number_on_card,
                                       textType: TextInputType.number,
                                       onChangeListener: (value) {},
-                                      onValidateListener: (value) {},
+                                      onValidateListener: (value) {
+                                        return null;
+                                      },
                                       initialValue: "...",
                                       fontType: appFontRegular,
                                       textSize: 10.sp,
@@ -217,7 +224,9 @@ class AddNewCardScreen extends StatelessWidget {
                                           .number_on_card,
                                       textType: TextInputType.number,
                                       onChangeListener: (value) {},
-                                      onValidateListener: (value) {},
+                                      onValidateListener: (value) {
+                                        return null;
+                                      },
                                       initialValue: "MM/YY",
                                       fontType: appFontRegular,
                                       textSize: 10.sp,
@@ -270,12 +279,12 @@ class AddNewCardScreen extends StatelessWidget {
                                       );
                                     },
                                   ),
-                                  10.horizontalSpace,
+                                  1.horizontalSpace,
                                   Text(
                                     AppLocalizations.of(context)!
                                         .agree_save_card,
                                     style: AppStylesUtil.textBoldStyle(
-                                      15.sp,
+                                      13.sp,
                                       AppColorUtil.darkGreen,
                                       FontWeight.w700,
                                     ),
@@ -322,10 +331,21 @@ class AddNewCardScreen extends StatelessWidget {
                     alignment: Alignment.center,
                     child: AppButtonWidget(
                       onClick: () {
-                        AppNavigationManager.navPush(
-                          context: context,
-                          screen: AppRoutes.onlinePaymentRouteName,
-                        );
+                        if (PaymentScreenHelper.instance()
+                            .isCommingFromProfileRoute) {
+                          AppNavigationManager.navPushReplacement(
+                            context: context,
+                            screen: AppRoutes.bookingConfirmRouteName,
+                          );
+                        } else {
+                          AppNavigationManager.navPushReplacement(
+                            context: context,
+                            screen: AppRoutes.onlinePaymentRouteName,
+                          );
+                          PaymentScreenHelper.instance().showBtn = true;
+                          PaymentScreenHelper.instance()
+                              .isCommingFromProfileRoute = false;
+                        }
                       },
                       customChild: Text(
                         AppLocalizations.of(context)!.add,

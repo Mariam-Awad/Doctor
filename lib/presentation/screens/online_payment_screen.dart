@@ -124,13 +124,13 @@ class _OnlinePaymentScreenState extends State<OnlinePaymentScreen> {
                         bottom: 170.h,
                         left: 30.w,
                         child: SizedBox(
-                          height: 100.h,
+                          height: 140.h,
                           width: 170.w,
                           child: Text(
                             AppLocalizations.of(context)!.lorem,
                             textAlign: TextAlign.start,
                             overflow: TextOverflow.ellipsis,
-                            maxLines: 7,
+                            maxLines: 5,
                             style: AppStylesUtil.textBoldStyle(
                               20.sp,
                               AppColorUtil.white,
@@ -143,7 +143,7 @@ class _OnlinePaymentScreenState extends State<OnlinePaymentScreen> {
                           !PaymentScreenHelper.instance().showBtn ? 20.h : 70.h,
                       child: AppButtonWidget(
                         onClick: () {
-                          AppNavigationManager.navPush(
+                          AppNavigationManager.navPushReplacement(
                               screen: AppRoutes.addNewCardRouteName,
                               context: context);
                         },

@@ -182,6 +182,8 @@ class ReviewBookingInfoScreen extends StatelessWidget {
                       context: context,
                     );
                     PaymentScreenHelper.instance().showBtn = true;
+                    PaymentScreenHelper.instance().isCommingFromProfileRoute =
+                        false;
                   },
                   customChild: Text(
                     AppLocalizations.of(context)!.online_payment,
@@ -203,6 +205,8 @@ class ReviewBookingInfoScreen extends StatelessWidget {
                 bottom: 30.h,
                 child: AppButtonWidget(
                   onClick: () {
+                    PaymentScreenHelper.instance().isCommingFromProfileRoute =
+                        false;
                     AppNavigationManager.navPush(
                       screen: AppRoutes.bookingConfirmRouteName,
                       context: context,
