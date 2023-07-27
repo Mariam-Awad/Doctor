@@ -28,6 +28,7 @@ class BookingAppointmentScreenHelper {
 
   String fullNameValue = "Ahmed Talal";
   bool personalformanimation = false;
+  bool agreeSaveCard = false;
 
   PageController bookingController = PageController(initialPage: 0);
   GlobalKey<FormState> formKeyScreen1 = GlobalKey<FormState>();
@@ -84,7 +85,7 @@ class BookingAppointmentScreenHelper {
   }
 
   String gender = '';
-  DateTime? selectedResult ;
+  DateTime? selectedResult;
   Color maleContainerColor = AppColorUtil.white;
   Color femaleContainerColor = AppColorUtil.white;
   GlobalKey<FormState> paymentOtpFormKey = GlobalKey<FormState>();
