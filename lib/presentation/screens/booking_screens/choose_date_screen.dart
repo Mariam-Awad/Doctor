@@ -43,6 +43,7 @@ class _ChooseDateScreenState extends State<ChooseDateScreen> {
                 padding: EdgeInsets.only(
                     top: 30.h, bottom: 20.h, left: 10.w, right: 10.w),
                 child: Stack(
+                  clipBehavior: Clip.antiAlias,
                   alignment: AlignmentDirectional.topCenter,
                   children: [
                     Positioned(
@@ -126,7 +127,7 @@ class _ChooseDateScreenState extends State<ChooseDateScreen> {
                           )),
                     ),
                     Positioned(
-                      top: 250.0,
+                      top: 235.0,
                       left: 16.w,
                       right: 16.w,
                       child: GridView.builder(
@@ -135,9 +136,9 @@ class _ChooseDateScreenState extends State<ChooseDateScreen> {
                         gridDelegate:
                             const SliverGridDelegateWithFixedCrossAxisCount(
                           crossAxisCount: 4,
-                          childAspectRatio: 2.2,
-                          crossAxisSpacing: 8,
-                          mainAxisSpacing: 8,
+                          childAspectRatio: 2.4,
+                          crossAxisSpacing: 4,
+                          mainAxisSpacing: 6,
                         ),
                         itemCount: ChooseDateHelper.instance().time.length,
                         itemBuilder: (context, index) {
