@@ -65,10 +65,13 @@ class UserProfileDetailsScreen extends StatelessWidget {
                             UserProfileDetailsScreenHelper.instance()
                                 .focusNode);
                       },
-                      child: Icon(
-                        Icons.edit_calendar_rounded,
-                        size: 20.sp,
-                        color: AppColorUtil.darkGreen,
+                      child: Text(
+                        AppLocalizations.of(context)!.edit,
+                        style: AppStylesUtil.textBoldStyle(
+                          16.sp,
+                          AppColorUtil.textDarkGreen,
+                          FontWeight.bold,
+                        ),
                       ),
                     ),
                   ],

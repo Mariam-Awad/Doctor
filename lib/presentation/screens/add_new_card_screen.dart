@@ -342,6 +342,9 @@ class AddNewCardScreen extends StatelessWidget {
                             context: context,
                             screen: AppRoutes.onlinePaymentRouteName,
                           );
+                          PaymentScreenHelper.instance().showBtn = true;
+                          PaymentScreenHelper.instance()
+                              .isCommingFromProfileRoute = false;
                         }
                       },
                       customChild: Text(
