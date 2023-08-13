@@ -62,8 +62,8 @@ class UserProfileDetailsScreen extends StatelessWidget {
                     InkWell(
                       onTap: () {
                         FocusScope.of(context).requestFocus(
-                          UserProfileDetailsScreenHelper.instance().focusNode,
-                        );
+                            UserProfileDetailsScreenHelper.instance()
+                                .focusNode);
                       },
                       child: Icon(
                         Icons.edit_calendar_rounded,
