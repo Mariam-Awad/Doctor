@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD
       "editor.fontFamily": "Consolas, 'Courier New', monospace",
+=======
+      "editor.fontFamily": "'Ubuntu Mono', 'monospace', monospace",
+>>>>>>> de69ea2f91861b7f03e121c76c950a86bceabb90
       "editor.fontSize": 18.5,
       "errorLens.fontWeight": "bold",
       "debug.console.fontSize": 14,
