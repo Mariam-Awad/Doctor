@@ -1,0 +1,8 @@
+{
+      "editor.fontFamily": "Consolas, 'Courier New', monospace",
+      "editor.fontSize": 18.5,
+      "errorLens.fontWeight": "bold",
+      "debug.console.fontSize": 14,
+      "terminal.integrated.fontSize": 15,
+      "java.configuration.updateBuildConfiguration": "interactive"
+}
