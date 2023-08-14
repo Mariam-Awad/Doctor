@@ -5,8 +5,6 @@ import 'package:doctor/presentation/helpers/choose_date_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/intl.dart';
-import '../../../config/routes/app_navigation_manager.dart';
-import '../../../config/routes/app_routes.dart';
 import '../../../core/utils/app_assets_util.dart';
 import '../../../core/utils/app_styles_util.dart';
 import '../../helpers/booking_appointment_screen_helper.dart';

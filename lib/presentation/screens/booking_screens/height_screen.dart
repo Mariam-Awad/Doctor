@@ -10,7 +10,6 @@ import '../../../core/utils/app_styles_util.dart';
 import '../../helpers/booking_appointment_screen_helper.dart';
 import '../../widgets/app_button_widget.dart';
 import '../../widgets/app_text_form_widget.dart';
-import '../../widgets/background_widget.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class HeightScreen extends StatefulWidget {

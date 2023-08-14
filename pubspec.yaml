@@ -30,10 +30,8 @@ dependencies:
   lottie: ^2.3.2
   date_picker_plus: ^1.1.3
   date_time_picker_widget: ^1.0.1+4
-<<<<<<< HEAD
   either_dart: ^1.0.0
-=======
->>>>>>> de69ea2f91861b7f03e121c76c950a86bceabb90
+  flutter_bloc: ^8.1.3
 
 dependency_overrides:
   intl: 0.18.1
