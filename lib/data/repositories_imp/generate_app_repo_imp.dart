@@ -1,7 +1,8 @@
 import 'package:doctor/domain/repositories/i_generate_app_repo.dart';
 import 'package:doctor/domain/entities/app_entity.dart';
-import 'package:either_dart/either.dart';
 import 'package:doctor/data/services/api/generate_app_api_service.dart';
+import 'package:either_dart/either.dart';
+
 class GenerateAppRepositoryImp implements IGenerateAppRepository {
   static GenerateAppRepositoryImp? _generateAppRepositoryImp;
   GenerateAppRepositoryImp._internal();
@@ -13,7 +14,7 @@ class GenerateAppRepositoryImp implements IGenerateAppRepository {
   }
 
   @override
- Stream<Either<String, AppEntity>> getAppModel(model) {
-   return GenerateAppApiService.instance().getAppModelService();
+  Stream<Either<String, AppEntity>> getAppModel(model) {
+    return GenerateAppApiService.instance().getAppModelService();
   }
 }

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../../config/routes/app_navigation_manager.dart';
+import '../../config/routes/app_routes.dart';
 import '../../presentation/widgets/app_button_widget.dart';
 import '../../presentation/widgets/cancel_visit_widget.dart';
 import '../utils/app_colors_util.dart';
@@ -164,7 +166,12 @@ class UpcomingVisitComponent extends StatelessWidget {
                           btnSize: Size(100.w, 25.h),
                           btnRadius: 12.0,
                           btnBackgroundColor: AppColorUtil.textDarkGreen,
-                          onClick: () {},
+                          onClick: () {
+                            AppNavigationManager.navPush(
+                              screen: AppRoutes.chooseDateRouteName,
+                              context: context,
+                            );
+                          },
                           customChild: Text(
                             'Reschedule',
                             style: AppStylesUtil.textRegularStyle(
