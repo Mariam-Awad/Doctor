@@ -25,4 +25,5 @@ class AppRoutes {
   static const String onlinePaymentRouteName = "/OnlinePaymentScreen";
   static const String attachmentsRouteName = "/AttachmentsScreen";
   static const String addNewCardRouteName = "/AddNewCardScreen";
+  static const String appointmentDetailsRouteName = "/AppointmentDetailsScreen";
 }
