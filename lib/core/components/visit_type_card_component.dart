@@ -1,5 +1,4 @@
 import 'package:doctor/core/utils/app_colors_util.dart';
-import 'package:doctor/presentation/helpers/define_problem_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';

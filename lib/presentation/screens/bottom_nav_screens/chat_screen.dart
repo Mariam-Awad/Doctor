@@ -10,6 +10,6 @@ class ChatScreen extends StatelessWidget {
           "chat screen",
         ),
       ),
-    );;
+    );
   }
 }

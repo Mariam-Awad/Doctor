@@ -22,7 +22,6 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var _formKey;
     return Background(
       imageAsset: AppAssetsUtil.loginBackgroundImage,
       child: Scaffold(
