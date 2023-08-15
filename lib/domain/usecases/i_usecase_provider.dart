@@ -1,3 +1,3 @@
-abstract class IUseCaseProvider<T>{
-  T creator(T t);
+abstract class IUseCaseProvider<T> {
+  T creator<T>(T t);
 }

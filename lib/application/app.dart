@@ -1,5 +1,7 @@
 import 'package:doctor/core/utils/app_colors_util.dart';
+import 'package:doctor/presentation/bloc/app_generate_bloc/app_generate_bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:doctor/config/l10n/l10n.dart';
@@ -24,33 +26,40 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return ScreenUtilInit(
       designSize: const Size(375, 812),
-      builder: (context, child) => MaterialApp(
-        theme: ThemeData(
-          colorScheme: ColorScheme(
-            brightness: Brightness.light,
-            primary: AppColorUtil.textDarkGreen,
-            onPrimary: AppColorUtil.textDarkGreen,
-            secondary: AppColorUtil.backgroundDarkBabyBlue,
-            onSecondary: AppColorUtil.backgroundDarkBabyBlue,
-            error: AppColorUtil.red,
-            onError: AppColorUtil.red,
-            background: AppColorUtil.white,
-            onBackground: AppColorUtil.white,
-            surface: AppColorUtil.white,
-            onSurface: AppColorUtil.white,
+      builder: (context, child) => MultiBlocProvider(
+        providers: [
+          BlocProvider<GenerateAppBloc>(
+            create: (context) => GenerateAppBloc(),
           ),
-        ),
-        debugShowCheckedModeBanner: false,
-        initialRoute: AppRoutes.splashScreenRouteName,
-        onGenerateRoute: AppRouteManager.generateRoute,
-        locale: const Locale('en'),
-        localizationsDelegates: const [
-          AppLocalizations.delegate,
-          GlobalMaterialLocalizations.delegate,
-          GlobalWidgetsLocalizations.delegate,
-          GlobalCupertinoLocalizations.delegate,
         ],
-        supportedLocales: L10n.all,
+        child: MaterialApp(
+          theme: ThemeData(
+            colorScheme: ColorScheme(
+              brightness: Brightness.light,
+              primary: AppColorUtil.textDarkGreen,
+              onPrimary: AppColorUtil.textDarkGreen,
+              secondary: AppColorUtil.backgroundDarkBabyBlue,
+              onSecondary: AppColorUtil.backgroundDarkBabyBlue,
+              error: AppColorUtil.red,
+              onError: AppColorUtil.red,
+              background: AppColorUtil.white,
+              onBackground: AppColorUtil.white,
+              surface: AppColorUtil.white,
+              onSurface: AppColorUtil.white,
+            ),
+          ),
+          debugShowCheckedModeBanner: false,
+          initialRoute: AppRoutes.splashScreenRouteName,
+          onGenerateRoute: AppRouteManager.generateRoute,
+          locale: const Locale('en'),
+          localizationsDelegates: const [
+            AppLocalizations.delegate,
+            GlobalMaterialLocalizations.delegate,
+            GlobalWidgetsLocalizations.delegate,
+            GlobalCupertinoLocalizations.delegate,
+          ],
+          supportedLocales: L10n.all,
+        ),
       ),
     );
   }

@@ -12,7 +12,8 @@ class GenerateAppUseCase implements IUseCaseProvider<IGenerateAppRepository> {
   }
 
   @override
-  IGenerateAppRepository creator(IGenerateAppRepository generateAppRepository) {
+  IGenerateAppRepository creator<IGenerateAppRepository>(
+      IGenerateAppRepository generateAppRepository) {
     return generateAppRepository;
   }
 }
