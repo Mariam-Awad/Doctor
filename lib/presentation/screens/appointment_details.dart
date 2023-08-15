@@ -1,17 +1,10 @@
-import 'package:doctor/core/app_debug_prints.dart';
-import 'package:doctor/core/components/past_canceled_visit_component.dart';
-import 'package:doctor/core/components/upcoming_visit_component.dart';
-import 'package:doctor/presentation/helpers/visits_screen_helper.dart';
 import 'package:doctor/presentation/widgets/appointment_row_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
 import '../../../config/screen_resizer.dart';
 import '../../../core/utils/app_assets_util.dart';
 import '../../../core/utils/app_colors_util.dart';
 import '../../../core/utils/app_styles_util.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-
 import '../widgets/app_button_widget.dart';
 
 class AppointmentDetails extends StatefulWidget {
