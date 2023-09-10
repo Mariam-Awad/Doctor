@@ -1,7 +1,12 @@
 import 'dart:async';
+import 'package:doctor/core/app_debug_prints.dart';
 import 'package:doctor/core/utils/app_assets_util.dart';
 import 'package:doctor/core/utils/app_colors_util.dart';
+import 'package:doctor/presentation/bloc/doctor_bloc/doctor_bloc.dart';
+import 'package:doctor/presentation/bloc/doctor_bloc/doctor_states.dart';
+import 'package:doctor/presentation/helpers/Doctor_helper.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../core/utils/app_styles_util.dart';
 import '../helpers/splash_screen_helper.dart';
@@ -18,6 +23,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
+    DoctorHelper.instance().getDoctorModelFun(context, 1);
     Future.delayed(const Duration(milliseconds: 200), () {
       WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
         setState(() {
@@ -174,33 +180,63 @@ class _SplashScreenState extends State<SplashScreen> {
                 curve: Curves.easeInOut,
                 color: Colors.transparent,
                 child: Center(
-                  child: Padding(
-                    padding: EdgeInsets.only(top: 350.h),
-                    child: Column(
-                      children: [
-                        TweenAnimationBuilder(
-                            tween: Tween<double>(begin: 40, end: 30),
-                            duration: const Duration(seconds: 2),
-                            builder: (context, dynamic value, child) {
-                              return Text("Dr.KARIM\n AGGOUR",
-                                  textAlign: TextAlign.center,
-                                  style: AppStylesUtil.textBoldStyle(
-                                    value,
-                                    AppColorUtil.white,
-                                    FontWeight.bold,
-                                  ));
-                            }),
-                        Text(
-                          "  Dermatologist",
-                          textAlign: TextAlign.center,
+                  child: BlocBuilder<DoctorBloc, DoctorStates>(
+                    builder: (context, state) {
+                      printInfo("the doctor state is => $state");
+                      if (state is DoctorInitState) {
+                        return Text(
+                          "Nice to see you",
                           style: AppStylesUtil.textRegularStyle(
-                            18.sp,
+                            25.sp,
                             AppColorUtil.backgroundDarkWhite,
-                            FontWeight.w400,
+                            FontWeight.bold,
                           ),
-                        ),
-                      ],
-                    ),
+                        );
+                      } else if (state is GetDoctorModelLoadingState) {
+                        return const CircularProgressIndicator();
+                      } else if (state is GetDoctorModelLoadedState) {
+                        return Padding(
+                          padding: EdgeInsets.only(
+                            top: 350.h,
+                            left: 20.w,
+                          ),
+                          child: Column(
+                            children: [
+                              TweenAnimationBuilder(
+                                  tween: Tween<double>(begin: 40, end: 30),
+                                  duration: const Duration(seconds: 2),
+                                  builder: (context, dynamic value, child) {
+                                    return Text(
+                                      state.appEntity.records!.doctor!
+                                          .doctorName!,
+                                      textAlign: TextAlign.center,
+                                      style: AppStylesUtil.textBoldStyle(
+                                        value,
+                                        AppColorUtil.white,
+                                        FontWeight.bold,
+                                      ),
+                                    );
+                                  }),
+                              Text(
+                                "  ${state.appEntity.records!.doctor!.applicationName}",
+                                textAlign: TextAlign.center,
+                                style: AppStylesUtil.textRegularStyle(
+                                  18.sp,
+                                  AppColorUtil.backgroundDarkWhite,
+                                  FontWeight.w400,
+                                ),
+                              ),
+                            ],
+                          ),
+                        );
+                      } else if (state is DoctorFailedState) {
+                        return Container(
+                          color: Colors.red,
+                        );
+                      } else {
+                        return Container();
+                      }
+                    },
                   ),
                 ),
               ),

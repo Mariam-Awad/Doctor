@@ -1,5 +1,5 @@
 import 'package:doctor/core/utils/app_colors_util.dart';
-import 'package:doctor/presentation/bloc/app_generate_bloc/app_generate_bloc.dart';
+import 'package:doctor/presentation/bloc/doctor_bloc/doctor_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -28,8 +28,8 @@ class _MyAppState extends State<MyApp> {
       designSize: const Size(375, 812),
       builder: (context, child) => MultiBlocProvider(
         providers: [
-          BlocProvider<GenerateAppBloc>(
-            create: (context) => GenerateAppBloc(),
+          BlocProvider<DoctorBloc>(
+            create: (context) => DoctorBloc(),
           ),
         ],
         child: MaterialApp(

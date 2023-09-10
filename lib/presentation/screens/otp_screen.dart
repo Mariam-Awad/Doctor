@@ -146,7 +146,7 @@ class OtpScreen extends StatelessWidget {
                         AppLocalizations.of(context)!
                             .a_code_has_been_sent_to_your_phone,
                         style: AppStylesUtil.textBoldStyle(
-                          12.sp,
+                          11.sp,
                           AppColorUtil.textSemiDarkGrey,
                           FontWeight.normal,
                         ),
@@ -155,7 +155,7 @@ class OtpScreen extends StatelessWidget {
                       AppTextLinkWidget(
                         title: AppLocalizations.of(context)!.request_code_again,
                         style: AppStylesUtil.textBoldStyle(
-                          13.sp,
+                          12.sp,
                           AppColorUtil.orange,
                           FontWeight.bold,
                         )!,
@@ -171,7 +171,7 @@ class OtpScreen extends StatelessWidget {
                         customChild: Text(
                           AppLocalizations.of(context)!.continues,
                           style: AppStylesUtil.textRegularStyle(
-                            17.sp,
+                            12.sp,
                             AppColorUtil.darkGreen,
                             FontWeight.bold,
                           ),

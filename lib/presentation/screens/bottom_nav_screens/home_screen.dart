@@ -173,7 +173,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             customChild: Text(
                               AppLocalizations.of(context)!.book_an_appointment,
                               style: AppStylesUtil.textBoldStyle(
-                                15.sp,
+                                12.sp,
                                 AppColorUtil.white,
                                 FontWeight.bold,
                               ),
@@ -196,7 +196,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             customChild: Text(
                               AppLocalizations.of(context)!.biography,
                               style: AppStylesUtil.textBoldStyle(
-                                16.sp,
+                                12.sp,
                                 AppColorUtil.iconsDarkGreen,
                                 FontWeight.bold,
                               ),

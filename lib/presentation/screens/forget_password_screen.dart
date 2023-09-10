@@ -53,7 +53,7 @@ class ForgetPasswordScreen extends StatelessWidget {
                     child: Text(
                       AppLocalizations.of(context)!.forget_password,
                       style: AppStylesUtil.textBoldStyle(
-                        20.sp,
+                        18.sp,
                         AppColorUtil.white,
                         FontWeight.bold,
                       ),
@@ -112,7 +112,7 @@ class ForgetPasswordScreen extends StatelessWidget {
                             customChild: Text(
                               AppLocalizations.of(context)!.continues,
                               style: AppStylesUtil.textRegularStyle(
-                                16.sp,
+                                12.sp,
                                 AppColorUtil.textDarkGreen,
                                 FontWeight.bold,
                               ),
