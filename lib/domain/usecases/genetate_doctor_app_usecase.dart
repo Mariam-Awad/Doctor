@@ -12,7 +12,7 @@ class GenerateDoctorAppUseCase implements IUseCaseProvider<IDoctorRepository> {
   }
 
   @override
-  IGenerateAppRepository creator<IGenerateAppRepository>(
+  IGenerateAppRepository call<IGenerateAppRepository>(
       IGenerateAppRepository generateAppRepository) {
     return generateAppRepository;
   }

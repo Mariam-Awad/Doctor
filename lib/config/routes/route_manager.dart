@@ -10,6 +10,7 @@ import 'package:doctor/presentation/screens/checkout_screen.dart';
 import 'package:doctor/presentation/screens/forget_password_screen.dart';
 import 'package:doctor/presentation/screens/main_screen.dart';
 import 'package:doctor/presentation/screens/booking_screens/old_screen.dart';
+import 'package:doctor/presentation/screens/on_boarding_screen.dart';
 import 'package:doctor/presentation/screens/online_payment_screen.dart';
 import 'package:doctor/presentation/screens/otp_screen.dart';
 import 'package:doctor/presentation/screens/booking_an_appointment_screen.dart';
@@ -29,6 +30,10 @@ import '../../presentation/screens/login_screen.dart';
 class AppRouteManager {
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
+      case AppRoutes.onBoardingScreenRouteName:
+        return MaterialPageRoute(
+          builder: (context) => const OnBoardingScreen(),
+        );
       case AppRoutes.splashScreenRouteName:
         return MaterialPageRoute(
           builder: (context) => const SplashScreen(),

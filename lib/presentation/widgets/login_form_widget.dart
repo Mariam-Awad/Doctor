@@ -1,3 +1,4 @@
+import 'package:doctor/presentation/helpers/Doctor_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
@@ -79,7 +80,7 @@ class LoginFormWidget extends StatelessWidget {
                   " ?".toString(),
               style: AppStylesUtil.textBoldStyle(
                 10.sp,
-                AppColorUtil.textDarkGreen,
+                DoctorHelper.instance().appThemeModel!.appTextColor!,
                 FontWeight.bold,
               )!,
               onClick: () {
@@ -94,7 +95,7 @@ class LoginFormWidget extends StatelessWidget {
               AppLocalizations.of(context)!.or,
               style: AppStylesUtil.textBoldStyle(
                 14.sp,
-                AppColorUtil.textDarkGreen,
+                DoctorHelper.instance().appThemeModel!.appTextColor!,
                 FontWeight.bold,
               ),
             ),
@@ -104,7 +105,7 @@ class LoginFormWidget extends StatelessWidget {
                   AppLocalizations.of(context)!.sign_in_with,
                   style: AppStylesUtil.textBoldStyle(
                     10.sp,
-                    AppColorUtil.textDarkGreen,
+                    DoctorHelper.instance().appThemeModel!.appTextColor!,
                     FontWeight.bold,
                   ),
                 ),
@@ -172,7 +173,8 @@ class LoginFormWidget extends StatelessWidget {
                   FontWeight.bold,
                 ),
               ),
-              btnBackgroundColor: AppColorUtil.textDarkGreen,
+              btnBackgroundColor:
+                  DoctorHelper.instance().appThemeModel!.appTextColor!,
               btnPadding: EdgeInsets.all(5.sp),
               btnSize: Size(302.w, 50.h),
               btnRadius: 12,

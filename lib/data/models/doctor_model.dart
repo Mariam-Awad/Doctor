@@ -45,6 +45,7 @@ class DorctorRecord {
 class DoctorInfoModel {
   int? id;
   String? doctorName;
+  String? doctorSpecialty;
   String? logo;
   String? applicationName;
   int? themeId;
@@ -58,6 +59,7 @@ class DoctorInfoModel {
   DoctorInfoModel(
       {id,
       doctorName,
+      doctorSpecialty,
       logo,
       applicationName,
       themeId,
@@ -71,6 +73,7 @@ class DoctorInfoModel {
   DoctorInfoModel.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     doctorName = json['doctor_name'];
+    doctorSpecialty = json['specialty'];
     logo = json['logo'];
     applicationName = json['application_name'];
     themeId = json['theme_id'];
@@ -101,6 +104,7 @@ class DoctorInfoModel {
     final Map<String, dynamic> data = {};
     data['id'] = id;
     data['doctor_name'] = doctorName;
+    data['specialty'] = doctorSpecialty;
     data['logo'] = logo;
     data['application_name'] = applicationName;
     data['theme_id'] = themeId;

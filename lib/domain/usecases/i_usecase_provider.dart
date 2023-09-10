@@ -1,3 +1,3 @@
 abstract class IUseCaseProvider<T> {
-  T creator<T>(T t);
+  T call<T>(T t);
 }

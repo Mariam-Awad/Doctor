@@ -52,7 +52,7 @@ class AppThemeModel {
   ];
 
 // this method to detect the app theme depend on the theme which comming from database
-  AppThemeModel detectAppTheme(int appThemeId) {
+  static AppThemeModel detectAppTheme(int appThemeId) {
     AppThemeModel? appThemeModel;
     for (AppThemeModel theme in _appThemes) {
       if (theme.themeId == appThemeId) {

@@ -49,7 +49,7 @@ class _MyAppState extends State<MyApp> {
             ),
           ),
           debugShowCheckedModeBanner: false,
-          initialRoute: AppRoutes.splashScreenRouteName,
+          initialRoute: AppRoutes.onBoardingScreenRouteName,
           onGenerateRoute: AppRouteManager.generateRoute,
           locale: const Locale('en'),
           localizationsDelegates: const [

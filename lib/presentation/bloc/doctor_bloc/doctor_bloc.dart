@@ -16,7 +16,7 @@ class DoctorBloc extends Bloc<DoctorEvents, DoctorStates> {
     emit(GetDoctorModelLoadingState());
     return emit.forEach(
       GenerateDoctorAppUseCase.instance()
-          .creator<DoctorRepositoryImp>(DoctorRepositoryImp.instance())
+          .call<DoctorRepositoryImp>(DoctorRepositoryImp.instance())
           .getDoctorModel(event.doctorId),
       onData: (state) {
         DoctorStates? generateState;

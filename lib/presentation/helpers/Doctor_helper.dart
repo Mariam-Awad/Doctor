@@ -1,3 +1,4 @@
+import 'package:doctor/data/models/app_theme_model.dart';
 import 'package:doctor/domain/entities/doctor_entity.dart';
 import 'package:doctor/presentation/bloc/doctor_bloc/doctor_bloc.dart';
 import 'package:doctor/presentation/bloc/doctor_bloc/doctor_events.dart';
@@ -15,7 +16,13 @@ class DoctorHelper {
   }
 
   DoctorEntity? doctorModel;
+  AppThemeModel? appThemeModel;
 
   getDoctorModelFun(BuildContext context, var doctorId) =>
       context.read<DoctorBloc>().add(GetDoctorModelEvent(doctorId: doctorId));
+
+  setAppTheme() {
+    appThemeModel =
+        AppThemeModel.detectAppTheme(doctorModel!.records!.doctor!.id!);
+  }
 }
